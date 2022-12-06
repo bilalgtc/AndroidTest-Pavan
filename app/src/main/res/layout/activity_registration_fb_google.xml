@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".registration_fb_google">
+
+    <TextView
+        android:id="@+id/reg_txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/encode_sans_bold"
+        android:text="@string/welcome_to"
+        android:textSize="@dimen/_40ssp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
+
+    <LinearLayout
+        android:id="@+id/btn1"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/btn2_style"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_40sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_txt1">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_weight="2.5">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/fb_icon" />
+
+
+
+
+</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.8">
+            <TextView
+                android:id="@+id/reg_txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40sdp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:text="Continue with Facebook"
+                android:fontFamily="@font/encode_sans"
+                android:textColor="#4552CB"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/btn2_style"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_40sdp"
+        app:layout_constraintEnd_toEndOf="@+id/btn1"
+        app:layout_constraintStart_toStartOf="@+id/btn1"
+        app:layout_constraintTop_toBottomOf="@+id/btn1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/google_vector" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/reg_txt3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40sdp"
+                android:fontFamily="@font/encode_sans"
+                android:gravity="center"
+                android:text="Continue with Google"
+                android:textAllCaps="false"
+                android:textColor="#4552CB"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_48sdp"
+        android:layout_marginEnd="@dimen/_40sdp"
+        android:background="@drawable/btn3_style"
+        android:fontFamily="@font/encode_sans_bold"
+        android:text="Register with Email"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/btn2"
+        app:layout_constraintStart_toStartOf="@+id/btn2"
+        app:layout_constraintTop_toBottomOf="@+id/btn2" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatImageView2"
+        app:layout_constraintEnd_toEndOf="@+id/appCompatButton"
+        app:layout_constraintStart_toStartOf="@+id/appCompatButton"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatButton"
+        app:layout_constraintVertical_bias="0.3">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?  "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/encode_sans_bold"
+            android:text="Sign In"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView2"
+        android:layout_width="@dimen/_132sdp"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:src="@drawable/rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

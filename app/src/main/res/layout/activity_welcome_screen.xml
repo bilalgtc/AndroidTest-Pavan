@@ -19,28 +19,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:scaleType="centerCrop"
-        android:id="@+id/appCompatImageView2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_340sdp"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
         android:layout_marginTop="@dimen/_15sdp"
-        android:src="@drawable/illustration"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_290sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView7"
-        android:layout_width="@dimen/_58sdp"
-        android:layout_height="@dimen/_8sdp"
-        android:src="@drawable/slide"
-
-        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2"
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dotsColor="#E6E7F8"
+        app:dotsSize="@dimen/_8sdp"
+        app:dotsSpacing="@dimen/_3sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewpager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/viewpager"
+        app:selectedDotColor="#F1A852" />
 
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/appCompatImageView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="375dp"-->
+<!--        android:layout_marginTop="@dimen/_15sdp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/illustration"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/appCompatImageView7"-->
+<!--        android:layout_width="@dimen/_58sdp"-->
+<!--        android:layout_height="@dimen/_8sdp"-->
+<!--        android:src="@drawable/slide"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/viewpager"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewpager" />-->
 
     <TextView
         android:id="@+id/textView2"
@@ -56,7 +78,7 @@
         android:textSize="@dimen/_24ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView7" />
+        app:layout_constraintTop_toBottomOf="@+id/dots" />
 
     <TextView
         android:id="@+id/textView3"
@@ -75,6 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/next_btn"
         android:layout_width="@dimen/_200sdp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_40sdp"

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".welcome_screen">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:fontFamily="@font/encode_sans_semibold"
+        android:text="@string/signIn"
+        android:textColor="#4552CB"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_290sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+<!--    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator-->
+<!--        android:id="@+id/dots"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:dotsColor="#E6E7F8"-->
+<!--        app:dotsSize="@dimen/_8sdp"-->
+<!--        app:dotsSpacing="@dimen/_3sdp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/viewpager"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewpager"-->
+<!--        app:selectedDotColor="#F1A852" />-->
+
+    <!--    <androidx.appcompat.widget.AppCompatImageView-->
+    <!--        android:id="@+id/appCompatImageView2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="375dp"-->
+    <!--        android:layout_marginTop="@dimen/_15sdp"-->
+    <!--        android:scaleType="centerCrop"-->
+    <!--        android:src="@drawable/illustration"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+
+
+    <!--    <androidx.appcompat.widget.AppCompatImageView-->
+    <!--        android:id="@+id/appCompatImageView7"-->
+    <!--        android:layout_width="@dimen/_58sdp"-->
+    <!--        android:layout_height="@dimen/_8sdp"-->
+    <!--        android:src="@drawable/slide"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/viewpager"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/viewpager" />-->
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/_132sdp"
+        android:layout_height="@dimen/_5sdp"
+        android:src="@drawable/rectangle"
+        android:foreground="#BBC3CE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/_8sdp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
