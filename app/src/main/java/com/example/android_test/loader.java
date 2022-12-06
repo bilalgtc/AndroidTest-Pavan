@@ -1,0 +1,25 @@
+package com.example.android_test;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+
+public class loader extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_loader);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i=new Intent(loader.this,welcome_screen.class);
+                startActivity(i);
+                finish();
+            }
+        }, 2000);
+    }
+}
