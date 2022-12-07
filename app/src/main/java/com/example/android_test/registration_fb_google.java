@@ -22,7 +22,6 @@ public class registration_fb_google extends AppCompatActivity {
 
         textView =findViewById(R.id.reg_txt1);
         textView2 =findViewById(R.id.reg_txt2);
-       textView3 =findViewById(R.id.regis_text1);
 
         String text3="I agree with the rules";
         String text = "Welcome\t\t\t\nto Pet Care";

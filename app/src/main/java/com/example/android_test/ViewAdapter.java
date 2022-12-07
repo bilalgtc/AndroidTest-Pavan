@@ -15,6 +15,8 @@ public class ViewAdapter extends PagerAdapter {
         Context context;
         LayoutInflater layoutInflater;
         Integer[] images= {R.drawable.illustration,R.drawable.illustration2,R.drawable.dog_illustration};
+
+
         int[] headings={
                 R.string.silde_heading1,
                 R.string.silde_heading2,
@@ -44,12 +46,17 @@ public class ViewAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         layoutInflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view=layoutInflater.inflate(R.layout.item, null);
+        View view=layoutInflater.inflate(R.layout.item,container, false);
         ImageView img=view.findViewById(R.id.item_imgview);
+        TextView slideheading =view.findViewById(R.id.textView2);
+        TextView slidedescription =view.findViewById(R.id.textView3);
+
 
         img.setImageResource(images[position]);
+        slideheading.setText(headings[position]);
+        slidedescription.setText(descriptions[position]);
 
-        container.addView(view);
+        container.addView(view,0);
         return view;
 
     }

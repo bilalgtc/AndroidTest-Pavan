@@ -28,13 +28,9 @@ public class welcome_screen extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if (getItem(0)<3) {
+            if (getItem(0)<=3) {
                 viewPager.setCurrentItem(getItem(1), true);
-
-            }else{
-                    Intent i=new Intent(welcome_screen.this,MainActivity.class);
-                    startActivity(i);
-
+                button.setText("Get Started");
             }
 
             }
