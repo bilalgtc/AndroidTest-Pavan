@@ -32,19 +32,19 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_7sdp"
         android:fontFamily="@font/encode_sans_bold"
         android:text="Registration"
         android:textColor="@color/white"
-        android:textSize="@dimen/_30ssp"
+        android:textSize="@dimen/_20ssp"
         app:layout_constraintStart_toEndOf="@+id/reg_backbtn"
         app:layout_constraintTop_toBottomOf="@+id/reg_backbtn" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="440dp"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_height="@dimen/_230sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/layout_style"
         android:orientation="horizontal"
         android:layout_marginStart="@dimen/_20sdp"
@@ -59,7 +59,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/name_ed"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
@@ -76,7 +76,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:inputType="textPersonName"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="@dimen/_26sdp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,7 +84,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email_ed"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -100,7 +100,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="@dimen/_26sdp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,7 +108,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/mobile_ed"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -126,7 +126,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:inputType="number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="@dimen/_26sdp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,7 +134,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/pass_ed"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -149,15 +149,15 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="@dimen/_26sdp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
-                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_width="@dimen/_11sdp"
+                android:layout_height="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:src="@drawable/activeted"
                 app:layout_constraintStart_toStartOf="@+id/pass_ed"
                 app:layout_constraintTop_toBottomOf="@+id/pass_ed" />
@@ -170,15 +170,16 @@
                 android:text="I agree with the rules"
                 android:fontFamily="@font/encode_sans"
                 android:textColor="#070821"
+                android:textSize="@dimen/_7sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
-                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_width="@dimen/_11sdp"
+                android:layout_height="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_9sdp"
                 android:src="@drawable/disabled"
                 app:layout_constraintEnd_toEndOf="@+id/imageView2"
                 app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -191,6 +192,7 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:fontFamily="@font/encode_sans"
                 android:textColor="#070821"
+                android:textSize="@dimen/_7sdp"
                 android:text="I do not want to receive newsletter"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -200,11 +202,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/signup_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/btn1_style"
                 android:text="Sign Up"
+                android:textSize="@dimen/_7sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:fontFamily="@font/encode_sans_bold"
@@ -227,29 +230,29 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_7sdp"
         android:fontFamily="@font/encode_sans"
         android:text="or continue with"
         android:textColor="@color/black"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_10ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 
    <androidx.appcompat.widget.AppCompatImageView
-       android:layout_marginTop="@dimen/_10sdp"
-       android:layout_width="@dimen/_40sdp"
-       android:layout_height="@dimen/_40sdp"
+       android:layout_marginTop="@dimen/_8sdp"
+       android:layout_width="@dimen/_15sdp"
+       android:layout_height="@dimen/_15sdp"
        android:src="@drawable/circlefb"
        app:layout_constraintEnd_toEndOf="@+id/textView6"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/textView6"/>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
         android:src="@drawable/circlegoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView6"
@@ -257,7 +260,7 @@
 
     <LinearLayout
 
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_13sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -273,7 +276,7 @@
             android:layout_height="wrap_content"
             android:text="Already have an account?  "
             android:textColor="@color/black"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_10ssp" />
 
         <TextView
             android:id="@+id/goto_signin2"
@@ -282,7 +285,7 @@
             android:fontFamily="@font/encode_sans_bold"
             android:text="Sign In"
             android:textColor="#4552CB"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_10ssp" />
 
     </LinearLayout>
 

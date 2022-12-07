@@ -111,10 +111,11 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerEmailbtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_35sdp"
         android:layout_marginStart="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_48sdp"
         android:layout_marginEnd="@dimen/_40sdp"
+        android:textSize="@dimen/_10ssp"
         android:background="@drawable/btn3_style"
         android:fontFamily="@font/encode_sans_bold"
         android:text="Register with Email"
@@ -142,7 +143,7 @@
             android:layout_height="wrap_content"
             android:text="Already have an account?  "
             android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_12ssp" />
 
         <TextView
             android:id="@+id/regfb_txt2"
@@ -151,7 +152,7 @@
             android:fontFamily="@font/encode_sans_bold"
             android:text="Sign In"
             android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_12ssp" />
 
     </LinearLayout>
 

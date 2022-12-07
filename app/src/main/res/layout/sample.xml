@@ -41,19 +41,22 @@
     </androidx.viewpager.widget.ViewPager>
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/next_btn"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn1_style"
-        android:fontFamily="@font/encode_sans_bold"
-        android:text="@string/next"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_12ssp"
-        android:layout_below="@id/viewpager"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_57sdp"/>
+ <Button
+     android:id="@+id/next_btn"
+     style="@style/Widget.MaterialComponents.Button.Icon"
+     android:layout_width="@dimen/_200sdp"
+     android:layout_height="@dimen/_40sdp"
+     android:layout_below="@id/viewpager"
+     android:layout_centerInParent="true"
+     android:layout_marginTop="@dimen/_57sdp"
+     android:background="@drawable/btn1_style"
+     android:fontFamily="@font/encode_sans_bold"
+     android:text="@string/next"
+     android:textAllCaps="false"
+     android:textColor="@color/white"
+     android:textSize="@dimen/_12ssp"
+      android:drawableLeft="@drawable/fb_icon"
+      />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView8"

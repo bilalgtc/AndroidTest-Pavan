@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@drawable/gradient">
+    android:background="@drawable/gradientback">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView"
@@ -65,7 +65,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="@dimen/_37sdp"
         android:layout_height="@dimen/_36sdp"
-        android:src="@drawable/icon"
+        android:src="@drawable/icon2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
