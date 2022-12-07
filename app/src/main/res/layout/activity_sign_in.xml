@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,9 @@
     tools:context=".Registration">
 
 
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -167,69 +169,74 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView12"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/circlefb"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:src="@drawable/circlefb"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"/>
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:src="@drawable/circlegoogle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView11"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/circlegoogle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
-    <LinearLayout
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatImageView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
-
-        <TextView
-            android:id="@+id/s_in_txt1"
+        <LinearLayout
+            android:layout_marginTop="@dimen/_90sdp"
+            android:id="@+id/layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have account yet? "
-            android:fontFamily="@font/encode_sans"
-            android:textColor="#070821"
-            android:textSize="@dimen/_14ssp" />
+            android:gravity="center"
+            android:orientation="horizontal"
 
-        <TextView
-            android:id="@+id/s_in_txt2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/encode_sans_bold"
-            android:text="Registration"
-            android:textColor="#4552CB"
-            android:textSize="@dimen/_14ssp" />
+            app:layout_constraintBottom_toTopOf="@+id/appCompatImageView7"
+            app:layout_constraintEnd_toEndOf="@+id/appCompatImageView11"
+            app:layout_constraintStart_toStartOf="@+id/appCompatImageView12"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView11">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/s_in_txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/encode_sans"
+                android:text="Don't have account yet? "
+                android:textColor="#070821"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/s_in_txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/encode_sans_bold"
+                android:text="Registration"
+                android:textColor="#4552CB"
+                android:textSize="@dimen/_14ssp" />
+
+        </LinearLayout>
 
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView7"
-        android:layout_width="@dimen/_132sdp"
-        android:layout_height="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:src="@drawable/rectangle"
-        android:foreground="#BBC3CE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView7"
+            android:layout_width="@dimen/_132sdp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:foreground="#BBC3CE"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:src="@drawable/rectangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -36,7 +36,7 @@
         android:fontFamily="@font/encode_sans_bold"
         android:text="Registration"
         android:textColor="@color/white"
-        android:textSize="@dimen/_22ssp"
+        android:textSize="@dimen/_20ssp"
         app:layout_constraintStart_toEndOf="@+id/reg_backbtn"
         app:layout_constraintTop_toBottomOf="@+id/reg_backbtn" />
 
