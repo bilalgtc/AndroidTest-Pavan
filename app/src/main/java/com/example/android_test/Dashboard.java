@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -52,5 +53,8 @@ public class Dashboard extends AppCompatActivity {
 
         Recycle_adapter adapter=new Recycle_adapter(this,details);
         recyclerView.setAdapter(adapter);
+
+
+
      }
 }

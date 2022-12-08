@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="@dimen/_300sdp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
-
         android:background="@drawable/layout2_style">
     <ImageView
         android:layout_marginTop="@dimen/_20sdp"
@@ -48,7 +47,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/encode_sans_bold"
         android:layout_marginTop="@dimen/_40sdp"
-        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_20sdp"
         android:text="Yes"/>
 
 
@@ -58,9 +57,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn1_style"
         android:layout_below="@id/txt2"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="@dimen/_30sdp"
         android:textAllCaps="false"
+        android:layout_toRightOf="@id/yes_btn"
+        android:layout_marginStart="@dimen/_20sdp"
         android:textColor="@color/white"
         android:fontFamily="@font/encode_sans_bold"
         android:layout_marginTop="@dimen/_40sdp"

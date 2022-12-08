@@ -216,10 +216,12 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_135sdp"
                 android:layout_height="@dimen/_32sdp"
-                android:layout_marginStart="@dimen/_16sdp"
+
                 android:backgroundTint="#4552CB"
+
                 app:cardCornerRadius="@dimen/_25sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cardView"
                 app:layout_constraintTop_toTopOf="@+id/cardView">
 
@@ -253,12 +255,7 @@
 
             </androidx.cardview.widget.CardView>
 
-
-
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
             <TextView
                 android:id="@+id/ad_txt"
                 android:layout_width="wrap_content"
@@ -271,16 +268,16 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_below="@id/layout3" />
 
-                <TextView
-                    android:id="@+id/txt1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Neurtered"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_16sdp"
-                    android:layout_below="@id/ad_txt"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:layout_marginStart="@dimen/_20sdp"/>
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Neutered"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:layout_below="@id/ad_txt"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_20sdp"/>
 
             <Switch
                 android:id="@+id/s1"
@@ -315,7 +312,7 @@
                 android:id="@+id/txt3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Friendly wh dow"
+                android:text="Friendly with dogs"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp"
                 android:layout_below="@id/txt2"
@@ -330,6 +327,86 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"/>
+
+
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friendly with cats"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:layout_below="@id/txt3"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_20sdp"/>
+
+            <Switch
+                android:id="@+id/s4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/s3"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_20sdp"/>
+
+
+            <TextView
+                android:id="@+id/txt5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friendly with kids 10 year"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:layout_below="@id/txt4"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_20sdp"/>
+
+            <Switch
+                android:id="@+id/s5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/s4"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_20sdp"/>
+
+            <TextView
+                android:id="@+id/txt6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friendly with kids 10 year"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:layout_below="@id/txt5"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_20sdp"/>
+
+            <Switch
+                android:id="@+id/s6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/s5"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_20sdp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt6"
+                android:text="Submit"
+                android:fontFamily="@font/encode_sans_bold"
+                android:textColor="@color/white"
+                android:background="@drawable/btn1_style"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_10sdp"/>
+
+
+
+
+
         </RelativeLayout>
 
     </ScrollView>

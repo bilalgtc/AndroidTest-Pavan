@@ -3,6 +3,7 @@ package com.example.android_test.Adapters;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_test.Dashboard;
+import com.example.android_test.Details;
+import com.example.android_test.Information;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 
@@ -42,10 +45,25 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         holder.image.setImageResource(details.get(position).img);
         holder.txt1.setText(details.get(position).name);
         holder.txt2.setText(details.get(position).breed);
-
-
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(context, Information.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);
+            }
+        });
+        holder.imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(context, Details.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);
+            }
+        });
 
         holder.imageView.setOnClickListener(v -> {
+
             Dialog dialog =new Dialog(context);
             dialog.setContentView(R.layout.custom_delete_dialog);
             dialog.show();
@@ -77,7 +95,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txt1,txt2;
-        ImageView image,imageView;
+        ImageView image,imageView,imageView2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -86,7 +104,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
             image=itemView.findViewById(R.id.main_img);
 
             imageView=itemView.findViewById(R.id.delete_img);
-
+            imageView2=itemView.findViewById(R.id.update_btn);
 
         }
     }
