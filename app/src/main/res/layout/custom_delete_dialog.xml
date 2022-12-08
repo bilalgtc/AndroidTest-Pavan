@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_200sdp"
+
+        android:background="@drawable/layout2_style">
+    <ImageView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_width="@dimen/_14sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:src="@drawable/cross"/>
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textColor="@color/black"
+        android:fontFamily="@font/encode_sans"
+        android:textSize="@dimen/_18ssp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_14sdp"/>
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt1"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:text="Are you sure you want to delete this pet\ndetails?"
+        android:textColor="@color/black"
+        android:fontFamily="@font/encode_sans"
+        android:textSize="@dimen/_13ssp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_25sdp"/>
+    
+    
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/yes_btn"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn1_style"
+        android:layout_below="@id/txt2"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:fontFamily="@font/encode_sans_bold"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:text="Yes"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/no_btn"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn1_style"
+        android:layout_below="@id/txt2"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:fontFamily="@font/encode_sans_bold"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:text="No"/>
+
+
+    </RelativeLayout>
+
+
+
