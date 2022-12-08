@@ -22,7 +22,7 @@ public class Sign_In extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Sign_In.this,registration_fb_google.class);
+                Intent i=new Intent(Sign_In.this, Registration_fb_google.class);
                 startActivity(i);
                 finish();
             }

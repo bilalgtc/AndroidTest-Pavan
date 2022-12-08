@@ -7,12 +7,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
-public class welcome_screen extends AppCompatActivity {
+public class Welcome_screen extends AppCompatActivity {
     TextView textView;
     ViewPager viewPager;
     DotsIndicator dotsIndicator;
@@ -34,7 +33,7 @@ public class welcome_screen extends AppCompatActivity {
             if (getitem(0)<2)
                 viewPager.setCurrentItem(getitem(1), true);
             else{
-                Intent i=new Intent(welcome_screen.this,registration_fb_google.class);
+                Intent i=new Intent(Welcome_screen.this, Registration_fb_google.class);
                 startActivity(i);
                 finish();
             }
@@ -50,7 +49,7 @@ public class welcome_screen extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(welcome_screen.this,Sign_In.class);
+                Intent i=new Intent(Welcome_screen.this,Sign_In.class);
                 startActivity(i);
                 finish();
             }

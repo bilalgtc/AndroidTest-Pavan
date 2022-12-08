@@ -231,7 +231,7 @@
             android:layout_marginBottom="@dimen/_8sdp"
             android:foreground="#BBC3CE"
             android:layout_marginTop="@dimen/_100sdp"
-            android:src="@drawable/rectangle"
+            android:src="@drawable/home2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

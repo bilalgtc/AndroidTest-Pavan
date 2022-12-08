@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradientback"
-    tools:context=".registration_fb_google">
+    tools:context=".Registration_fb_google">
 
     <TextView
         android:id="@+id/reg_txt1"
@@ -161,7 +161,7 @@
         android:layout_width="@dimen/_132sdp"
         android:layout_height="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_8sdp"
-        android:src="@drawable/rectangle"
+        android:src="@drawable/home2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

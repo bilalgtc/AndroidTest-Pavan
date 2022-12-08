@@ -3,7 +3,6 @@ package com.example.android_test;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -12,11 +11,10 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
-import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.TextView;
 
-public class registration_fb_google extends AppCompatActivity {
+public class Registration_fb_google extends AppCompatActivity {
         TextView textView,textView2,textView3,textView4,textView5;
         AppCompatButton button1;
     @Override
@@ -67,7 +65,7 @@ public class registration_fb_google extends AppCompatActivity {
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(registration_fb_google.this,Sign_In.class);
+                Intent i=new Intent(Registration_fb_google.this,Sign_In.class);
                 startActivity(i);
                 finish();
             }
@@ -76,7 +74,7 @@ public class registration_fb_google extends AppCompatActivity {
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(registration_fb_google.this,Sign_In.class);
+                Intent i=new Intent(Registration_fb_google.this,Sign_In.class);
                 startActivity(i);
                 finish();
             }
@@ -86,7 +84,7 @@ public class registration_fb_google extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(registration_fb_google.this,Registration.class);
+                Intent i=new Intent(Registration_fb_google.this,Registration.class);
                 startActivity(i);
                 finish();
 

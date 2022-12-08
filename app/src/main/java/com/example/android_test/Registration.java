@@ -5,7 +5,6 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -13,10 +12,8 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Registration extends AppCompatActivity {
@@ -58,7 +55,7 @@ public class Registration extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Registration.this,registration_fb_google.class);
+                Intent i=new Intent(Registration.this, Registration_fb_google.class);
                 startActivity(i);
                 finish();
             }

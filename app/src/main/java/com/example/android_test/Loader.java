@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class loader extends AppCompatActivity {
+public class Loader extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class loader extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i=new Intent(loader.this,welcome_screen.class);
+                Intent i=new Intent(Loader.this, Welcome_screen.class);
                 startActivity(i);
                 finish();
             }
