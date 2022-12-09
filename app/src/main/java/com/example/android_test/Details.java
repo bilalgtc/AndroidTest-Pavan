@@ -27,12 +27,8 @@ public class Details extends AppCompatActivity {
         textView=findViewById(R.id.textView15);
 
 
-        cardView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             cardView1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
 
-            }
-        });
+             cardView1.setCardBackgroundColor(ContextCompat.getColor(this, R.color.blue));
+
     }
 }
