@@ -4,19 +4,21 @@ package com.example.android_test.Adapters;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android_test.Dashboard;
 import com.example.android_test.Details;
 import com.example.android_test.Information;
 import com.example.android_test.Models.Recycle_model;
@@ -64,14 +66,22 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
         holder.imageView.setOnClickListener(v -> {
 
+
             Dialog dialog =new Dialog(context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.custom_delete_dialog);
-            dialog.show();
+
+
 
             Button btn1=dialog.findViewById(R.id.yes_btn);
             Button btn2=dialog.findViewById(R.id.no_btn);
+            ImageView btn3=dialog.findViewById(R.id.cross_btn);
+
+
             btn1.setOnClickListener(v1 -> {
                 Toast.makeText(context.getApplicationContext(),"Yes" , Toast.LENGTH_LONG).show();
+                details.remove(holder.getAdapterPosition());
+                notifyDataSetChanged();
             });
             btn2.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -80,6 +90,17 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
                 }
             });
 
+            btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.cancel();
+                }
+            });
+            dialog.show();
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+            dialog.getWindow().setGravity(Gravity.BOTTOM);
         });
 
 //        holder.btn1.setOnClickListener(v -> {

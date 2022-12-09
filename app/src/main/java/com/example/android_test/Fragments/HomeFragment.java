@@ -1,0 +1,111 @@
+package com.example.android_test.Fragments;
+
+import android.graphics.Color;
+import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.android_test.Adapters.Recycle_adapter;
+import com.example.android_test.Models.Recycle_model;
+import com.example.android_test.R;
+
+import java.util.ArrayList;
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link HomeFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class HomeFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    ArrayList<Recycle_model> details=new ArrayList<>();
+
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    public HomeFragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment homeFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static HomeFragment newInstance(String param1, String param2) {
+        HomeFragment fragment = new HomeFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+
+
+        View v=inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView =v.findViewById(R.id.dash_recyclerView);
+        textView= v.findViewById(R.id.dash_textView);
+        String text="What are you\nlooking for, Maria?";
+        SpannableString s=new SpannableString(text);
+        ForegroundColorSpan fc=new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
+
+        s.setSpan(fc, 25, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView.setText(s);
+        Recycle_adapter adapter=new Recycle_adapter(getContext(),details);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return v;
+
+
+
+    }
+    TextView textView;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        details.add(new Recycle_model(R.drawable.dogimg, "Troy", "German Shepherd"));
+        details.add(new Recycle_model(R.drawable.dogimg2, "Oscar", "Labrador Retriever"));
+        details.add(new Recycle_model(R.drawable.dogimg3, "Light", "Poodle"));
+        details.add(new Recycle_model(R.drawable.dogimg4, "Bosco", "Rottweiler"));
+        details.add(new Recycle_model(R.drawable.dogimg4, "Night", "Rottweiler"));
+        details.add(new Recycle_model(R.drawable.dogimg4, "Sky", "Rottweiler"));
+
+
+
+    }
+
+}

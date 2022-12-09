@@ -52,13 +52,12 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:textColor="@color/white"
         android:textSize="@dimen/_12ssp" />
 
-<androidx.appcompat.widget.AppCompatImageView
-    android:id="@+id/appCompatImageView8"
-    android:layout_width="@dimen/_132sdp"
-    android:layout_height="@dimen/_5sdp"
-    android:layout_marginBottom="@dimen/_8sdp"
-    android:foreground="#BBC3CE"
-    android:layout_centerInParent="true"
-    android:layout_alignParentBottom="true"
-    android:src="@drawable/home2"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView8"
+        android:layout_width="@dimen/_132sdp"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:src="@drawable/home2" />
 </RelativeLayout>

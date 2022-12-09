@@ -75,91 +75,96 @@
                 app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Pet's name"
+                android:fontFamily="@font/encode_sans_semibold"
+                android:textColor="#BBC3CE"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <EditText
                 android:id="@+id/name_ed"
+                android:backgroundTint="#F0F0F8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="Pet's name"
-                app:boxBackgroundColor="#00FFFFFF"
-                app:hintTextColor="#4552CB"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7">
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/encode_sans_semibold"
+                android:text="Species of your pet"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:textColor="#BBC3CE"
+                app:layout_constraintStart_toStartOf="@+id/name_ed"
+                app:layout_constraintTop_toBottomOf="@+id/name_ed" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:backgroundTint="#F0F0F8"
                 android:id="@+id/textInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="Pet's name"
-                app:boxBackgroundColor="#00FFFFFF"
-                app:hintTextColor="#4552CB"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name_ed">
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/encode_sans_semibold"
+                android:text="Breed"
+                android:textColor="#BBC3CE"
+                android:layout_marginTop="@dimen/_13sdp"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:backgroundTint="#F0F0F8"
                 android:id="@+id/textInputLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="Pet's name"
-                app:boxBackgroundColor="#00FFFFFF"
-                app:hintTextColor="#4552CB"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/encode_sans_semibold"
+                android:text="Size (optional)"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:textColor="#BBC3CE"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:backgroundTint="#F0F0F8"
                 android:id="@+id/textInputLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="Pet's name"
-                app:boxBackgroundColor="#00FFFFFF"
-                app:hintTextColor="#4552CB"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+
 
             <TextView
                 android:id="@+id/textView8"
@@ -167,17 +172,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:text="Gender"
+                android:fontFamily="@font/encode_sans_semibold"
                 android:textColor="#BBC3CE"
                 android:textSize="@dimen/_13sdp"
                 app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
             <androidx.cardview.widget.CardView
+                android:clickable="true"
                 android:id="@+id/cardView"
                 android:layout_width="@dimen/_135sdp"
                 android:layout_height="@dimen/_32sdp"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:backgroundTint="#4552CB"
+                android:backgroundTint="#B5B5B5"
                 app:cardCornerRadius="@dimen/_25sdp"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8">
@@ -214,11 +221,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
                 android:layout_width="@dimen/_135sdp"
                 android:layout_height="@dimen/_32sdp"
-
-                android:backgroundTint="#4552CB"
-
+                android:id="@+id/cardView2"
+                android:backgroundTint="#B5B5B5"
                 app:cardCornerRadius="@dimen/_25sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/cardView"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -279,13 +287,15 @@
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/s1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/ad_txt"
+                app:track="@drawable/switch_track"
+                android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_27sdp"
                 android:layout_marginEnd="@dimen/_20sdp"/>
 
             <TextView
@@ -299,11 +309,13 @@
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/s2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s1"
+                app:track="@drawable/switch_track"
+                android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"/>
@@ -319,11 +331,13 @@
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/s3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s2"
+                app:track="@drawable/switch_track"
+                android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"/>
@@ -340,11 +354,13 @@
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/s4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s3"
+                app:track="@drawable/switch_track"
+                android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"/>
@@ -354,18 +370,20 @@
                 android:id="@+id/txt5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Friendly with kids 10 year"
+                android:text="Friendly with kids &#60;10 year"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp"
                 android:layout_below="@id/txt4"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/s5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s4"
+                app:track="@drawable/switch_track"
+                android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"/>
@@ -374,20 +392,22 @@
                 android:id="@+id/txt6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Friendly with kids 10 year"
+                android:text="Friendly with kids &#62;10 year"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp"
                 android:layout_below="@id/txt5"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/s6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s5"
+                app:track="@drawable/switch_track"
+                android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_21sdp"
                 android:layout_marginEnd="@dimen/_20sdp"/>
 
             <androidx.appcompat.widget.AppCompatButton

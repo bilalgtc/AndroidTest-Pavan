@@ -7,7 +7,7 @@
 
     <item android:id="@+id/clock_icon"
         android:title="Appointments"
-        android:icon="@drawable/clock2"/>
+        android:icon="@drawable/clock3"/>
 
     <item android:id="@+id/explore_icon"
         android:title="Explore"

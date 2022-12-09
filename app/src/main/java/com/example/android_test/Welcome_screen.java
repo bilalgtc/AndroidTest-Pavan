@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.android_test.Adapters.ViewAdapter;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 public class Welcome_screen extends AppCompatActivity {

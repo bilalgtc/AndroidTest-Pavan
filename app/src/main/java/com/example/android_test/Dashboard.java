@@ -1,60 +1,86 @@
 package com.example.android_test;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
-import android.view.View;
-import android.widget.ImageView;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.android_test.Adapters.Recycle_adapter;
+import com.example.android_test.Fragments.AppoinmentFragment;
+import com.example.android_test.Fragments.ExploreFragment;
+import com.example.android_test.Fragments.HomeFragment;
+import com.example.android_test.Fragments.ProfileFragment;
 import com.example.android_test.Models.Recycle_model;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 
 public class Dashboard extends AppCompatActivity {
-    TextView textView;
-    RecyclerView recyclerView;
-    ArrayList<Recycle_model> details=new ArrayList<>();
+
+
+
+    FrameLayout frameLayout;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        textView =findViewById(R.id.dash_textView);
-        recyclerView =findViewById(R.id.dash_recyclerView);
+        bottomNavigationView =findViewById(R.id.bottom_navigation);
+        frameLayout =findViewById(R.id.fragment_container);
+
+        setFragment(new HomeFragment());
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+
+                    case R.id.home_icon:
+                        setFragment(new HomeFragment());
+                            return  true;
+
+                    case R.id.clock_icon:
+                        setFragment(new AppoinmentFragment());
+                        return true;
+
+                    case R.id.explore_icon:
+                        setFragment(new ExploreFragment());
+                        return  true;
+
+                    case R.id.profile_icon:
+
+                        setFragment(new ProfileFragment());
+                        return  true;
 
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        String text="What are you\nlooking for, Maria?";
-        SpannableString s=new SpannableString(text);
-        ForegroundColorSpan fc=new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
-
-        s.setSpan(fc, 25, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(s);
-
-        details.add(new Recycle_model(R.drawable.dogimg, "Troy", "German Shepherd"));
-        details.add(new Recycle_model(R.drawable.dogimg2, "Oscar", "Labrador Retriever"));
-        details.add(new Recycle_model(R.drawable.dogimg3, "Light", "Poodle"));
-        details.add(new Recycle_model(R.drawable.dogimg4, "Bosco", "Rottweiler"));
-        details.add(new Recycle_model(R.drawable.dogimg4, "Night", "Rottweiler"));
-        details.add(new Recycle_model(R.drawable.dogimg4, "Sky", "Rottweiler"));
-
-        Recycle_adapter adapter=new Recycle_adapter(this,details);
-        recyclerView.setAdapter(adapter);
+                    default:
+                        return false;
+                }
+            }
+        });
 
 
 
+
+
+     }
+
+     private void setFragment(Fragment fragment){
+         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+         fragmentTransaction.replace(R.id.fragment_container,fragment);
+         fragmentTransaction.commit();
      }
 }

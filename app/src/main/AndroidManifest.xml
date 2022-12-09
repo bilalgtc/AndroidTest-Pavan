@@ -34,12 +34,12 @@
             android:name=".Dashboard"
             android:exported="true"
             android:theme="@style/Theme.Android_Test2">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -80,6 +80,8 @@
             android:name=".Loader"
             android:exported="true"
             android:theme="@style/Theme.Android_Test2">
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -1,4 +1,4 @@
-package com.example.android_test;
+package com.example.android_test.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.android_test.R;
 
 public class ViewAdapter extends PagerAdapter {
         Context context;
@@ -29,7 +31,7 @@ public class ViewAdapter extends PagerAdapter {
                 R.string.slide_description3
         };
 
-        ViewAdapter(Context context){
+        public ViewAdapter(Context context){
             this.context=context;
         }
     @Override
