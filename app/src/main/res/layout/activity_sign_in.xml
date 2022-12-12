@@ -58,51 +58,137 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/name_ed"
+
+
+            <LinearLayout
+                android:id="@+id/ll1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="E-mail"
-                app:boxBackgroundColor="#00FFFFFF"
-                app:endIconDrawable="@drawable/check_circle_24"
-                app:endIconMode="custom"
-                app:hintTextColor="#4552CB"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:inputType="textEmailAddress"
+
+                <TextView
+                    android:textColor="#BBC3CE"
+                    android:id="@+id/ed1_txt4"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:fontFamily="@font/encode_sans_bold"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
-            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email_ed"
+                    <EditText
+                        android:textColorHighlight="@color/blue"
+                        android:id="@+id/email2_ed"
+                        android:inputType="textEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:background="#00000000"
+                        android:layout_weight="1"
+                        />
+
+                    <ImageView
+                        android:id="@+id/validimg4"
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/success"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/ed1_line4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#CCCCCC"
+
+                    />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/ll2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="Password"
-                app:hintTextColor="#4552CB"
-                app:boxBackgroundColor="#00FFFFFF"
-                app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name_ed">
+                app:layout_constraintTop_toBottomOf="@+id/ll1">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:inputType="textPassword"
+
+                <TextView
+                    android:textColor="#BBC3CE"
+                    android:id="@+id/ed1_txt5"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:fontFamily="@font/encode_sans_bold"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
-            </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <EditText
+                        android:textColorHighlight="@color/blue"
+                        android:id="@+id/pass2_ed"
+                        android:inputType="textEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:background="#00000000"
+                        android:layout_weight="1"
+                        />
+
+                    <ImageView
+                        android:id="@+id/validimg5"
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/success"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/ed1_line5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#CCCCCC"
+
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+
 
             <TextView
                 android:id="@+id/textView5"
@@ -113,8 +199,8 @@
                 android:text="Do not remember the password?"
                 android:textColor="#4552CB"
                 android:textSize="@dimen/_11ssp"
-                app:layout_constraintEnd_toEndOf="@+id/email_ed"
-                app:layout_constraintTop_toBottomOf="@+id/email_ed" />
+                app:layout_constraintEnd_toEndOf="@+id/ll2"
+                app:layout_constraintTop_toBottomOf="@+id/ll2" />
 
 
 <!--            <androidx.appcompat.widget.AppCompatButton-->

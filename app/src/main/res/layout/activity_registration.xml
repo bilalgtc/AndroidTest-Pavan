@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.Android_Test2"
     tools:context=".Registration">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +45,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="440dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_19sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -57,102 +58,261 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/name_ed"
+
+                    <LinearLayout
+                        android:id="@+id/ll1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:hint="Full name"
-                        app:boxBackgroundColor="#00FFFFFF"
-                        app:boxBackgroundMode="filled"
-                        app:endIconDrawable="@drawable/check_circle_24"
-                        app:endIconMode="custom"
-                        app:hintTextColor="#4552CB"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.google.android.material.textfield.TextInputEditText
+
+                        <TextView
+                            android:textColor="#BBC3CE"
+                            android:id="@+id/ed1_txt1"
+                            android:textSize="@dimen/_10ssp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Full name"
+                            android:fontFamily="@font/encode_sans_bold"/>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textPersonName" />
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
-                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/email_ed"
+                            <EditText
+                                android:textColorHighlight="@color/blue"
+                                android:id="@+id/name_ed"
+                                android:inputType="textEmailAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="#00000000"
+                                android:layout_weight="1"
+                                />
+
+                            <ImageView
+                                android:id="@+id/validimg"
+                                android:layout_width="@dimen/_12sdp"
+                                android:layout_height="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/success"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/ed1_line1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="#CCCCCC"
+
+                            />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/ll2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:hint="E-mail"
-                        app:boxBackgroundColor="#00FFFFFF"
-                        app:endIconDrawable="@drawable/check_circle_24"
-                        app:endIconMode="custom"
-                        app:hintTextColor="#4552CB"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/name_ed">
+                        app:layout_constraintTop_toBottomOf="@+id/ll1">
 
-                        <com.google.android.material.textfield.TextInputEditText
+
+                        <TextView
+                            android:textColor="#BBC3CE"
+                            android:id="@+id/ed1_txt2"
+                            android:textSize="@dimen/_10ssp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:fontFamily="@font/encode_sans_bold"/>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textEmailAddress" />
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
-                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/mobile_ed"
+                            <EditText
+                                android:textColorHighlight="@color/blue"
+                                android:id="@+id/email_ed"
+                                android:inputType="textEmailAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="#00000000"
+                                android:layout_weight="1"
+                                />
+
+                            <ImageView
+                                android:id="@+id/validimg2"
+                                android:layout_width="@dimen/_12sdp"
+                                android:layout_height="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/success"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/ed1_line2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="#CCCCCC"
+
+                            />
+
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/ll3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:hint="Mobile"
-
-                        app:boxBackgroundColor="#00FFFFFF"
-                        app:endIconDrawable="@drawable/check_circle_24"
-                        app:endIconMode="custom"
-                        app:hintTextColor="#4552CB"
-
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/email_ed">
+                        app:layout_constraintTop_toBottomOf="@+id/ll2">
 
-                        <com.google.android.material.textfield.TextInputEditText
+
+                        <TextView
+                            android:textColor="#BBC3CE"
+                            android:id="@+id/ed1_txt3"
+                            android:textSize="@dimen/_10ssp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile"
+                            android:fontFamily="@font/encode_sans_bold"/>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
-                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/pass_ed"
+                            <EditText
+                                android:textColorHighlight="@color/blue"
+                                android:id="@+id/mobile_ed"
+                                android:inputType="textEmailAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="#00000000"
+                                android:layout_weight="1"
+                                />
+
+                            <ImageView
+                                android:id="@+id/validimg3"
+                                android:layout_width="@dimen/_12sdp"
+                                android:layout_height="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/success"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/ed1_line3"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="#CCCCCC"
+
+                            />
+
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/ll4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
-                        android:hint="Password"
-                        app:boxBackgroundColor="#00FFFFFF"
-                        app:endIconMode="password_toggle"
-                        app:hintTextColor="#4552CB"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/mobile_ed">
+                        app:layout_constraintTop_toBottomOf="@+id/ll3">
 
-                        <com.google.android.material.textfield.TextInputEditText
+
+                        <TextView
+                            android:textColor="#BBC3CE"
+                            android:id="@+id/ed1_txt4"
+                            android:textSize="@dimen/_10ssp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Password"
+                            android:fontFamily="@font/encode_sans_bold"/>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textPassword" />
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                            <EditText
+                                android:textColorHighlight="@color/blue"
+                                android:id="@+id/pass_ed"
+                                android:inputType="textEmailAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="#00000000"
+                                android:layout_weight="1"
+                                />
+
+                            <ImageView
+                                android:id="@+id/validimg4"
+                                android:layout_width="@dimen/_12sdp"
+                                android:layout_height="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/remove_red_eye_24"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/ed1_line4"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="#CCCCCC"
+
+                            />
+
+
+                    </LinearLayout>
+
+
 
                     <ImageView
                         android:id="@+id/checkbox_img1"
@@ -160,8 +320,8 @@
                         android:layout_height="@dimen/_18sdp"
                         android:layout_marginTop="@dimen/_13sdp"
                         android:src="@drawable/disabled"
-                        app:layout_constraintStart_toStartOf="@+id/pass_ed"
-                        app:layout_constraintTop_toBottomOf="@+id/pass_ed" />
+                        app:layout_constraintStart_toStartOf="@+id/ll4"
+                        app:layout_constraintTop_toBottomOf="@+id/ll4" />
 
                     <TextView
                         android:id="@+id/checkbox_txt1"
@@ -207,6 +367,8 @@
                         android:background="@drawable/btn1_style"
                         android:fontFamily="@font/encode_sans_bold"
                         android:text="Sign Up"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"

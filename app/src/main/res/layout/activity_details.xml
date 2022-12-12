@@ -22,7 +22,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/details_back_btn"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_16sdp"
@@ -40,10 +40,10 @@
                 android:text="Add pet detail"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18ssp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                app:layout_constraintBottom_toBottomOf="@+id/details_back_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView4" />
+                app:layout_constraintTop_toTopOf="@+id/details_back_btn" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/circleImageView"
@@ -180,12 +180,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
             <androidx.cardview.widget.CardView
-                android:clickable="true"
                 android:id="@+id/cardView"
                 android:layout_width="@dimen/_135sdp"
                 android:layout_height="@dimen/_32sdp"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:clickable="true"
                 app:cardCornerRadius="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8">
 
@@ -294,6 +296,7 @@
                 app:track="@drawable/switch_track"
                 android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
+                android:layout_toEndOf="@id/txt1"
                 android:layout_marginTop="@dimen/_27sdp"
                 android:layout_marginEnd="@dimen/_20sdp"/>
 
@@ -305,7 +308,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 android:layout_below="@id/txt1"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
             <androidx.appcompat.widget.SwitchCompat
@@ -314,6 +317,7 @@
                 android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s1"
                 app:track="@drawable/switch_track"
+                android:layout_toEndOf="@id/txt2"
                 android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_25sdp"
@@ -327,7 +331,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 android:layout_below="@id/txt2"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
             <androidx.appcompat.widget.SwitchCompat
@@ -335,6 +339,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s2"
+                android:layout_toEndOf="@id/txt3"
                 app:track="@drawable/switch_track"
                 android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
@@ -350,7 +355,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 android:layout_below="@id/txt3"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_31sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
             <androidx.appcompat.widget.SwitchCompat
@@ -358,6 +363,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s3"
+                android:layout_toEndOf="@id/txt4"
                 app:track="@drawable/switch_track"
                 android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
@@ -373,7 +379,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 android:layout_below="@id/txt4"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_33sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
             <androidx.appcompat.widget.SwitchCompat
@@ -382,6 +388,7 @@
                 android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s4"
                 app:track="@drawable/switch_track"
+                android:layout_toEndOf="@id/txt5"
                 android:thumb="@drawable/switch_thumb"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_25sdp"
@@ -395,11 +402,12 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 android:layout_below="@id/txt5"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_34sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/s6"
+                android:layout_toEndOf="@id/txt6"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_below="@id/s5"
