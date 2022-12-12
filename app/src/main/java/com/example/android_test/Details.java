@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -23,12 +24,32 @@ public class Details extends AppCompatActivity {
 
 
         cardView1=findViewById(R.id.cardView);
-        cardView1=findViewById(R.id.cardView);
+        cardView2=findViewById(R.id.cardView2);
         textView=findViewById(R.id.textView15);
 
+        cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+        cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
 
 
-             cardView1.setCardBackgroundColor(ContextCompat.getColor(this, R.color.blue));
+        cardView1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
+            }
+        });
+
+
+        cardView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
+            }
+        });
+
+        
+
 
     }
 }

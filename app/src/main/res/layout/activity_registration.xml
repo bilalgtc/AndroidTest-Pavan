@@ -155,11 +155,11 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/checkbox_img1"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:layout_marginTop="@dimen/_13sdp"
-                        android:src="@drawable/activeted"
+                        android:src="@drawable/disabled"
                         app:layout_constraintStart_toStartOf="@+id/pass_ed"
                         app:layout_constraintTop_toBottomOf="@+id/pass_ed" />
 
@@ -171,19 +171,19 @@
                         android:fontFamily="@font/encode_sans"
                         android:text="I agree with the rules"
                         android:textColor="#070821"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-                        app:layout_constraintStart_toEndOf="@+id/imageView2"
-                        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+                        app:layout_constraintBottom_toBottomOf="@+id/checkbox_img1"
+                        app:layout_constraintStart_toEndOf="@+id/checkbox_img1"
+                        app:layout_constraintTop_toTopOf="@+id/checkbox_img1" />
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/checkbox_img2"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:layout_marginTop="@dimen/_13sdp"
                         android:src="@drawable/disabled"
-                        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                        app:layout_constraintStart_toStartOf="@+id/imageView2"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                        app:layout_constraintEnd_toEndOf="@+id/checkbox_img1"
+                        app:layout_constraintStart_toStartOf="@+id/checkbox_img1"
+                        app:layout_constraintTop_toBottomOf="@+id/checkbox_img1" />
 
                     <TextView
                         android:id="@+id/checkbox_txt2"
@@ -193,9 +193,9 @@
                         android:fontFamily="@font/encode_sans"
                         android:text="I do not want to receive newsletter"
                         android:textColor="#070821"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                        app:layout_constraintStart_toEndOf="@+id/imageView3"
-                        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                        app:layout_constraintBottom_toBottomOf="@+id/checkbox_img2"
+                        app:layout_constraintStart_toEndOf="@+id/checkbox_img2"
+                        app:layout_constraintTop_toTopOf="@+id/checkbox_img2" />
 
 
                     <androidx.appcompat.widget.AppCompatButton

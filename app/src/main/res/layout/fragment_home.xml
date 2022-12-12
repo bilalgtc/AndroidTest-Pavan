@@ -14,7 +14,7 @@
 
 
             <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/plus_btn"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_20sdp"
@@ -32,9 +32,9 @@
                 android:text="What are you\nlooking for, Maria?"
                 android:textColor="#070821"
                 android:textSize="@dimen/_25ssp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintEnd_toStartOf="@+id/plus_btn"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/plus_btn" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/dash_recyclerView"

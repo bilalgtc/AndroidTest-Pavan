@@ -79,9 +79,10 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
 
             btn1.setOnClickListener(v1 -> {
-                Toast.makeText(context.getApplicationContext(),"Yes" , Toast.LENGTH_LONG).show();
+//                Toast.makeText(context.getApplicationContext(),"Yes" , Toast.LENGTH_LONG).show();
                 details.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
+                dialog.cancel();
             });
             btn2.setOnClickListener(new View.OnClickListener() {
                 @Override

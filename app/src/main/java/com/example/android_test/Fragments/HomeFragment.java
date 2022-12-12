@@ -1,5 +1,6 @@
 package com.example.android_test.Fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -14,9 +15,11 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android_test.Adapters.Recycle_adapter;
+import com.example.android_test.Details;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 
@@ -31,7 +34,7 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     ArrayList<Recycle_model> details=new ArrayList<>();
-
+    ImageView imageView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,7 +88,15 @@ public class HomeFragment extends Fragment {
         Recycle_adapter adapter=new Recycle_adapter(getContext(),details);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        imageView=v.findViewById(R.id.plus_btn);
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getContext(), Details.class);
+                startActivity(i);
+            }
+        });
         return v;
 
 

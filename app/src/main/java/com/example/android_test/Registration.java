@@ -21,7 +21,8 @@ public class Registration extends AppCompatActivity {
     TextView textView,textView1,textView2;
     AppCompatButton button;
     TextInputLayout name,email,mobile,password;
-    ImageView imageView;
+    ImageView imageView,imageView2,imageView3;
+    int temp=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,38 @@ public class Registration extends AppCompatActivity {
         textView1=findViewById(R.id.goto_signin1);
         textView2=findViewById(R.id.goto_signin2);
         imageView=findViewById(R.id.reg_backbtn);
+        imageView2=findViewById(R.id.checkbox_img1);
+        imageView3=findViewById(R.id.checkbox_img2);
+
+
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (temp==0){
+                    imageView2.setImageResource(R.drawable.activeted);
+                    temp++;
+                }else if (temp==1){
+                    imageView2.setImageResource(R.drawable.disabled);
+                    temp--;
+                }
+
+            }
+        });
+
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (temp==0){
+                    imageView3.setImageResource(R.drawable.activeted);
+                    temp++;
+
+                }else if (temp==1){
+                    imageView3.setImageResource(R.drawable.disabled);
+                    temp--;
+                }
+
+            }
+        });
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

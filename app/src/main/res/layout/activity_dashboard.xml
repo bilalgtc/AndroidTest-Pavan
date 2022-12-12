@@ -5,6 +5,7 @@ android:theme="@style/Theme.Android_Test2"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+    android:background="#F5F5F5"
 tools:context=".Dashboard">
 
 
@@ -21,6 +22,7 @@ tools:context=".Dashboard">
         android:layout_gravity="bottom"
         android:layout_above="@id/bar"
         app:elevation="0dp"
+        app:labelVisibilityMode="labeled"
         android:layout_marginBottom="@dimen/_10sdp"
         app:menu="@menu/menu_items" />
 
