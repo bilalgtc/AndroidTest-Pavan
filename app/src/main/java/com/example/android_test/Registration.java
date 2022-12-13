@@ -203,35 +203,35 @@ public class Registration extends AppCompatActivity {
                         mobile.setError("Field is empty");
                         password.setError("Field is empty");
                     }else{
-//                        if (uname.length()>1) {
-//                            ContentValues contentValues = new ContentValues();
-//                            contentValues.put("email", emailvalue);
-//                            contentValues.put("password", passwordvalue);
-//                            contentValues.put("username", uname);
-//                            contentValues.put("usermobile", umobile);
-//
-//                            dbHelper.addUser(contentValues);
-//                            Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-//                            Intent i=new Intent(getApplicationContext(),Sign_In.class);
-//                            startActivity(i);
-//
-//                        }else{
-//                            Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
-//                        }
+                        if (uname.length()>1) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("email", emailvalue);
+                            contentValues.put("password", passwordvalue);
+                            contentValues.put("username", uname);
+                            contentValues.put("mobile", umobile);
+                            dbHelper.addUser(contentValues);
 
-                        Boolean usercheckresult =dbHelper.checkuser(emailvalue);
-                        if (usercheckresult == false){
+                            Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                            Intent i=new Intent(getApplicationContext(),Sign_In.class);
+                            startActivity(i);
 
-                            Boolean regresult = dbHelper.insertData(emailvalue, passwordvalue, uname, umobile);
-                                if (regresult == true){
-                                    Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
-                                }
-
-                        }else {
-                            Toast.makeText(Registration.this, "User already exists", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
+
+//                        Boolean usercheckresult =dbHelper.checkuser(emailvalue);
+//                        if (usercheckresult == false){
+//
+//                            Boolean regresult = dbHelper.insertData(emailvalue, passwordvalue, uname, umobile);
+//                                if (regresult == true){
+//                                    Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+//                                }else{
+//                                    Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
+//                                }
+//
+//                        }else {
+//                            Toast.makeText(Registration.this, "User already exists", Toast.LENGTH_SHORT).show();
+//                        }
                     }
 
 

@@ -11,49 +11,52 @@ import android.widget.Toast;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-//    String createTableUser = "CREATE TABLE if not exists 'user' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'email' TEXT," + " 'password' TEXT, 'usermane' TEXT, 'mobile' TEXT )";
+    String createTableUser = "CREATE TABLE if not exists 'user' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'email' TEXT," + " 'password' TEXT, 'usermane' TEXT, 'mobile' TEXT )";
 
     public DBHelper(Context context) {
         super(context,"Login.db",null,1);
-//        getWritableDatabase().execSQL(createTableUser);
+        getWritableDatabase().execSQL(createTableUser);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table user(email Text primary key,password Text,mobile Text,name Text)");
+//        sqLiteDatabase.execSQL("create table user(email Text primary key,password Text,mobile Text,name Text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("drop table if exists user");
+//        sqLiteDatabase.execSQL("drop table if exists user");
     }
 
 
-//  public  void addUser(ContentValues contentValues) {
-//        getWritableDatabase().insert("user", "", contentValues);
-//  }
-//
-//
-//
-//    public Boolean checkusermailpassword(String email,String  password) {
-//        String sql ="Select count(*) from user where email='" + email + "' and password='" + password + "'";
-//        SQLiteStatement statement = getReadableDatabase().compileStatement(sql);
-//        long l=statement.simpleQueryForLong();
-//        statement.close();
-//
-//        if (l==1){
-//            return true;
-//        }else{
-//            return false;
-//        }
-//    }
+  public  void addUser(ContentValues contentValues) {
+        getWritableDatabase().insert("user", "", contentValues);
+  }
 
-    public Boolean insertData(String email,String password,String uname,String umobile){
+
+
+    public Boolean checkusermailpassword(String email,String  password) {
+        String sql ="Select * from user where email='" + email + "' and password='" + password + "'";
+        SQLiteStatement statement = getReadableDatabase().compileStatement(sql);
+        long l=statement.simpleQueryForLong();
+        statement.close();
+
+        if (l==1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
+
+    public Boolean insertData(String emailvalue,String passwordvalue,String uname,String umobile){
         SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        ContentValues contentValues =new ContentValues();
-        contentValues.put("email", email);
-        contentValues.put("password", password);
-        contentValues.put("name", uname);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email", emailvalue);
+        contentValues.put("password", passwordvalue);
+        contentValues.put("username", uname);
         contentValues.put("mobile", umobile);
 
 
@@ -65,31 +68,31 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
     }
-
-
-    public Boolean checkuser(String emailvalue){
-        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        Cursor cursor =sqLiteDatabase.rawQuery("select * from user where email = ?",new String[] {emailvalue});
-        if (cursor.getCount()>1){
-            return true;
-        }else{
-            return  false;
-        }
-
-
-    }
-
-
-    public Boolean checkusermailpass(String emailvalue,String passwordvalue){
-        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        Cursor cursor =sqLiteDatabase.rawQuery("select * from user where email = ? and password = ?",new String[] {emailvalue,passwordvalue});
-        if (cursor.getCount()>1){
-            return true;
-        }else{
-            return  false;
-        }
-
-    }
+//
+//
+//    public Boolean checkuser(String emailvalue){
+//        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+//        Cursor cursor =sqLiteDatabase.rawQuery("select * from user where email = ?",new String[] {emailvalue});
+//        if (cursor.getCount()>1){
+//            return true;
+//        }else{
+//            return  false;
+//        }
+//
+//
+//    }
+//
+//
+//    public Boolean checkusermailpass(String emailvalue,String passwordvalue){
+//        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+//        Cursor cursor =sqLiteDatabase.rawQuery("select * from user where email = ? and password = ?",new String[] {emailvalue,passwordvalue});
+//        if (cursor.getCount()>1){
+//            return true;
+//        }else{
+//            return  false;
+//        }
+//
+//    }
 
     }
 

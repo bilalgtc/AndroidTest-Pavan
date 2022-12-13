@@ -56,6 +56,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <ImageView
+                android:id="@+id/add_image"
                 android:layout_width="30dp"
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/add_icon"
@@ -111,7 +112,7 @@
 
             <EditText
                 android:backgroundTint="#F0F0F8"
-                android:id="@+id/textInputLayout"
+                android:id="@+id/species_ed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
@@ -128,12 +129,12 @@
                 android:text="Breed"
                 android:textColor="#BBC3CE"
                 android:layout_marginTop="@dimen/_13sdp"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+                app:layout_constraintStart_toStartOf="@+id/species_ed"
+                app:layout_constraintTop_toBottomOf="@+id/species_ed" />
 
             <EditText
                 android:backgroundTint="#F0F0F8"
-                android:id="@+id/textInputLayout2"
+                android:id="@+id/breed_ed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
@@ -150,12 +151,12 @@
                 android:text="Size (optional)"
                 android:layout_marginTop="@dimen/_13sdp"
                 android:textColor="#BBC3CE"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+                app:layout_constraintStart_toStartOf="@+id/breed_ed"
+                app:layout_constraintTop_toBottomOf="@+id/breed_ed" />
 
             <EditText
                 android:backgroundTint="#F0F0F8"
-                android:id="@+id/textInputLayout3"
+                android:id="@+id/size_ed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
@@ -176,8 +177,8 @@
                 android:fontFamily="@font/encode_sans_semibold"
                 android:textColor="#BBC3CE"
                 android:textSize="@dimen/_13sdp"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+                app:layout_constraintStart_toStartOf="@+id/size_ed"
+                app:layout_constraintTop_toBottomOf="@+id/size_ed" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
@@ -436,7 +437,9 @@
 
 
 
+
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submit_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt6"

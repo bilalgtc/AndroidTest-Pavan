@@ -51,13 +51,13 @@ public class Sign_In extends AppCompatActivity {
                 String passwordvalue =password.getText().toString();
 
 
-//                if(dbHelper.checkusermailpassword(emailvalue,passwordvalue)){
-//                    Toast.makeText(Sign_In.this, "Login Successful", Toast.LENGTH_SHORT).show();
-//                    Intent i=new Intent(getApplicationContext(),Dashboard.class);
-//                    startActivity(i);
-//                }else{
-//                    Toast.makeText(Sign_In.this, "Invalid User", Toast.LENGTH_SHORT).show();
-//                }
+                if(dbHelper.checkusermailpassword(emailvalue, passwordvalue)){
+                    Toast.makeText(Sign_In.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                  Intent i=new Intent(getApplicationContext(),Dashboard.class);
+                    startActivity(i);
+               }else{
+                   Toast.makeText(Sign_In.this, "Invalid User", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
