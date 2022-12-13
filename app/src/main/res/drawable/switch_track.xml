@@ -6,8 +6,8 @@
             <solid android:color="#4552CB"/>
             <corners android:radius="100dp"/>
 
-<!--            <stroke android:width="1dp"-->
-<!--                android:color="#8c8c8c"/>-->
+            <stroke android:width="1dp"
+                android:color="#8c8c8c"/>
             <size android:height="30dp"/>
         </shape>
     </item>
@@ -16,8 +16,8 @@
         <shape android:shape="rectangle">
             <solid android:color="#E4E4E4"/>
             <corners android:radius="100dp"/>
-<!--            <stroke android:width="1dp"-->
-<!--                android:color="#8c8c8c"/>-->
+            <stroke android:width="1dp"
+                android:color="#8c8c8c"/>
             <size android:height="30dp"/>
         </shape>
     </item>

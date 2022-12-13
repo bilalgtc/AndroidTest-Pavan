@@ -55,7 +55,6 @@
         android:background="@drawable/btn1_style"
         android:fontFamily="@font/encode_sans_bold"
         android:text="Yes"
-
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,6 +66,7 @@
         android:layout_width="@dimen/_110sdp"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt2"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:layout_toRightOf="@id/yes_btn"
         android:background="@drawable/btn1_style"
         android:fontFamily="@font/encode_sans_bold"
