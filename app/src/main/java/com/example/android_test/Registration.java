@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android_test.Helper.DBHelper;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Registration extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class Registration extends AppCompatActivity {
 //    TextInputLayout name,email,mobile,password;
     ImageView imageView,imageView2,imageView3;
     int temp=0;
+    DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +62,11 @@ public class Registration extends AppCompatActivity {
 
         button = findViewById(R.id.signup_btn);
 
-        name = findViewById(R.id.name_ed);
 
         email = findViewById(R.id.email_ed);
-        mobile = findViewById(R.id.mobile_ed);
         password = findViewById(R.id.pass_ed);
+        name = findViewById(R.id.name_ed);
+        mobile = findViewById(R.id.mobile_ed);
 
 
         textView1=findViewById(R.id.goto_signin1);
@@ -72,6 +75,7 @@ public class Registration extends AppCompatActivity {
         imageView2=findViewById(R.id.checkbox_img1);
         imageView3=findViewById(R.id.checkbox_img2);
 
+        dbHelper = new DBHelper(this);
 
 
         name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -187,7 +191,50 @@ public class Registration extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//            check();
+
+                String emailvalue=email.getText().toString();
+                String passwordvalue=password.getText().toString();
+                String uname = name.getText().toString();
+                String umobile = mobile.getText().toString();
+
+                    if (uname.equals("") || emailvalue.equals("") || umobile.equals("") || passwordvalue.equals("")){
+                        name.setError("Field is empty");
+                        email.setError("Field is empty");
+                        mobile.setError("Field is empty");
+                        password.setError("Field is empty");
+                    }else{
+//                        if (uname.length()>1) {
+//                            ContentValues contentValues = new ContentValues();
+//                            contentValues.put("email", emailvalue);
+//                            contentValues.put("password", passwordvalue);
+//                            contentValues.put("username", uname);
+//                            contentValues.put("usermobile", umobile);
+//
+//                            dbHelper.addUser(contentValues);
+//                            Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+//                            Intent i=new Intent(getApplicationContext(),Sign_In.class);
+//                            startActivity(i);
+//
+//                        }else{
+//                            Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
+//                        }
+
+                        Boolean usercheckresult =dbHelper.checkuser(emailvalue);
+                        if (usercheckresult == false){
+
+                            Boolean regresult = dbHelper.insertData(emailvalue, passwordvalue, uname, umobile);
+                                if (regresult == true){
+                                    Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                        }else {
+                            Toast.makeText(Registration.this, "User already exists", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+
 
 
             }

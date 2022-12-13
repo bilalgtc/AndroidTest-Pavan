@@ -156,7 +156,7 @@
                     <EditText
                         android:textColorHighlight="@color/blue"
                         android:id="@+id/pass2_ed"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textPassword"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_25sdp"
                         android:background="#00000000"

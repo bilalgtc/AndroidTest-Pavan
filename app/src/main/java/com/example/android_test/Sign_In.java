@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.android_test.Helper.DBHelper;
 
 public class Sign_In extends AppCompatActivity {
         ImageView img;
@@ -18,6 +21,7 @@ public class Sign_In extends AppCompatActivity {
     TextView edt1,edt2;
     EditText email,password;
     View v,v2;
+    DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +32,32 @@ public class Sign_In extends AppCompatActivity {
         txt2=findViewById(R.id.s_in_txt2);
         button=findViewById(R.id.sign_in);
 
+        v=findViewById(R.id.ed1_line4);
+        v2=findViewById(R.id.ed1_line5);
+
+        edt1=findViewById(R.id.ed1_txt4);
+        edt2=findViewById(R.id.ed1_txt5);
+
+
+        email = findViewById(R.id.email2_ed);
+        password = findViewById(R.id.pass2_ed);
+
+        dbHelper=new DBHelper(this);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),Dashboard.class);
-                startActivity(i);
+             String emailvalue =email.getText().toString();
+                String passwordvalue =password.getText().toString();
+
+
+//                if(dbHelper.checkusermailpassword(emailvalue,passwordvalue)){
+//                    Toast.makeText(Sign_In.this, "Login Successful", Toast.LENGTH_SHORT).show();
+//                    Intent i=new Intent(getApplicationContext(),Dashboard.class);
+//                    startActivity(i);
+//                }else{
+//                    Toast.makeText(Sign_In.this, "Invalid User", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
@@ -64,15 +89,7 @@ public class Sign_In extends AppCompatActivity {
         });
 
 
-        v=findViewById(R.id.ed1_line4);
-        v2=findViewById(R.id.ed1_line5);
 
-        edt1=findViewById(R.id.ed1_txt4);
-        edt2=findViewById(R.id.ed1_txt5);
-
-
-        email = findViewById(R.id.email2_ed);
-        password = findViewById(R.id.pass2_ed);
 
 
         email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
