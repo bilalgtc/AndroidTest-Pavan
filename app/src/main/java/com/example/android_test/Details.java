@@ -15,20 +15,30 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.example.android_test.Fragments.HomeFragment;
+import com.example.android_test.Helper.DetailsDBHelper;
+
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -36,21 +46,23 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         CardView cardView1,cardView2;
         ImageView imageView,imageView2;
         CircleImageView img;
-        TextView textView;
-        int temp=0;
-        EditText ed1,ed2,ed3,ed4;
-        Button button;
+    TextView textView;
+    int temp=0;
+    EditText ed1,ed2,ed3,ed4;
+    Button button;
+    Switch sw1,sw2,sw3,sw4,sw5,sw6;
+    public static DetailsDBHelper ddbhelper;
+    Bitmap imageDB;
+    Bitmap imgToStore;
 
-
-        private static final int CAMERA_REQUEST_CODE = 100;
-        private static final int STORAGE_REQUEST_CODE = 101;
+    private static final int CAMERA_REQUEST_CODE = 100;
+    private static final int STORAGE_REQUEST_CODE = 101;
     //IMAGE PICK
     private static final int IMAGE_PICK_CAMERA_CODE = 102;
     private static final int IMAGE_PICK_GALLERY_CODE = 103;
 
     String[] cameraPermissions;
     String[] storagePermissions;
-
     private Uri imageUri;
 
     @Override
@@ -75,8 +87,16 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         ed3=findViewById(R.id.breed_ed);
         ed4=findViewById(R.id.size_ed);
 
-        button=findViewById(R.id.submit_btn);
 
+//        sw1=findViewById(R.id.s1);
+//        sw2=findViewById(R.id.s2);
+//        sw3=findViewById(R.id.s3);
+//        sw4=findViewById(R.id.s4);
+//        sw5=findViewById(R.id.s5);
+//        sw6=findViewById(R.id.s6);
+
+        button=findViewById(R.id.submit_btn);
+        ddbhelper = new DetailsDBHelper(this);
         cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
         cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
 
@@ -105,7 +125,32 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 ////                cardView1.setEnabled(false);
 //
 //            }
-//        });
+//        });imgToStore,
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name =ed1.getText().toString();
+                String breed = ed2.getText().toString();
+                boolean valueinserted = ddbhelper.insertRecords(name,breed);
+                if (valueinserted == true){
+                    ed1.setText("");
+                    Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i=new Intent(Details.this, HomeFragment.class);
+                            startActivity(i);
+                        }
+                    }, 2000);
+
+                }else{
+                    Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -257,12 +302,20 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (resultCode == RESULT_OK){
-
             if (requestCode == IMAGE_PICK_GALLERY_CODE){
-
-
+                imageUri= data.getData();
+//                img.setImageURI(data.getData());
+                 imgToStore = null;
+                try {
+                    imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                img.setImageBitmap(imgToStore);
             }
+
         }
     }
 }
