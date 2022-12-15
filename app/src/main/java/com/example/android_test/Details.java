@@ -26,6 +26,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.android_test.Helper.DataB_Helper;
+
 import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -41,6 +43,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     Switch sw1,sw2,sw3,sw4,sw5,sw6;
     Bitmap imageDB;
     Bitmap imgToStore;
+    DataB_Helper datahelper;
 
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 101;
@@ -73,7 +76,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         ed2=findViewById(R.id.species_ed);
         ed3=findViewById(R.id.breed_ed);
         ed4=findViewById(R.id.size_ed);
-
+        datahelper=new DataB_Helper(this);
 
 //        sw1=findViewById(R.id.s1);
 //        sw2=findViewById(R.id.s2);
@@ -112,9 +115,20 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 //
 //            }
 //        });
+//        ,imgToStore
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String name=ed1.getText().toString();
+                String species=ed2.getText().toString();
+                String breed=ed3.getText().toString();
+                boolean id=datahelper.addRecord(name,species,breed,imgToStore);
+                if (id){
+
+                    Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

@@ -1,6 +1,7 @@
 package com.example.android_test.Fragments;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -14,11 +15,13 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebHistoryItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android_test.Adapters.Recycle_adapter;
 import com.example.android_test.Details;
+import com.example.android_test.Helper.DataB_Helper;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 
@@ -87,6 +90,25 @@ public class HomeFragment extends Fragment {
         String text = "What are you\nlooking for, Maria?";
         SpannableString s = new SpannableString(text);
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
+
+//        Cursor cursor = new DataB_Helper(getContext()).getData();
+//
+//        while (cursor.moveToNext()){
+//            Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getBlob(4));
+//                    details.add(obj);
+//        }
+//        if(cursor!=null && cursor.getCount() > 0)
+//        {
+//            if (cursor.moveToFirst())
+//            {
+//                do {
+//
+//                } while (cursor.moveToNext());
+//            }
+//        }
+
+//            Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getBlob(4));
+//            details.add(obj);
         Recycle_adapter adapter = new Recycle_adapter(getContext(), details);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

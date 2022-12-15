@@ -50,18 +50,21 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         //get data
-        Recycle_model model=details.get(position);
 //        String id=model.getId();
+
+        Recycle_model model=details.get(position);
         String name= model.getName();
+        String species = model.getSpecies();
         String breed = model.getBreed();
         byte[] image= model.getImg();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+
 
         //set data
-        holder.image_view1.setImageBitmap(bitmap);
         holder.txt1.setText(name);
-        holder.txt2.setText(breed);
-
+        holder.txt3.setText(breed);
+        holder.txt2.setText(species);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+        holder.image_view1.setImageBitmap(bitmap);
 
 //            Recycle_model recycle_model=details.get(position);
 
@@ -141,13 +144,14 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txt1,txt2;
+        TextView txt1,txt2,txt3;
         ImageView image_view1,imageView,imageView2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             txt1=itemView.findViewById(R.id.dogname_txt);
-            txt2=itemView.findViewById(R.id.breed_name_txt);
+            txt2=itemView.findViewById(R.id.species_txt);
+            txt3=itemView.findViewById(R.id.breed_name_txt);
             image_view1=itemView.findViewById(R.id.main_img);
 //
 //            imageView=itemView.findViewById(R.id.delete_img);

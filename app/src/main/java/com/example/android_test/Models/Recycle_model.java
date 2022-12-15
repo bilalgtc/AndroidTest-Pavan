@@ -4,22 +4,8 @@ public class Recycle_model {
 //    public String id;
     public byte[] img;
     public String name;
+    public String species;
     public String breed;
-
-    public Recycle_model(byte[] img, String name, String breed) {
-//        this.id = id;
-        this.img = img;
-        this.name = name;
-        this.breed = breed;
-    }
-
-//    public String getId() {
-//        return id;
-//    }
-//
-//    public void setId(String id) {
-//        this.id = id;
-//    }
 
     public byte[] getImg() {
         return img;
@@ -28,6 +14,39 @@ public class Recycle_model {
     public void setImg(byte[] img) {
         this.img = img;
     }
+//    , byte[] img
+    public Recycle_model(String name, String species, String breed, byte[] img) {
+//        this.id = id;
+
+        this.name = name;
+        this.species=species;
+        this.breed = breed;
+        this.img=img;
+    }
+
+//    public String getId() {
+//        return id;
+//    }
+//
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+//    public void setId(String id) {
+//        this.id = id;
+//    }
+
+//    public byte[] getImg() {
+//        return img;
+//    }
+//
+//    public void setImg(byte[] img) {
+//        this.img = img;
+//    }
 
     public String getName() {
         return name;

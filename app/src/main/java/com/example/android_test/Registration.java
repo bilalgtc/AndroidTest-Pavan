@@ -211,6 +211,11 @@ public class Registration extends AppCompatActivity {
                             contentValues.put("mobile", umobile);
                             dbHelper.addUser(contentValues);
 
+                            name.setText("");
+                            email.setText("");
+                            mobile.setText("");
+                            password.setText("");
+
                             Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             Intent i=new Intent(getApplicationContext(),Sign_In.class);
                             startActivity(i);

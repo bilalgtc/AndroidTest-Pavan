@@ -50,13 +50,21 @@ public class Sign_In extends AppCompatActivity {
              String emailvalue =email.getText().toString();
                 String passwordvalue =password.getText().toString();
 
+                if (!emailvalue.isEmpty() && !passwordvalue.isEmpty()) {
 
-                if(dbHelper.checkusermailpassword(emailvalue, passwordvalue)){
+
+                if(dbHelper.checkusermailpassword(emailvalue, passwordvalue)) {
+                    email.setText("");
+                    password.setText("");
                     Toast.makeText(Sign_In.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                  Intent i=new Intent(getApplicationContext(),Dashboard.class);
-                    startActivity(i);
-               }else{
-                   Toast.makeText(Sign_In.this, "Invalid User", Toast.LENGTH_SHORT).show();
+//                    Intent i = new Intent(getApplicationContext(), Dashboard.class);
+//                    startActivity(i);
+
+                }else {
+                    Toast.makeText(Sign_In.this, "Invalid User", Toast.LENGTH_SHORT).show();
+                }
+                }else{
+                    Toast.makeText(Sign_In.this, "Fields are empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });

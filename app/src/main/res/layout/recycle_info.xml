@@ -80,7 +80,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/dogname_txt" />
 
             <TextView
-                android:id="@+id/breed_txt"
+                android:id="@+id/species_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -99,9 +99,9 @@
                 android:layout_height="@dimen/_11sdp"
                 android:src="@drawable/icon_dog"
                 android:layout_marginStart="@dimen/_17sdp"
-                app:layout_constraintBottom_toBottomOf="@+id/breed_txt"
-                app:layout_constraintStart_toEndOf="@+id/breed_txt"
-                app:layout_constraintTop_toTopOf="@+id/breed_txt" />
+                app:layout_constraintBottom_toBottomOf="@+id/species_txt"
+                app:layout_constraintStart_toEndOf="@+id/species_txt"
+                app:layout_constraintTop_toTopOf="@+id/species_txt" />
 
             <TextView
                 android:id="@+id/breed_name_txt"
