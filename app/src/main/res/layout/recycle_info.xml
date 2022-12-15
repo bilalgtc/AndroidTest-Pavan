@@ -43,6 +43,7 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:fontFamily="@font/encode_sans_bold"
                 android:textSize="@dimen/_14ssp"
+                android:text="Troy"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toEndOf="@+id/cardView2"
                 app:layout_constraintTop_toTopOf="parent" />

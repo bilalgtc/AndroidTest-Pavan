@@ -1,7 +1,5 @@
 package com.example.android_test;
 
-import static android.graphics.Color.TRANSPARENT;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -16,17 +14,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,9 +25,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.example.android_test.Fragments.HomeFragment;
-import com.example.android_test.Helper.DetailsDBHelper;
 
 import java.io.IOException;
 
@@ -51,7 +39,6 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     EditText ed1,ed2,ed3,ed4;
     Button button;
     Switch sw1,sw2,sw3,sw4,sw5,sw6;
-    public static DetailsDBHelper ddbhelper;
     Bitmap imageDB;
     Bitmap imgToStore;
 
@@ -96,7 +83,6 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 //        sw6=findViewById(R.id.s6);
 
         button=findViewById(R.id.submit_btn);
-        ddbhelper = new DetailsDBHelper(this);
         cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
         cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
 
@@ -125,27 +111,11 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 ////                cardView1.setEnabled(false);
 //
 //            }
-//        });imgToStore,
+//        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name =ed1.getText().toString();
-                String breed = ed2.getText().toString();
-                boolean valueinserted = ddbhelper.insertRecords(name,breed);
-                if (valueinserted == true){
-                    ed1.setText("");
-                    Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent i=new Intent(Details.this, HomeFragment.class);
-                            startActivity(i);
-                        }
-                    }, 2000);
 
-                }else{
-                    Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 

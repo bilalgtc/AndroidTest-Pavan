@@ -31,13 +31,12 @@ import java.util.ArrayList;
 
 public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHolder> {
     ArrayList<Recycle_model> details=new ArrayList<>();
-    ArrayList name,breed;
     Context context;
 
-    public Recycle_adapter(Context context,ArrayList name,ArrayList breed){
+    public Recycle_adapter(Context context,ArrayList<Recycle_model> details){
             this.context=context;
-            this.name=name;
-            this.breed=breed;
+            this.details=details;
+
     }
     @NonNull
     @Override
@@ -50,12 +49,21 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.txt1.setText(String.valueOf(name.get(position)));
-        holder.txt2.setText(String.valueOf(breed.get(position)));
+        //get data
+        Recycle_model model=details.get(position);
+//        String id=model.getId();
+        String name= model.getName();
+        String breed = model.getBreed();
+        byte[] image= model.getImg();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+
+        //set data
+        holder.image_view1.setImageBitmap(bitmap);
+        holder.txt1.setText(name);
+        holder.txt2.setText(breed);
+
+
 //            Recycle_model recycle_model=details.get(position);
-//        byte[] image_re= recycle_model.getImg();
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(image_re, 0, image_re.length);
-//        holder.image_view1.setImageBitmap(bitmap);
 
         //get
 //       String name=recycle_model.getName();
@@ -129,18 +137,18 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return name.size();
+        return details.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txt1,txt2;
-//        ImageView image_view1,imageView,imageView2;
+        ImageView image_view1,imageView,imageView2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             txt1=itemView.findViewById(R.id.dogname_txt);
             txt2=itemView.findViewById(R.id.breed_name_txt);
-//            image_view1=itemView.findViewById(R.id.main_img);
+            image_view1=itemView.findViewById(R.id.main_img);
 //
 //            imageView=itemView.findViewById(R.id.delete_img);
 //            imageView2=itemView.findViewById(R.id.update_btn);
