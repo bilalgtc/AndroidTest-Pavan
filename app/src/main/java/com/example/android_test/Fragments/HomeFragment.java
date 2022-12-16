@@ -15,13 +15,12 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebHistoryItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android_test.Adapters.Recycle_adapter;
 import com.example.android_test.Details;
-import com.example.android_test.Helper.DataB_Helper;
+import com.example.android_test.Helper.DbManager2;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 
@@ -91,24 +90,24 @@ public class HomeFragment extends Fragment {
         SpannableString s = new SpannableString(text);
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
 
-//        Cursor cursor = new DataB_Helper(getContext()).getData();
-//
+        Cursor cursor = new DbManager2(getContext()).getData();
+
 //        while (cursor.moveToNext()){
-//            Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getBlob(4));
+//            Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3));
 //                    details.add(obj);
 //        }
-//        if(cursor!=null && cursor.getCount() > 0)
-//        {
-//            if (cursor.moveToFirst())
-//            {
-//                do {
-//
-//                } while (cursor.moveToNext());
-//            }
-//        }
+        if(cursor!=null && cursor.getCount() > 0)
+        {
+            if (cursor.moveToFirst())
+            {
+                do {
+                    Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3));
+                    details.add(obj);
+                } while (cursor.moveToNext());
+            }
+        }
 
-//            Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getBlob(4));
-//            details.add(obj);
+
         Recycle_adapter adapter = new Recycle_adapter(getContext(), details);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -133,13 +132,7 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-//        details.add(new Recycle_model(R.drawable.dogimg, "Troy", "German Shepherd"));
-//        details.add(new Recycle_model(R.drawable.dogimg2, "Oscar", "Labrador Retriever"));
-//        details.add(new Recycle_model(R.drawable.dogimg3, "Light", "Poodle"));
-//        details.add(new Recycle_model(R.drawable.dogimg4, "Bosco", "Rottweiler"));
-//        details.add(new Recycle_model(R.drawable.dogimg4, "Night", "Rottweiler"));
-//        details.add(new Recycle_model(R.drawable.dogimg4, "Sky", "Rottweiler"));
-
+//        details.add(new Recycle_model("Troy","Dog","German",image));
 
     }
 }

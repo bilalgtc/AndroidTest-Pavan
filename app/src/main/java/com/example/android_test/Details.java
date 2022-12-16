@@ -16,6 +16,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.android_test.Helper.DataB_Helper;
+import com.example.android_test.Helper.DbManager2;
 
 import java.io.IOException;
 
@@ -37,13 +38,12 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         ImageView imageView,imageView2;
         CircleImageView img;
     TextView textView;
-    int temp=0;
     EditText ed1,ed2,ed3,ed4;
     Button button;
     Switch sw1,sw2,sw3,sw4,sw5,sw6;
     Bitmap imageDB;
     Bitmap imgToStore;
-    DataB_Helper datahelper;
+    DbManager2 dbManager2;
 
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 101;
@@ -76,7 +76,8 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         ed2=findViewById(R.id.species_ed);
         ed3=findViewById(R.id.breed_ed);
         ed4=findViewById(R.id.size_ed);
-        datahelper=new DataB_Helper(this);
+
+        dbManager2=new DbManager2(this);
 
 //        sw1=findViewById(R.id.s1);
 //        sw2=findViewById(R.id.s2);
@@ -122,10 +123,19 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
                 String name=ed1.getText().toString();
                 String species=ed2.getText().toString();
                 String breed=ed3.getText().toString();
-                boolean id=datahelper.addRecord(name,species,breed,imgToStore);
+                boolean id=dbManager2.addRecord(name,species,breed);
                 if (id){
-
+                    ed1.setText("");
+                    ed2.setText("");
+                    ed3.setText("");
                     Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i=new Intent(getApplicationContext(),Dashboard.class);
+                            startActivity(i);
+                        }
+                    }, 1000);
                 }else{
                     Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
                 }

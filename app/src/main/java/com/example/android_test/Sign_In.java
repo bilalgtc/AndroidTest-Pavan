@@ -12,16 +12,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android_test.Helper.DBHelper;
+import com.example.android_test.Helper.DbManager;
 
 public class Sign_In extends AppCompatActivity {
         ImageView img;
         TextView txt1,txt2;
         AppCompatButton button;
     TextView edt1,edt2;
-    EditText email,password;
+    EditText emailed,passworded;
     View v,v2;
-    DBHelper dbHelper;
+    DbManager dbManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,23 +39,23 @@ public class Sign_In extends AppCompatActivity {
         edt2=findViewById(R.id.ed1_txt5);
 
 
-        email = findViewById(R.id.email2_ed);
-        password = findViewById(R.id.pass2_ed);
+        emailed = findViewById(R.id.email2_ed);
+        passworded = findViewById(R.id.pass2_ed);
 
-        dbHelper=new DBHelper(this);
+        dbManager =new  DbManager(this);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             String emailvalue =email.getText().toString();
-                String passwordvalue =password.getText().toString();
+             String email =emailed.getText().toString();
+                String password =passworded.getText().toString();
 
-                if (!emailvalue.isEmpty() && !passwordvalue.isEmpty()) {
+                if (!email.isEmpty() && !password.isEmpty()) {
 
 
-                if(dbHelper.checkusermailpass(emailvalue,passwordvalue)) {
-                    email.setText("");
-                    password.setText("");
+                if(dbManager.checkusermailpass(email,password)) {
+                    emailed.setText("");
+                    passworded.setText("");
                     Toast.makeText(Sign_In.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), Dashboard.class);
                     startActivity(i);
@@ -100,7 +100,7 @@ public class Sign_In extends AppCompatActivity {
 
 
 
-        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        emailed.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(b){
@@ -113,16 +113,13 @@ public class Sign_In extends AppCompatActivity {
             }
         });
 
-        password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(b){
-                    v2.setBackgroundColor(Color.parseColor("#4552CB"));
-                    edt2.setTextColor(Color.parseColor("#4552CB"));
-                }else {
-                    v2.setBackgroundColor(Color.parseColor("#BBC3CE"));
-                    edt2.setTextColor(Color.parseColor("#CCCCCC"));
-                }
+        passworded.setOnFocusChangeListener((view, b) -> {
+            if(b){
+                v2.setBackgroundColor(Color.parseColor("#4552CB"));
+                edt2.setTextColor(Color.parseColor("#4552CB"));
+            }else {
+                v2.setBackgroundColor(Color.parseColor("#BBC3CE"));
+                edt2.setTextColor(Color.parseColor("#CCCCCC"));
             }
         });
 

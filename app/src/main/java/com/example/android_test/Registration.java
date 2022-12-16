@@ -1,9 +1,5 @@
 package com.example.android_test;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,20 +14,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android_test.Helper.DBHelper;
-import com.google.android.material.textfield.TextInputLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+
+import com.example.android_test.Helper.DbManager;
 
 public class Registration extends AppCompatActivity {
 
     TextView textView,textView1,textView2;
     TextView edt1,edt2,edt3,edt4;
     AppCompatButton button;
-    EditText name,email,mobile,password;
+    EditText nameed,emailed,mobileed,passworded;
     View v,v2,v3,v4;
 //    TextInputLayout name,email,mobile,password;
     ImageView imageView,imageView2,imageView3;
     int temp=0;
-    DBHelper dbHelper;
+    DbManager dbManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,10 +62,10 @@ public class Registration extends AppCompatActivity {
         button = findViewById(R.id.signup_btn);
 
 
-        email = findViewById(R.id.email_ed);
-        password = findViewById(R.id.pass_ed);
-        name = findViewById(R.id.name_ed);
-        mobile = findViewById(R.id.mobile_ed);
+        emailed = findViewById(R.id.email_ed);
+        passworded = findViewById(R.id.pass_ed);
+        nameed = findViewById(R.id.name_ed);
+        mobileed = findViewById(R.id.mobile_ed);
 
 
         textView1=findViewById(R.id.goto_signin1);
@@ -75,10 +74,10 @@ public class Registration extends AppCompatActivity {
         imageView2=findViewById(R.id.checkbox_img1);
         imageView3=findViewById(R.id.checkbox_img2);
 
-        dbHelper = new DBHelper(this);
+//        dataHelper = new DataHelper(this);
+            dbManager = new DbManager(this);
 
-
-        name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        nameed.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(b){
@@ -93,7 +92,7 @@ public class Registration extends AppCompatActivity {
 
 
 
-        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        emailed.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(b){
@@ -106,7 +105,7 @@ public class Registration extends AppCompatActivity {
             }
         });
 
-        mobile.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        mobileed.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(b){
@@ -120,7 +119,7 @@ public class Registration extends AppCompatActivity {
         });
 
 
-        password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        passworded.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(b){
@@ -133,13 +132,17 @@ public class Registration extends AppCompatActivity {
             }
         });
 
+
+
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (temp==0){
+//                    button.setEnabled(true);
                     imageView2.setImageResource(R.drawable.activeted);
                     temp++;
                 }else if (temp==1){
+//                    button.setEnabled(false);
                     imageView2.setImageResource(R.drawable.disabled);
                     temp--;
                 }
@@ -192,70 +195,43 @@ public class Registration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String emailvalue=email.getText().toString();
-                String passwordvalue=password.getText().toString();
-                String uname = name.getText().toString();
-                String umobile = mobile.getText().toString();
+                String email=emailed.getText().toString();
+                String password=passworded.getText().toString();
+                String name = nameed.getText().toString();
+                String mobile = mobileed.getText().toString();
 
-                    if (uname.equals("") || emailvalue.equals("") || umobile.equals("") || passwordvalue.equals("")){
-                        name.setError("Field is empty");
-                        email.setError("Field is empty");
-                        mobile.setError("Field is empty");
-                        password.setError("Field is empty");
-                    }else{
-                        if (uname.length()>1) {
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("email", emailvalue);
-                            contentValues.put("password", passwordvalue);
-                            contentValues.put("username", uname);
-                            contentValues.put("mobile", umobile);
-                            dbHelper.addUser(contentValues);
+                    if (name.equals("") || email.equals("") || mobile.equals("") || password.equals("")) {
+                        nameed.setError("Field is empty");
+                        emailed.setError("Field is empty");
+                        mobileed.setError("Field is empty");
+                        passworded.setError("Field is empty");
 
-                            name.setText("");
-                            email.setText("");
-                            mobile.setText("");
-                            password.setText("");
+                    }else {
 
-                            Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            Intent i=new Intent(getApplicationContext(),Sign_In.class);
-                            startActivity(i);
+                        Boolean usercheckresult =dbManager.checkuser(email);
+                        if (usercheckresult == false){
 
-                        }else{
-                            Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
+                            boolean id = dbManager.addRecord(name,email,mobile, password);
+                            if (id == true){
+                                nameed.setText("");
+                                emailed.setText("");
+                                passworded.setText("");
+                                mobileed.setText("");
+                                Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                Intent i =new Intent(getApplicationContext(),Sign_In.class);
+                                startActivity(i);
+
+
+                                }else{
+                                    Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
+                                }
+
+                        }else {
+                            Toast.makeText(Registration.this, "User already exists", Toast.LENGTH_SHORT).show();
                         }
-
-//                        Boolean usercheckresult =dbHelper.checkuser(emailvalue);
-//                        if (usercheckresult == false){
-//
-//                            Boolean regresult = dbHelper.insertData(emailvalue, passwordvalue, uname, umobile);
-//                                if (regresult == true){
-//                                    Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-//                                }else{
-//                                    Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
-//                                }
-//
-//                        }else {
-//                            Toast.makeText(Registration.this, "User already exists", Toast.LENGTH_SHORT).show();
-//                        }
                     }
-
-
-
-
             }
         });
     }
-//
-//    private boolean check(){
-//        String n=name.getEditText().getText().toString().trim();
-//
-//        if (n.isEmpty()){
-//            name.setError("Field is Empty");
-//            return  false;
-//        }else{
-//            name.setError(null);
-//            return true;
-//        }
-//    }
 
 }

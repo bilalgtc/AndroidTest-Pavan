@@ -15,7 +15,7 @@ public class Recycle_model {
         this.img = img;
     }
 //    , byte[] img
-    public Recycle_model(String name, String species, String breed, byte[] img) {
+    public Recycle_model(String name, String species, String breed) {
 //        this.id = id;
 
         this.name = name;

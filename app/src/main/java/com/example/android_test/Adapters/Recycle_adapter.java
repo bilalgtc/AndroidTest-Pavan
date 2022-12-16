@@ -56,15 +56,15 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         String name= model.getName();
         String species = model.getSpecies();
         String breed = model.getBreed();
-        byte[] image= model.getImg();
+//        byte[] image= model.getImg();
 
 
         //set data
         holder.txt1.setText(name);
         holder.txt3.setText(breed);
         holder.txt2.setText(species);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-        holder.image_view1.setImageBitmap(bitmap);
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+//        holder.image_view1.setImageBitmap(bitmap);
 
 //            Recycle_model recycle_model=details.get(position);
 
