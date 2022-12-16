@@ -53,12 +53,12 @@ public class Sign_In extends AppCompatActivity {
                 if (!emailvalue.isEmpty() && !passwordvalue.isEmpty()) {
 
 
-                if(dbHelper.checkusermailpassword(emailvalue, passwordvalue)) {
+                if(dbHelper.checkusermailpass(emailvalue,passwordvalue)) {
                     email.setText("");
                     password.setText("");
                     Toast.makeText(Sign_In.this, "Login Successful", Toast.LENGTH_SHORT).show();
-//                    Intent i = new Intent(getApplicationContext(), Dashboard.class);
-//                    startActivity(i);
+                    Intent i = new Intent(getApplicationContext(), Dashboard.class);
+                    startActivity(i);
 
                 }else {
                     Toast.makeText(Sign_In.this, "Invalid User", Toast.LENGTH_SHORT).show();

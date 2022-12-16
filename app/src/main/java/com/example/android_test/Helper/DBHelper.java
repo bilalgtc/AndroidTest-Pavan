@@ -70,29 +70,29 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 //
 //
-//    public Boolean checkuser(String emailvalue){
-//        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-//        Cursor cursor =sqLiteDatabase.rawQuery("select * from user where email = ?",new String[] {emailvalue});
-//        if (cursor.getCount()>1){
-//            return true;
-//        }else{
-//            return  false;
-//        }
+    public Boolean checkuser(String emailvalue){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        Cursor cursor =sqLiteDatabase.rawQuery("select * from user where email = ?",new String[] {emailvalue});
+        if (cursor.getCount()>1){
+            return true;
+        }else{
+            return  false;
+        }
+
+
+    }
 //
 //
-//    }
-//
-//
-//    public Boolean checkusermailpass(String emailvalue,String passwordvalue){
-//        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-//        Cursor cursor =sqLiteDatabase.rawQuery("select * from user where email = ? and password = ?",new String[] {emailvalue,passwordvalue});
-//        if (cursor.getCount()>1){
-//            return true;
-//        }else{
-//            return  false;
-//        }
-//
-//    }
+    public Boolean checkusermailpass(String emailvalue,String passwordvalue){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        Cursor cursor =sqLiteDatabase.rawQuery("select * from user where email = ? and password = ?",new String[] {emailvalue,passwordvalue});
+        if (cursor.getCount()>0){
+            return true;
+        }else{
+            return  false;
+        }
+
+    }
 
     }
 
