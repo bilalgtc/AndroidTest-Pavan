@@ -83,4 +83,8 @@ public class Dashboard extends AppCompatActivity {
          fragmentTransaction.replace(R.id.fragment_container,fragment);
          fragmentTransaction.commit();
      }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

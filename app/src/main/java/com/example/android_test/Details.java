@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -15,19 +16,23 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.android_test.Helper.DbManager2;
+import com.example.android_test.Helper.DbManager3;
+import com.example.android_test.Helper.DbManager4;
+import com.example.android_test.Helper.DbManager6;
+import com.example.android_test.Helper.DbManager7;
 
 import java.io.IOException;
 
@@ -40,11 +45,11 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     TextView textView;
     EditText ed1,ed2,ed3,ed4;
     Button button;
-    Switch sw1,sw2,sw3,sw4,sw5,sw6;
+    SwitchCompat sw1,sw2,sw3,sw4,sw5,sw6;
     Bitmap imageDB;
     Bitmap imgToStore;
-    DbManager2 dbManager2;
-
+    DbManager3 dbManager3;
+    DbManager7 dbManager7;
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 101;
     //IMAGE PICK
@@ -54,7 +59,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     String[] cameraPermissions;
     String[] storagePermissions;
     private Uri imageUri;
-
+    boolean[] value={false,false,false,false,false,false};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,20 +82,21 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         ed3=findViewById(R.id.breed_ed);
         ed4=findViewById(R.id.size_ed);
 
-        dbManager2=new DbManager2(this);
+        DbManager4 dbManager4=new DbManager4(this);
+        DbManager6 dbManager6=new DbManager6(this);
 
-//        sw1=findViewById(R.id.s1);
-//        sw2=findViewById(R.id.s2);
-//        sw3=findViewById(R.id.s3);
-//        sw4=findViewById(R.id.s4);
-//        sw5=findViewById(R.id.s5);
-//        sw6=findViewById(R.id.s6);
+        sw1=findViewById(R.id.s1);
+        sw2=findViewById(R.id.s2);
+        sw3=findViewById(R.id.s3);
+        sw4=findViewById(R.id.s4);
+        sw5=findViewById(R.id.s5);
+        sw6=findViewById(R.id.s6);
 
         button=findViewById(R.id.submit_btn);
         cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
         cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
 
-
+         dbManager7 =new DbManager7(this);
 
         cardView1.setOnClickListener(this);
         cardView2.setOnClickListener(this);
@@ -99,9 +105,15 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 //
 //            @Override
 //            public void onClick(View v) {
-//                cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
+//                if (cardView1.isEnabled()) {
+//                    cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
+//                    dbManager7.addRecord(true);
 ////                cardView2.setEnabled(false);
+//                }else {
+//                    cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+//                    dbManager7.addRecord(false);
 //
+//                }
 //
 //            }
 //        });
@@ -110,7 +122,6 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 //        cardView2.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//
 //                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
 ////                cardView1.setEnabled(false);
 //
@@ -118,28 +129,51 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 //        });
 //        ,imgToStore
         button.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                String name=ed1.getText().toString();
-                String species=ed2.getText().toString();
-                String breed=ed3.getText().toString();
-                boolean id=dbManager2.addRecord(name,species,breed);
-                if (id){
-                    ed1.setText("");
-                    ed2.setText("");
-                    ed3.setText("");
-                    Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
+
+
+//                value[0]=sw1.isChecked();
+//                value[1]=sw2.isChecked();
+//                value[2]=sw3.isChecked();
+//                value[3]=sw4.isChecked();
+//                value[4]=sw5.isChecked();
+//                value[5]=sw6.isChecked();
+//
+//                ContentValues contentValues=new ContentValues();
+//                contentValues.put("state", value[0]);
+//                contentValues.put("state2", value[1]);
+//                contentValues.put("state3", value[2]);
+//                contentValues.put("state4", value[3]);
+//                contentValues.put("state5", value[4]);
+//                contentValues.put("state6", value[5]);
+//
+//                Log.e("Details", "got_value"+contentValues);
+//                dbManager6.addRecord(contentValues);
+
+
+//                String name=ed1.getText().toString();
+//                String species=ed2.getText().toString();
+//                String breed=ed3.getText().toString();
+//                boolean id=dbManager4.addRecord(imgToStore,name,species,breed);
+//                if (id){
+//                    ed1.setText("");
+//                    ed2.setText("");
+//                    ed3.setText("");
+//                    Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
                             Intent i=new Intent(getApplicationContext(),Dashboard.class);
                             startActivity(i);
-                        }
-                    }, 1000);
-                }else{
-                    Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
-                }
-
+                            finish();
+//                        }
+//                    }, 1000);
+//                }else{
+//                    Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
+//                }
+//
             }
         });
 
@@ -161,6 +195,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
                     public void onClick(View view) {
                         Intent i=new Intent(getApplicationContext(),Dashboard.class);
                         startActivity(i);
+                        finish();
                     }
                 });
             }
@@ -172,8 +207,10 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case  R.id.cardView:
-                    if (cardView1.isEnabled()){
+                    if (cardView1.isEnabled() ){
                         cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+                        dbManager7.addRecord(true);
+
                     }
                 cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
                 break;
@@ -183,6 +220,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
                 if (cardView2.isEnabled()){
                     cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+                    dbManager7.addRecord(false);
                 }
                 cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
                 break;
@@ -190,6 +228,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
         }
     }
+
         private void imagePickDialog(){
 
         String[] options = {"Camera","Gallery"};

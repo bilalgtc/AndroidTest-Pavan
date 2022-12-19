@@ -20,7 +20,8 @@ import android.widget.TextView;
 
 import com.example.android_test.Adapters.Recycle_adapter;
 import com.example.android_test.Details;
-import com.example.android_test.Helper.DbManager2;
+import com.example.android_test.Helper.DbManager6;
+import com.example.android_test.Helper.DbManager7;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 
@@ -90,7 +91,7 @@ public class HomeFragment extends Fragment {
         SpannableString s = new SpannableString(text);
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
 
-        Cursor cursor = new DbManager2(getContext()).getData();
+        Cursor cursor = new DbManager7(getContext()).getData();
 
 //        while (cursor.moveToNext()){
 //            Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3));
@@ -100,8 +101,8 @@ public class HomeFragment extends Fragment {
         {
             if (cursor.moveToFirst())
             {
-                do {
-                    Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3));
+                do {                                            //cursor.getBlob(1),cursor.getString(2),cursor.getString(3), cursor.getString(4)
+                    Recycle_model obj = new Recycle_model(cursor.getString(1));
                     details.add(obj);
                 } while (cursor.moveToNext());
             }
@@ -120,19 +121,20 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), Details.class);
                 startActivity(i);
+                getActivity().finish();
             }
         });
 
+
         return v;
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-//        details.add(new Recycle_model("Troy","Dog","German",image));
+//              details.add(new Recycle_model("Troy","Dog","German",image));
 
     }
+
 }

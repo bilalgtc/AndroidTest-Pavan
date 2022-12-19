@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_140sdp">
     
@@ -97,11 +98,12 @@
                 android:id="@+id/imageView6"
                 android:layout_width="@dimen/_11sdp"
                 android:layout_height="@dimen/_11sdp"
+                android:layout_marginStart="20dp"
                 android:src="@drawable/icon_dog"
-                android:layout_marginStart="@dimen/_17sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/species_txt"
                 app:layout_constraintStart_toEndOf="@+id/species_txt"
-                app:layout_constraintTop_toTopOf="@+id/species_txt" />
+                app:layout_constraintTop_toTopOf="@+id/species_txt"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/breed_name_txt"
@@ -128,7 +130,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/gender_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -146,10 +148,10 @@
                 android:layout_width="@dimen/_11sdp"
                 android:layout_height="@dimen/_11sdp"
                 android:src="@drawable/size_icon"
-                android:layout_marginStart="@dimen/_17sdp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView9"
-                app:layout_constraintStart_toEndOf="@+id/textView9"
-                app:layout_constraintTop_toTopOf="@+id/textView9" />
+                app:layout_constraintBottom_toBottomOf="@+id/gender_txt"
+                app:layout_constraintEnd_toEndOf="@+id/imageView6"
+                app:layout_constraintStart_toStartOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/gender_txt" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -166,7 +168,7 @@
 
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/neutered_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_3ssp"
@@ -179,7 +181,7 @@
                 app:layout_constraintStart_toStartOf="@+id/imageView7" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/vacci_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans"
@@ -187,12 +189,12 @@
                 android:layout_marginStart="@dimen/_8sdp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_6ssp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView11"
-                app:layout_constraintStart_toEndOf="@+id/textView11"
-                app:layout_constraintTop_toTopOf="@+id/textView11" />
+                app:layout_constraintBottom_toBottomOf="@+id/neutered_txt"
+                app:layout_constraintStart_toEndOf="@+id/neutered_txt"
+                app:layout_constraintTop_toTopOf="@+id/neutered_txt" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/friwithdogs_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans"
@@ -200,12 +202,12 @@
                 android:layout_marginStart="@dimen/_8sdp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_6ssp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView12"
-                app:layout_constraintStart_toEndOf="@+id/textView12"
-                app:layout_constraintTop_toTopOf="@+id/textView12" />
+                app:layout_constraintBottom_toBottomOf="@+id/vacci_txt"
+                app:layout_constraintStart_toEndOf="@+id/vacci_txt"
+                app:layout_constraintTop_toTopOf="@+id/vacci_txt" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/friwithcats_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans"
@@ -213,9 +215,9 @@
                 android:layout_marginStart="@dimen/_8sdp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_6ssp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView13"
-                app:layout_constraintStart_toEndOf="@+id/textView13"
-                app:layout_constraintTop_toTopOf="@+id/textView13" />
+                app:layout_constraintBottom_toBottomOf="@+id/friwithdogs_txt"
+                app:layout_constraintStart_toEndOf="@+id/friwithdogs_txt"
+                app:layout_constraintTop_toTopOf="@+id/friwithdogs_txt" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
