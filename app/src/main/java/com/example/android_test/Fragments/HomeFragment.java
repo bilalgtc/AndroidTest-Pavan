@@ -20,8 +20,10 @@ import android.widget.TextView;
 
 import com.example.android_test.Adapters.Recycle_adapter;
 import com.example.android_test.Details;
+import com.example.android_test.Helper.DatabaseHelper;
 import com.example.android_test.Helper.DbManager6;
 import com.example.android_test.Helper.DbManager7;
+import com.example.android_test.Helper.DbManager8;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 
@@ -91,7 +93,7 @@ public class HomeFragment extends Fragment {
         SpannableString s = new SpannableString(text);
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
 
-        Cursor cursor = new DbManager7(getContext()).getData();
+        Cursor cursor = new DatabaseHelper(getContext()).getData();
 
 //        while (cursor.moveToNext()){
 //            Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3));
@@ -102,7 +104,7 @@ public class HomeFragment extends Fragment {
             if (cursor.moveToFirst())
             {
                 do {                                            //cursor.getBlob(1),cursor.getString(2),cursor.getString(3), cursor.getString(4)
-                    Recycle_model obj = new Recycle_model(cursor.getString(1));
+                    Recycle_model obj = new Recycle_model(cursor.getString(0),cursor.getBlob(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getString(7),cursor.getString(8),cursor.getString(9),cursor.getString(10), cursor.getString(11), cursor.getString(12));
                     details.add(obj);
                 } while (cursor.moveToNext());
             }

@@ -14,13 +14,13 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,36 +29,46 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.android_test.Helper.DbManager3;
-import com.example.android_test.Helper.DbManager4;
-import com.example.android_test.Helper.DbManager6;
-import com.example.android_test.Helper.DbManager7;
+import com.example.android_test.Fragments.HomeFragment;
+import com.example.android_test.Helper.DatabaseHelper;
+import com.example.android_test.Helper.DbManager8;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+    //implements View.OnClickListener
+public class Details extends AppCompatActivity {
 
-public class Details extends AppCompatActivity implements View.OnClickListener {
-        CardView cardView1,cardView2;
-        ImageView imageView,imageView2;
-        CircleImageView img;
+    CardView cardView1,cardView2;
+    ImageView imageView,imageView2;
+    CircleImageView img;
     TextView textView;
     EditText ed1,ed2,ed3,ed4;
     Button button;
-    SwitchCompat sw1,sw2,sw3,sw4,sw5,sw6;
+    SwitchCompat sw1;
+        SwitchCompat sw2;
+        SwitchCompat sw3;
+        SwitchCompat sw4;
+        SwitchCompat sw5;
+        SwitchCompat sw6;
     Bitmap imageDB;
     Bitmap imgToStore;
-    DbManager3 dbManager3;
-    DbManager7 dbManager7;
+    byte[] image;
+    boolean[] state={true,false};
+    public boolean isEditMode = false;
+    DatabaseHelper dbhelper;
+
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 101;
     //IMAGE PICK
     private static final int IMAGE_PICK_CAMERA_CODE = 102;
     private static final int IMAGE_PICK_GALLERY_CODE = 103;
-
+    String id,name,species,breed,size,gender,neutered, vaccinated,Friendlywithdogs,Friendlywithcats, Friendlywithkids10, Friendlywithkids10G;
     String[] cameraPermissions;
     String[] storagePermissions;
     private Uri imageUri;
+
     boolean[] value={false,false,false,false,false,false};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,8 +92,6 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         ed3=findViewById(R.id.breed_ed);
         ed4=findViewById(R.id.size_ed);
 
-        DbManager4 dbManager4=new DbManager4(this);
-        DbManager6 dbManager6=new DbManager6(this);
 
         sw1=findViewById(R.id.s1);
         sw2=findViewById(R.id.s2);
@@ -92,91 +100,243 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         sw5=findViewById(R.id.s5);
         sw6=findViewById(R.id.s6);
 
+
         button=findViewById(R.id.submit_btn);
         cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
         cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
 
-         dbManager7 =new DbManager7(this);
+         dbhelper =new DatabaseHelper(this);
 
-        cardView1.setOnClickListener(this);
-        cardView2.setOnClickListener(this);
+         Intent i=getIntent();
+         isEditMode = i.getBooleanExtra("isEditMode", false);
 
-//        cardView1.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                if (cardView1.isEnabled()) {
-//                    cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-//                    dbManager7.addRecord(true);
-////                cardView2.setEnabled(false);
-//                }else {
-//                    cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
-//                    dbManager7.addRecord(false);
-//
-//                }
-//
-//            }
-//        });
-//
-//
-//        cardView2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-////                cardView1.setEnabled(false);
-//
-//            }
-//        });
-//        ,imgToStore
+        if (isEditMode) {
+            id=i.getStringExtra("id");
+//            imgToStore=Uri.parse(i.getStringExtra("image"));
+            name=i.getStringExtra("name");
+            species=i.getStringExtra("species");
+            breed=i.getStringExtra("breed");
+            size=i.getStringExtra("size");
+            gender=i.getStringExtra("gender");
+            neutered=i.getStringExtra("neutered");
+            vaccinated=i.getStringExtra("vaccinated");
+            Friendlywithdogs=i.getStringExtra("Friendlywithdogs");
+            Friendlywithcats=i.getStringExtra("Friendlywithcats");
+            Friendlywithkids10=i.getStringExtra("Friendlywithkids10");
+            Friendlywithkids10G=i.getStringExtra("Friendlywithkids10G");
+
+            byte[] image3=i.getByteArrayExtra("image");
+            Bitmap bitmap= BitmapFactory.decodeByteArray(image3, 0, image3.length);
+            img.setImageBitmap(bitmap);
+
+            ed1.setText(name);
+            ed2.setText(species);
+            ed3.setText(breed);
+            ed4.setText(size);
+
+            if (image3!=null){
+                img.setImageBitmap(bitmap);
+            }else {
+                img.setImageResource(R.drawable.dogimg);
+            }
+
+            if (gender.equals("1")){
+                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
+                cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+            }else if (gender.equals("0")){
+                cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
+                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+            }else {
+                cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+            }
+
+            if (neutered.equals("1")){
+                sw1.setChecked(true);
+            }else if (neutered.equals("0")){
+                sw1.setChecked(false);
+            }else {
+                sw1.setChecked(false);
+            }
+
+            if (vaccinated.equals("1")){
+                sw2.setChecked(true);
+            }else if (vaccinated.equals("0")){
+                sw2.setChecked(false);
+            }else {
+                sw2.setChecked(false);
+            }
+
+            if (Friendlywithdogs.equals("1")){
+                sw3.setChecked(true);
+            }else if (Friendlywithdogs.equals("0")){
+                sw3.setChecked(false);
+            }else {
+                sw3.setChecked(false);
+            }
+
+            if (Friendlywithcats.equals("1")){
+                sw4.setChecked(true);
+            }else if (Friendlywithcats.equals("0")){
+                sw4.setChecked(false);
+            }else {
+                sw4.setChecked(false);
+            }
+
+            if (Friendlywithkids10.equals("1")){
+                sw5.setChecked(true);
+            }else if (Friendlywithkids10.equals("0")){
+                sw5.setChecked(false);
+            }else {
+                sw5.setChecked(false);
+            }
+
+            if (Friendlywithkids10G.equals("1")){
+                sw6.setChecked(true);
+            }else if (Friendlywithkids10G.equals("0")){
+                sw6.setChecked(false);
+            }else {
+                sw6.setChecked(false);
+            }
+       }
+        ContentValues contentValues=new ContentValues();
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                 name = ed1.getText().toString();
+                 species = ed2.getText().toString();
+                 breed = ed3.getText().toString();
+                 size = ed4.getText().toString();
+
+                 if (isEditMode){
+
+                     value[0] = sw1.isChecked();
+                     value[1] = sw2.isChecked();
+                     value[2] = sw3.isChecked();
+                     value[3] = sw4.isChecked();
+                     value[4] = sw5.isChecked();
+                     value[5] = sw6.isChecked();
+
+                     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                     imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                     image = outputStream.toByteArray();
+                     contentValues.put("image", image);
+                     contentValues.put("name", name);
+                     contentValues.put("species",species);
+                     contentValues.put("breed", breed);
+                     contentValues.put("size",size);
+                     contentValues.put("gender", state[0]);
+                     contentValues.put("gender", state[1]);
+                     contentValues.put("neutered", value[0]);
+                     contentValues.put("vaccinated", value[1]);
+                     contentValues.put("Friendlywithdogs", value[2]);
+                     contentValues.put("Friendlywithcats", value[3]);
+                     contentValues.put("Friendlywithkids10", value[4]);
+                     contentValues.put("Friendlywithkids10G", value[5]);
 
 
-//                value[0]=sw1.isChecked();
-//                value[1]=sw2.isChecked();
-//                value[2]=sw3.isChecked();
-//                value[3]=sw4.isChecked();
-//                value[4]=sw5.isChecked();
-//                value[5]=sw6.isChecked();
-//
-//                ContentValues contentValues=new ContentValues();
-//                contentValues.put("state", value[0]);
-//                contentValues.put("state2", value[1]);
-//                contentValues.put("state3", value[2]);
-//                contentValues.put("state4", value[3]);
-//                contentValues.put("state5", value[4]);
-//                contentValues.put("state6", value[5]);
-//
-//                Log.e("Details", "got_value"+contentValues);
-//                dbManager6.addRecord(contentValues);
+
+                        boolean i=dbhelper.updateRecord(contentValues,id);
+                        if (i==true){
+                            Toast.makeText(Details.this, "Updated", Toast.LENGTH_SHORT).show();
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent intent=new Intent(getApplicationContext(),HomeFragment.class);
+                                    startActivity(intent);
+                                }
+                            }, 1000);
+
+                        }else{
+                            Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
+                        }
 
 
-//                String name=ed1.getText().toString();
-//                String species=ed2.getText().toString();
-//                String breed=ed3.getText().toString();
-//                boolean id=dbManager4.addRecord(imgToStore,name,species,breed);
-//                if (id){
-//                    ed1.setText("");
-//                    ed2.setText("");
-//                    ed3.setText("");
-//                    Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
-//                    new Handler().postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-                            Intent i=new Intent(getApplicationContext(),Dashboard.class);
-                            startActivity(i);
-                            finish();
-//                        }
-//                    }, 1000);
-//                }else{
-//                    Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
-//                }
-//
+                 }else {
+
+                     if (name.isEmpty() && species.isEmpty() && breed.isEmpty() && size.isEmpty()) {
+                         Toast.makeText(Details.this, "Fields are empty", Toast.LENGTH_SHORT).show();
+                     } else {
+
+                         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                         imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                         image = outputStream.toByteArray();
+
+                         contentValues.put("image", image);
+                         contentValues.put("name", name);
+                         contentValues.put("species", species);
+                         contentValues.put("breed", breed);
+                         contentValues.put("size", size);
+
+                         value[0] = sw1.isChecked();
+                         value[1] = sw2.isChecked();
+                         value[2] = sw3.isChecked();
+                         value[3] = sw4.isChecked();
+                         value[4] = sw5.isChecked();
+                         value[5] = sw6.isChecked();
+
+
+                         contentValues.put("neutered", value[0]);
+                         contentValues.put("vaccinated", value[1]);
+                         contentValues.put("Friendlywithdogs", value[2]);
+                         contentValues.put("Friendlywithcats", value[3]);
+                         contentValues.put("Friendlywithkids10", value[4]);
+                         contentValues.put("Friendlywithkids10G", value[5]);
+                         contentValues.put("gender", state[0]);
+                         contentValues.put("gender", state[1]);
+
+                         boolean i=dbhelper.insertData(contentValues);
+                         if (i==true){
+                             Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
+                             new Handler().postDelayed(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                     startActivity(intent);
+                                     finish();
+                                 }
+                             }, 2000);
+
+
+                         }else {
+                             Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
+                         }
+
+
+                     }
+                 }
+
+
             }
         });
 
+        cardView1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                state[0]=cardView1.isEnabled();
+                cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
+                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+//                contentValues.put("gender",true);
+
+
+            }
+        });
+
+        cardView2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                state[1]=cardView2.isEnabled();
+                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
+                cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+
+//                contentValues.put("gender",false);
+
+
+            }
+        });
 
 
         imageView2.setOnClickListener(new View.OnClickListener() {
@@ -203,31 +363,17 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case  R.id.cardView:
-                    if (cardView1.isEnabled() ){
-                        cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
-                        dbManager7.addRecord(true);
+        private void editData() {
+            if (getIntent().getStringExtra("name")!=null){
+                Intent i=getIntent();
+                name=i.getStringExtra("name");
+            species=i.getStringExtra("species");
+            breed=i.getStringExtra("breed");
+            size=i.getStringExtra("size");
 
-                    }
-                cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-                break;
-
-
-            case  R.id.cardView2:
-
-                if (cardView2.isEnabled()){
-                    cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
-                    dbManager7.addRecord(false);
-                }
-                cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-                break;
-
-
+            }
         }
-    }
+
 
         private void imagePickDialog(){
 
