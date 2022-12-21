@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:theme="@style/Theme.Android_Test2"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:background="#F5F5F5"
+tools:context=".Dashboard">
+
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+       android:layout_height="@dimen/_30sdp"
+        android:layout_gravity="bottom"
+        android:layout_above="@id/bar"
+        app:elevation="0dp"
+        app:labelVisibilityMode="labeled"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:menu="@menu/menu_items" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/_132sdp"
+        android:layout_height="@dimen/_5sdp"
+        android:src="@drawable/home2"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"/>
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/appCompatImageView7"-->
+<!--        android:layout_width="@dimen/_132sdp"-->
+<!--        android:layout_height="@dimen/_5sdp"-->
+<!--        android:layout_marginBottom="@dimen/_5sdp"-->
+<!--        android:foreground="#BBC3CE"-->
+<!--        android:src="@drawable/home2"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+</RelativeLayout>
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    android:theme="@style/Theme.Android_Test2"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    tools:context=".Dashboard">-->
+
+
+
+
+    <!--        <FrameLayout-->
+    <!--            android:id="@+id/frame"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content">-->
+
+    <!--            <RelativeLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent">-->
+    <!--            <ImageView-->
+    <!--            android:id="@+id/imageView"-->
+    <!--            android:layout_width="@dimen/_15sdp"-->
+    <!--            android:layout_height="@dimen/_15sdp"-->
+    <!--            android:layout_marginTop="@dimen/_20sdp"-->
+    <!--            android:layout_marginEnd="@dimen/_20sdp"-->
+    <!--            android:src="@drawable/plus"-->
+    <!--            android:layout_alignParentEnd="true" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/dash_textView"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="@dimen/_20sdp"-->
+    <!--                android:fontFamily="@font/encode_sans_bold"-->
+    <!--                android:text="What are you\nlooking for, Maria?"-->
+    <!--                android:textColor="#070821"-->
+    <!--                android:textSize="@dimen/_25ssp"-->
+    <!--                android:layout_below="@id/imageView"-->
+    <!--                android:layout_marginStart="@dimen/_23sdp"-->
+    <!--                />-->
+
+    <!--            <androidx.recyclerview.widget.RecyclerView-->
+    <!--                android:layout_below="@id/dash_textView"-->
+    <!--                android:id="@+id/dash_recyclerView"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:overScrollMode="never"-->
+    <!--                android:layout_marginTop="@dimen/_35sdp"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/dash_textView"/>-->
+
+    <!--            </RelativeLayout>-->
+    <!--        </FrameLayout>-->
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--        android:layout_below="@id/frame"-->
+    <!--        android:id="@+id/bot_nav"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        app:menu="@menu/menu_items" />-->
+
+    <!--    &lt;!&ndash;    <androidx.appcompat.widget.AppCompatImageView&ndash;&gt;-->
+    <!--    &lt;!&ndash;        android:id="@+id/appCompatImageView7"&ndash;&gt;-->
+    <!--    &lt;!&ndash;        android:layout_width="@dimen/_132sdp"&ndash;&gt;-->
+    <!--    &lt;!&ndash;        android:layout_height="@dimen/_5sdp"&ndash;&gt;-->
+    <!--    &lt;!&ndash;        android:layout_marginBottom="@dimen/_5sdp"&ndash;&gt;-->
+    <!--    &lt;!&ndash;        android:foreground="#BBC3CE"&ndash;&gt;-->
+    <!--    &lt;!&ndash;        android:src="@drawable/home2"&ndash;&gt;-->
+    <!--    &lt;!&ndash;        app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+    <!--    &lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+    <!--    &lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"/>&ndash;&gt;-->
+
+    <!--</RelativeLayout>-->
