@@ -111,7 +111,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerEmailbtn"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="@dimen/_30sdp"
         android:layout_marginStart="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_40sdp"
         android:layout_marginEnd="@dimen/_40sdp"
