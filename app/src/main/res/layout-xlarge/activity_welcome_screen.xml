@@ -8,31 +8,33 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     android:id="@+id/s_txt1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_20sdp"
-    android:layout_marginEnd="@dimen/_20sdp"
+    android:layout_marginTop="@dimen/_12sdp"
+    android:layout_marginEnd="@dimen/_12sdp"
     android:fontFamily="@font/encode_sans_semibold"
     android:text="@string/signIn"
     android:textColor="#4552CB"
-    android:textSize="@dimen/_13ssp"
+    android:textSize="@dimen/_12ssp"
     android:layout_alignParentEnd="true"
     android:layout_marginRight="@dimen/_20sdp"/>
 
 
 
+
+
 <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-    
+
     android:id="@+id/dots"
     android:layout_width="@dimen/_65sdp"
-    android:layout_height="@dimen/_8sdp"
+    android:layout_height="@dimen/_5sdp"
     android:layout_centerInParent="true"
     app:dotsColor="#E6E7F8"
     app:dotsSize="@dimen/_8sdp"
     app:selectedDotColor="#F1A852"/>
 <androidx.viewpager.widget.ViewPager
     android:id="@+id/viewpager"
-    android:layout_marginTop="@dimen/_15sdp"
+    android:layout_marginTop="@dimen/_3sdp"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_250sdp"
+    android:layout_height="@dimen/_270sdp"
     android:layout_below="@+id/s_txt1">
 
 </androidx.viewpager.widget.ViewPager>
@@ -41,10 +43,10 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_btn"
         android:layout_width="@dimen/_200sdp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_30sdp"
         android:layout_below="@id/viewpager"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_57sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/btn1_style"
         android:fontFamily="@font/encode_sans_bold"
         android:text="@string/next"
@@ -52,13 +54,12 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:textColor="@color/white"
         android:textSize="@dimen/_12ssp" />
 
-<androidx.appcompat.widget.AppCompatImageView
-    android:id="@+id/appCompatImageView8"
-    android:layout_width="@dimen/_132sdp"
-    android:layout_height="@dimen/_5sdp"
-    android:layout_marginBottom="@dimen/_8sdp"
-    android:foreground="#BBC3CE"
-    android:layout_centerInParent="true"
-    android:layout_alignParentBottom="true"
-    android:src="@drawable/home2"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView8"
+        android:layout_width="@dimen/_132sdp"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:src="@drawable/home2" />
 </RelativeLayout>

@@ -8,10 +8,10 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/item_imgview"
         android:layout_width="match_parent"
-        android:paddingTop="@dimen/_60sdp"
-        android:layout_height="@dimen/_200sdp"
-        android:adjustViewBounds="true"
+        android:paddingTop="@dimen/_105sdp"
+        android:layout_height="@dimen/_150sdp"
         android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
         android:src="@drawable/illustration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
 
 
     <TextView
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
