@@ -68,6 +68,7 @@ public class Details extends AppCompatActivity {
     String[] cameraPermissions;
     String[] storagePermissions;
     private Uri imageUri;
+        Bitmap bitmap;
 
     boolean[] value={false,false,false,false,false,false};
     @Override
@@ -126,19 +127,28 @@ public class Details extends AppCompatActivity {
             Friendlywithkids10G=i.getStringExtra("Friendlywithkids10G");
 
             byte[] image3=i.getByteArrayExtra("image");
-            Bitmap bitmap= BitmapFactory.decodeByteArray(image3, 0, image3.length);
-            img.setImageBitmap(bitmap);
 
+//            if (image3!=null) {
+//                 bitmap = BitmapFactory.decodeByteArray(image3, 0, image3.length);
+//                img.setImageBitmap(bitmap);
+//            }else {
+//                img.setImageResource(R.drawable.dogimg);
+//            }
+
+            if (image3==null){
+                img.setImageResource(R.drawable.dogimg);
+            }else if (image3.equals(image3)){
+                img.setImageBitmap(bitmap);
+            }else {
+                bitmap = BitmapFactory.decodeByteArray(image3, 0, image3.length);
+                img.setImageBitmap(bitmap);
+            }
             ed1.setText(name);
             ed2.setText(species);
             ed3.setText(breed);
             ed4.setText(size);
 
-            if (image3!=null){
-                img.setImageBitmap(bitmap);
-            }else {
-                img.setImageResource(R.drawable.dogimg);
-            }
+
 
             if (gender.equals("1")){
                 cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
@@ -219,8 +229,20 @@ public class Details extends AppCompatActivity {
                      value[5] = sw6.isChecked();
 
                      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                     imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                     image = outputStream.toByteArray();
+//                     if (img!=null) {
+//                         img.setImageBitmap(imgToStore);
+//                     }else {
+//                         image = outputStream.toByteArray();
+//                         imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+//                     }
+
+                     if (imgToStore ==null){
+                         img.setImageResource(R.drawable.dogimg);
+                     }else {
+                         imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                         image = outputStream.toByteArray();
+                     }
+
                      contentValues.put("image", image);
                      contentValues.put("name", name);
                      contentValues.put("species",species);
@@ -240,13 +262,13 @@ public class Details extends AppCompatActivity {
                         boolean i=dbhelper.updateRecord(contentValues,id);
                         if (i==true){
                             Toast.makeText(Details.this, "Updated", Toast.LENGTH_SHORT).show();
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Intent intent=new Intent(getApplicationContext(),HomeFragment.class);
-                                    startActivity(intent);
-                                }
-                            }, 1000);
+//                            new Handler().postDelayed(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    Intent intent=new Intent(getApplicationContext(),HomeFragment.class);
+//                                    startActivity(intent);
+//                                }
+//                            }, 1000);
 
                         }else{
                             Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
@@ -260,8 +282,12 @@ public class Details extends AppCompatActivity {
                      } else {
 
                          ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                         imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                         image = outputStream.toByteArray();
+                         if (imgToStore ==null){
+                            img.setImageResource(R.drawable.dogimg);
+                         }else {
+                             imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                             image = outputStream.toByteArray();
+                         }
 
                          contentValues.put("image", image);
                          contentValues.put("name", name);
@@ -480,21 +506,32 @@ public class Details extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK){
-            if (requestCode == IMAGE_PICK_GALLERY_CODE){
-                imageUri= data.getData();
-//                img.setImageURI(data.getData());
-                 imgToStore = null;
-                try {
-                    imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        try {
+            super.onActivityResult(requestCode, resultCode, data);
+            if (requestCode==IMAGE_PICK_GALLERY_CODE && resultCode== RESULT_OK && data!=null && data.getData()!=null){
+                imageUri=data.getData();
+                imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
                 img.setImageBitmap(imgToStore);
             }
 
+        }catch (Exception e){
+                e.printStackTrace();
         }
+
+
+//        if (resultCode == RESULT_OK){
+//            if (requestCode == IMAGE_PICK_GALLERY_CODE){
+//                imageUri= data.getData();
+////                img.setImageURI(data.getData());
+//                 imgToStore = null;
+//                try {
+//                    imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//                img.setImageBitmap(imgToStore);
+//            }
+//
+//        }
     }
 }

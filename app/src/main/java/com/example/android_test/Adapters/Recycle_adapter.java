@@ -34,6 +34,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     ArrayList<Recycle_model> details=new ArrayList<>();
     Context context;
     DatabaseHelper dbHelper;
+    Bitmap bitmap;
 
     public Recycle_adapter(Context context,ArrayList<Recycle_model> details){
             this.context=context;
@@ -70,9 +71,14 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
 
 
+
         //set data
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-        holder.image_view1.setImageBitmap(bitmap);
+        if (image==null){
+            holder.image_view1.setImageResource(R.drawable.dogimg);
+        }else {
+            bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            holder.image_view1.setImageBitmap(bitmap);
+        }
         holder.txt1.setText(name);
         holder.txt2.setText(species);
         holder.txt3.setText(breed);
@@ -167,7 +173,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 //                Toast.makeText(context.getApplicationContext(),"Yes" , Toast.LENGTH_LONG).show();
                 dbHelper.deleteData(id);
 //                details.remove(holder.getAdapterPosition());
-//                notifyDataSetChanged();
+                notifyDataSetChanged();
                 dialog.cancel();
             });
             btn2.setOnClickListener(new View.OnClickListener() {
