@@ -37,7 +37,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-    //implements View.OnClickListener
+//implements View.OnClickListener
 public class Details extends AppCompatActivity {
 
     CardView cardView1,cardView2;
@@ -47,11 +47,11 @@ public class Details extends AppCompatActivity {
     EditText ed1,ed2,ed3,ed4;
     Button button;
     SwitchCompat sw1;
-        SwitchCompat sw2;
-        SwitchCompat sw3;
-        SwitchCompat sw4;
-        SwitchCompat sw5;
-        SwitchCompat sw6;
+    SwitchCompat sw2;
+    SwitchCompat sw3;
+    SwitchCompat sw4;
+    SwitchCompat sw5;
+    SwitchCompat sw6;
     Bitmap imageDB;
     Bitmap imgToStore;
     byte[] image;
@@ -68,7 +68,7 @@ public class Details extends AppCompatActivity {
     String[] cameraPermissions;
     String[] storagePermissions;
     private Uri imageUri;
-        Bitmap bitmap;
+    Bitmap bitmap;
 
     boolean[] value={false,false,false,false,false,false};
     @Override
@@ -106,10 +106,10 @@ public class Details extends AppCompatActivity {
         cardView1.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
         cardView2.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
 
-         dbhelper =new DatabaseHelper(this);
+        dbhelper =new DatabaseHelper(this);
 
-         Intent i=getIntent();
-         isEditMode = i.getBooleanExtra("isEditMode", false);
+        Intent i=getIntent();
+        isEditMode = i.getBooleanExtra("isEditMode", false);
 
         if (isEditMode) {
             id=i.getStringExtra("id");
@@ -208,27 +208,27 @@ public class Details extends AppCompatActivity {
             }else {
                 sw6.setChecked(false);
             }
-       }
+        }
         ContentValues contentValues=new ContentValues();
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                 name = ed1.getText().toString();
-                 species = ed2.getText().toString();
-                 breed = ed3.getText().toString();
-                 size = ed4.getText().toString();
+                name = ed1.getText().toString();
+                species = ed2.getText().toString();
+                breed = ed3.getText().toString();
+                size = ed4.getText().toString();
 
-                 if (isEditMode){
+                if (isEditMode){
 
-                     value[0] = sw1.isChecked();
-                     value[1] = sw2.isChecked();
-                     value[2] = sw3.isChecked();
-                     value[3] = sw4.isChecked();
-                     value[4] = sw5.isChecked();
-                     value[5] = sw6.isChecked();
+                    value[0] = sw1.isChecked();
+                    value[1] = sw2.isChecked();
+                    value[2] = sw3.isChecked();
+                    value[3] = sw4.isChecked();
+                    value[4] = sw5.isChecked();
+                    value[5] = sw6.isChecked();
 
-                     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 //                     if (img!=null) {
 //                         img.setImageBitmap(imgToStore);
 //                     }else {
@@ -236,32 +236,32 @@ public class Details extends AppCompatActivity {
 //                         imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
 //                     }
 
-                     if (imgToStore ==null){
-                         img.setImageResource(R.drawable.dogimg);
-                     }else {
-                         imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                         image = outputStream.toByteArray();
-                     }
+                    if (imgToStore ==null){
+                        img.setImageResource(R.drawable.dogimg);
+                    }else {
+                        imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                        image = outputStream.toByteArray();
+                    }
 
-                     contentValues.put("image", image);
-                     contentValues.put("name", name);
-                     contentValues.put("species",species);
-                     contentValues.put("breed", breed);
-                     contentValues.put("size",size);
-                     contentValues.put("gender", state[0]);
-                     contentValues.put("gender", state[1]);
-                     contentValues.put("neutered", value[0]);
-                     contentValues.put("vaccinated", value[1]);
-                     contentValues.put("Friendlywithdogs", value[2]);
-                     contentValues.put("Friendlywithcats", value[3]);
-                     contentValues.put("Friendlywithkids10", value[4]);
-                     contentValues.put("Friendlywithkids10G", value[5]);
+                    contentValues.put("image", image);
+                    contentValues.put("name", name);
+                    contentValues.put("species",species);
+                    contentValues.put("breed", breed);
+                    contentValues.put("size",size);
+                    contentValues.put("gender", state[0]);
+                    contentValues.put("gender", state[1]);
+                    contentValues.put("neutered", value[0]);
+                    contentValues.put("vaccinated", value[1]);
+                    contentValues.put("Friendlywithdogs", value[2]);
+                    contentValues.put("Friendlywithcats", value[3]);
+                    contentValues.put("Friendlywithkids10", value[4]);
+                    contentValues.put("Friendlywithkids10G", value[5]);
 
 
 
-                        boolean i=dbhelper.updateRecord(contentValues,id);
-                        if (i==true){
-                            Toast.makeText(Details.this, "Updated", Toast.LENGTH_SHORT).show();
+                    boolean i=dbhelper.updateRecord(contentValues,id);
+                    if (i==true){
+                        Toast.makeText(Details.this, "Updated", Toast.LENGTH_SHORT).show();
 //                            new Handler().postDelayed(new Runnable() {
 //                                @Override
 //                                public void run() {
@@ -270,68 +270,68 @@ public class Details extends AppCompatActivity {
 //                                }
 //                            }, 1000);
 
-                        }else{
+                    }else{
+                        Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                }else {
+
+                    if (name.isEmpty() && species.isEmpty() && breed.isEmpty() && size.isEmpty()) {
+                        Toast.makeText(Details.this, "Fields are empty", Toast.LENGTH_SHORT).show();
+                    } else {
+
+                        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                        if (imgToStore ==null){
+                            img.setImageResource(R.drawable.dogimg);
+                        }else {
+                            imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                            image = outputStream.toByteArray();
+                        }
+
+                        contentValues.put("image", image);
+                        contentValues.put("name", name);
+                        contentValues.put("species", species);
+                        contentValues.put("breed", breed);
+                        contentValues.put("size", size);
+
+                        value[0] = sw1.isChecked();
+                        value[1] = sw2.isChecked();
+                        value[2] = sw3.isChecked();
+                        value[3] = sw4.isChecked();
+                        value[4] = sw5.isChecked();
+                        value[5] = sw6.isChecked();
+
+
+                        contentValues.put("neutered", value[0]);
+                        contentValues.put("vaccinated", value[1]);
+                        contentValues.put("Friendlywithdogs", value[2]);
+                        contentValues.put("Friendlywithcats", value[3]);
+                        contentValues.put("Friendlywithkids10", value[4]);
+                        contentValues.put("Friendlywithkids10G", value[5]);
+                        contentValues.put("gender", state[0]);
+                        contentValues.put("gender", state[1]);
+
+                        boolean i=dbhelper.insertData(contentValues);
+                        if (i==true){
+                            Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }, 2000);
+
+
+                        }else {
                             Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
 
 
-                 }else {
-
-                     if (name.isEmpty() && species.isEmpty() && breed.isEmpty() && size.isEmpty()) {
-                         Toast.makeText(Details.this, "Fields are empty", Toast.LENGTH_SHORT).show();
-                     } else {
-
-                         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                         if (imgToStore ==null){
-                            img.setImageResource(R.drawable.dogimg);
-                         }else {
-                             imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                             image = outputStream.toByteArray();
-                         }
-
-                         contentValues.put("image", image);
-                         contentValues.put("name", name);
-                         contentValues.put("species", species);
-                         contentValues.put("breed", breed);
-                         contentValues.put("size", size);
-
-                         value[0] = sw1.isChecked();
-                         value[1] = sw2.isChecked();
-                         value[2] = sw3.isChecked();
-                         value[3] = sw4.isChecked();
-                         value[4] = sw5.isChecked();
-                         value[5] = sw6.isChecked();
-
-
-                         contentValues.put("neutered", value[0]);
-                         contentValues.put("vaccinated", value[1]);
-                         contentValues.put("Friendlywithdogs", value[2]);
-                         contentValues.put("Friendlywithcats", value[3]);
-                         contentValues.put("Friendlywithkids10", value[4]);
-                         contentValues.put("Friendlywithkids10G", value[5]);
-                         contentValues.put("gender", state[0]);
-                         contentValues.put("gender", state[1]);
-
-                         boolean i=dbhelper.insertData(contentValues);
-                         if (i==true){
-                             Toast.makeText(Details.this, "Added", Toast.LENGTH_SHORT).show();
-                             new Handler().postDelayed(new Runnable() {
-                                 @Override
-                                 public void run() {
-                                     Intent intent = new Intent(getApplicationContext(), Dashboard.class);
-                                     startActivity(intent);
-                                     finish();
-                                 }
-                             }, 2000);
-
-
-                         }else {
-                             Toast.makeText(Details.this, "Failed", Toast.LENGTH_SHORT).show();
-                         }
-
-
-                     }
-                 }
+                    }
+                }
 
 
             }
@@ -389,45 +389,45 @@ public class Details extends AppCompatActivity {
 
     }
 
-        private void editData() {
-            if (getIntent().getStringExtra("name")!=null){
-                Intent i=getIntent();
-                name=i.getStringExtra("name");
+    private void editData() {
+        if (getIntent().getStringExtra("name")!=null){
+            Intent i=getIntent();
+            name=i.getStringExtra("name");
             species=i.getStringExtra("species");
             breed=i.getStringExtra("breed");
             size=i.getStringExtra("size");
 
-            }
         }
+    }
 
 
-        private void imagePickDialog(){
+    private void imagePickDialog(){
 
         String[] options = {"Camera","Gallery"};
 
-            AlertDialog.Builder builder =new AlertDialog.Builder(this);
-            builder.setTitle("Pick image from");
+        AlertDialog.Builder builder =new AlertDialog.Builder(this);
+        builder.setTitle("Pick image from");
 
-            builder.setItems(options, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    if (i==0){
-                        if (!checkCameraPermission()){
-                            requestCameraPermission();
-                        }else{
-                                pickFromCamera();
-                        }
-                    }else if(i==1){
-                            if (!checkStoragePermission()){
-                                requestStoragePermission();
-                            }else{
-                                pickFromGallery();
-                            }
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (i==0){
+                    if (!checkCameraPermission()){
+                        requestCameraPermission();
+                    }else{
+                        pickFromCamera();
+                    }
+                }else if(i==1){
+                    if (!checkStoragePermission()){
+                        requestStoragePermission();
+                    }else{
+                        pickFromGallery();
                     }
                 }
-            });
-            builder.create().show();
-        }
+            }
+        });
+        builder.create().show();
+    }
 
 
 
@@ -515,7 +515,7 @@ public class Details extends AppCompatActivity {
             }
 
         }catch (Exception e){
-                e.printStackTrace();
+            e.printStackTrace();
         }
 
 
