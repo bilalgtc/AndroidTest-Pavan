@@ -12,6 +12,7 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 public class Registration_fb_google extends AppCompatActivity {
@@ -21,6 +22,10 @@ public class Registration_fb_google extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_fb_google);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+
 
         textView = findViewById(R.id.reg_txt1);
         textView2 = findViewById(R.id.reg_txt2);

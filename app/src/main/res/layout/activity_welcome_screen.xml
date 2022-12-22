@@ -8,22 +8,31 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     android:id="@+id/s_txt1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_20sdp"
-    android:layout_marginEnd="@dimen/_20sdp"
-    android:fontFamily="@font/encode_sans_semibold"
+    android:layout_marginTop="@dimen/_25sdp"
+    android:layout_marginEnd="@dimen/_30sdp"
+    android:fontFamily="@font/encode_sans_bold"
     android:text="@string/signIn"
     android:textColor="#4552CB"
     android:textSize="@dimen/_13ssp"
     android:layout_alignParentEnd="true"
     android:layout_marginRight="@dimen/_20sdp"/>
 
-
+    <LinearLayout
+        android:id="@+id/ll22"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        android:layout_below="@+id/s_txt1"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="vertical"
+        />
 
 <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
     android:id="@+id/dots"
     android:layout_width="@dimen/_65sdp"
-    android:layout_height="@dimen/_8sdp"
+    android:layout_height="@dimen/_7sdp"
+    android:layout_below="@id/ll22"
     android:layout_centerInParent="true"
+    android:layout_marginTop="@dimen/_10sdp"
     app:dotsColor="#E6E7F8"
     app:dotsSize="@dimen/_8sdp"
     app:selectedDotColor="#F1A852"/>
@@ -31,7 +40,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     android:id="@+id/viewpager"
     android:layout_marginTop="@dimen/_15sdp"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_410sdp"
+    android:layout_height="@dimen/_430sdp"
     android:layout_below="@+id/s_txt1">
 
 </androidx.viewpager.widget.ViewPager>
@@ -43,7 +52,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_height="wrap_content"
         android:layout_below="@id/viewpager"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:background="@drawable/btn1_style"
         android:fontFamily="@font/encode_sans_bold"
         android:text="@string/next"
