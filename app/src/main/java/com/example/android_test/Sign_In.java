@@ -6,6 +6,9 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -15,19 +18,22 @@ import android.widget.Toast;
 
 import com.example.android_test.Helper.DbManager;
 
+import java.util.regex.Pattern;
+
 public class Sign_In extends AppCompatActivity {
-        ImageView img;
+        ImageView img,successimg;
         TextView txt1,txt2;
         AppCompatButton button;
     TextView edt1,edt2;
     EditText emailed,passworded;
     View v,v2;
     DbManager dbManager;
+    String email,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
+//
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
@@ -37,6 +43,7 @@ public class Sign_In extends AppCompatActivity {
         txt2=findViewById(R.id.s_in_txt2);
         button=findViewById(R.id.sign_in);
 
+        successimg =findViewById(R.id.validimg4);
         v=findViewById(R.id.ed1_line4);
         v2=findViewById(R.id.ed1_line5);
 
@@ -52,8 +59,8 @@ public class Sign_In extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             String email =emailed.getText().toString();
-                String password =passworded.getText().toString();
+               email =emailed.getText().toString();
+                password =passworded.getText().toString();
 
                 if (!email.isEmpty() && !password.isEmpty()) {
 
@@ -73,6 +80,56 @@ public class Sign_In extends AppCompatActivity {
                 }
             }
         });
+
+        emailed.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                email =emailed.getText().toString();
+                if ( Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    emailed.setError(null);
+                    successimg.setImageResource(R.drawable.success);
+                    successimg.setVisibility(View.VISIBLE);
+
+                }else {
+                    successimg.setVisibility(View.INVISIBLE);
+                    emailed.setError("Invalid input");
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+//        passworded.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                password =passworded.getText().toString();
+//                if (passworded.length()!=8){
+//                    Toast.makeText(Sign_In.this, "Password must be 8 character long", Toast.LENGTH_SHORT).show();
+//                }else {
+//
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override

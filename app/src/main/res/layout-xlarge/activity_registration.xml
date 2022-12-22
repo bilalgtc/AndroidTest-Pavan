@@ -432,7 +432,7 @@
                 android:layout_height="wrap_content"
                 android:text="Already have an account? "
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <TextView
                 android:id="@+id/goto_signin2"
@@ -441,7 +441,7 @@
                 android:fontFamily="@font/encode_sans_bold"
                 android:text="Sign In"
                 android:textColor="#4552CB"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_13ssp" />
 
         </LinearLayout>
 
