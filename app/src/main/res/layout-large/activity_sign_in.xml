@@ -50,9 +50,10 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/layout2_style"
         android:orientation="horizontal"
-        android:elevation="@dimen/_7sdp"
+        android:elevation="15dp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
+        android:outlineSpotShadowColor="#5A5A5A"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:layout_editor_absoluteX="26dp">
 
