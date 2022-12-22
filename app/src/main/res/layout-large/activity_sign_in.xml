@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F5F5F5"
     tools:context=".Registration">
 
 
@@ -24,8 +25,8 @@
         android:id="@+id/signin_backbtn"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_35sdp"
         android:src="@drawable/back_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,10 +46,11 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_210sdp"
+        android:layout_height="@dimen/_220sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/layout2_style"
         android:orientation="horizontal"
+        android:elevation="@dimen/_7sdp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -194,11 +196,11 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:fontFamily="@font/encode_sans"
                 android:text="Do not remember the password?"
                 android:textColor="#4552CB"
-                android:textSize="@dimen/_9ssp"
+                android:textSize="@dimen/_10ssp"
                 app:layout_constraintEnd_toEndOf="@+id/ll2"
                 app:layout_constraintTop_toBottomOf="@+id/ll2" />
 
@@ -222,13 +224,12 @@
                 android:id="@+id/sign_in"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_30sdp"
-                android:textSize="@dimen/_9ssp"
                 android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/btn1_style"
                 android:fontFamily="@font/encode_sans_bold"
                 android:text="Sign In"
+                android:textSize="@dimen/_11sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -248,7 +249,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_45sdp"
         android:fontFamily="@font/encode_sans"
         android:text="or continue with"
         android:textColor="#070821"
@@ -262,7 +263,7 @@
             android:id="@+id/appCompatImageView12"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/circlefb"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="parent"
@@ -280,7 +281,7 @@
 
 
         <LinearLayout
-            android:layout_marginTop="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_80sdp"
             android:id="@+id/layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -319,7 +320,7 @@
             android:layout_height="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_8sdp"
             android:foreground="#BBC3CE"
-            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_80sdp"
             android:src="@drawable/home2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
