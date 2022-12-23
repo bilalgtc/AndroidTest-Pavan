@@ -19,7 +19,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.android_test.Helper.DbManager;
 
-public class Sign_Up extends AppCompatActivity {
+public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 
     TextView textView,textView1,textView2;
     TextView edt1,edt2,edt3,edt4;
@@ -53,30 +53,7 @@ public class Sign_Up extends AppCompatActivity {
 
         textView.setText(s1);
 
-        v=findViewById(R.id.ed1_line1);
-        v2=findViewById(R.id.ed1_line2);
-        v3=findViewById(R.id.ed1_line3);
-        v4=findViewById(R.id.ed1_line4);
 
-        edt1=findViewById(R.id.ed1_txt1);
-        edt2=findViewById(R.id.ed1_txt2);
-        edt3=findViewById(R.id.ed1_txt3);
-        edt4=findViewById(R.id.ed1_txt4);
-
-        button = findViewById(R.id.signup_btn);
-
-
-        emailed = findViewById(R.id.email_ed);
-        passworded = findViewById(R.id.pass_ed);
-        nameed = findViewById(R.id.name_ed);
-        mobileed = findViewById(R.id.mobile_ed);
-
-
-        textView1=findViewById(R.id.goto_signin1);
-        textView2=findViewById(R.id.goto_signin2);
-        imageView=findViewById(R.id.reg_backbtn);
-        imageView2=findViewById(R.id.checkbox_img1);
-        imageView3=findViewById(R.id.checkbox_img2);
 
 //        dataHelper = new DataHelper(this);
             dbManager = new DbManager(this);
@@ -237,4 +214,37 @@ public class Sign_Up extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    private void init(){
+
+        v=findViewById(R.id.ed1_line1);
+        v2=findViewById(R.id.ed1_line2);
+        v3=findViewById(R.id.ed1_line3);
+        v4=findViewById(R.id.ed1_line4);
+
+        edt1=findViewById(R.id.ed1_txt1);
+        edt2=findViewById(R.id.ed1_txt2);
+        edt3=findViewById(R.id.ed1_txt3);
+        edt4=findViewById(R.id.ed1_txt4);
+
+        button = findViewById(R.id.signup_btn);
+
+
+        emailed = findViewById(R.id.email_ed);
+        passworded = findViewById(R.id.pass_ed);
+        nameed = findViewById(R.id.name_ed);
+        mobileed = findViewById(R.id.mobile_ed);
+
+
+        textView1=findViewById(R.id.goto_signin1);
+        textView2=findViewById(R.id.goto_signin2);
+        imageView=findViewById(R.id.reg_backbtn);
+        imageView2=findViewById(R.id.checkbox_img1);
+        imageView3=findViewById(R.id.checkbox_img2);
+
+    }
 }

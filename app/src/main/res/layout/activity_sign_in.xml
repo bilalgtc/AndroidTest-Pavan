@@ -54,7 +54,7 @@
         android:elevation="15dp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
-        android:outlineSpotShadowColor="#5A5A5A"
+        android:outlineSpotShadowColor="#AAAAAA"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:layout_editor_absoluteX="26dp">
 
@@ -253,7 +253,7 @@
         android:fontFamily="@font/encode_sans"
         android:text="or continue with"
         android:textColor="#070821"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="@dimen/_14ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
@@ -266,6 +266,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/circlefb"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -276,6 +277,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/circlegoogle"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -287,7 +289,6 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-
             app:layout_constraintBottom_toTopOf="@+id/appCompatImageView7"
             app:layout_constraintEnd_toEndOf="@+id/appCompatImageView11"
             app:layout_constraintStart_toStartOf="@+id/appCompatImageView12"
@@ -299,9 +300,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans"
                 android:text="Don't have account yet? "
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:textColor="#070821"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <TextView
                 android:id="@+id/s_in_txt2"
@@ -309,9 +310,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans_bold"
                 android:text="Registration"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:textColor="#4552CB"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_13ssp" />
 
         </LinearLayout>
 
