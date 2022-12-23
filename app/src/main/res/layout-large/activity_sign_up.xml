@@ -291,7 +291,7 @@
                                 />
 
                             <ImageView
-                                android:id="@+id/validimg4"
+                                android:id="@+id/up_password_toggle"
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginEnd="@dimen/_10sdp"

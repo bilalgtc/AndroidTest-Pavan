@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.SingleLineTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,7 +21,7 @@ import android.widget.Toast;
 import com.example.android_test.Helper.DbManager;
 
 public class Sign_In extends AppCompatActivity implements View.OnClickListener {
-    ImageView img, successimg;
+    ImageView img, successimg,password_eye;
     TextView txt1, txt2;
     AppCompatButton button;
     TextView edt1, edt2;
@@ -43,6 +45,7 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
         txt1.setOnClickListener(this);
         txt2.setOnClickListener(this);
         button.setOnClickListener(this);
+        password_eye.setOnClickListener(this);
 
 
         emailed.addTextChangedListener(new TextWatcher() {
@@ -92,6 +95,9 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
+
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -108,6 +114,21 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
                 startActivity(i2);
                 finish();
                 break;
+
+            case R.id.in_password_toggle:
+
+                if (passworded.getTransformationMethod().getClass().getSimpleName().equals("PasswordTransformationMethod")) {
+                    passworded.setTransformationMethod(new SingleLineTransformationMethod());
+                    password_eye.setImageResource(R.drawable.invisible_eye);
+                }
+                else {
+                    passworded.setTransformationMethod(new PasswordTransformationMethod());
+                    password_eye.setImageResource(R.drawable.remove_red_eye_24);
+                }
+
+                passworded.setSelection(passworded.getText().length());
+                break;
+
 
             case R.id.sign_in:
                 email = emailed.getText().toString();
@@ -135,14 +156,19 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void init() {
-        img = findViewById(R.id.signin_backbtn);
-        txt1 = findViewById(R.id.s_in_txt1);
-        txt2 = findViewById(R.id.s_in_txt2);
-        button = findViewById(R.id.sign_in);
 
-        successimg = findViewById(R.id.validimg4);
+
+        img = findViewById(R.id.signin_backbtn);
+        successimg = findViewById(R.id.up_password_toggle);
+        password_eye=findViewById(R.id.in_password_toggle);
+
         v = findViewById(R.id.ed1_line4);
         v2 = findViewById(R.id.ed1_line5);
+
+        button = findViewById(R.id.sign_in);
+
+        txt2 = findViewById(R.id.s_in_txt2);
+        txt1 = findViewById(R.id.s_in_txt1);
 
         edt1 = findViewById(R.id.ed1_txt4);
         edt2 = findViewById(R.id.ed1_txt5);

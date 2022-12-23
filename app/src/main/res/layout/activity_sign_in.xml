@@ -105,7 +105,7 @@
                         />
 
                     <ImageView
-                        android:id="@+id/validimg4"
+                        android:id="@+id/up_password_toggle"
                         android:layout_width="@dimen/_12sdp"
                         android:layout_height="@dimen/_12sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
@@ -167,13 +167,13 @@
                         />
 
                     <ImageView
-                        android:id="@+id/validimg5"
+                        android:id="@+id/in_password_toggle"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/remove_red_eye_24"
-                        app:tint="#BBC3CE" />
+                        />
                 </LinearLayout>
 
                 <View

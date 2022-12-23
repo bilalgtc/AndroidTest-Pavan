@@ -9,17 +9,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String Id_CL="id";
-    private final static String db_name="userdata_tb";
+    private static final String Id_CL = "id";
+    private final static String db_name = "userdata_tb";
     byte[] imageinBytes;
 
     public DatabaseHelper(Context context) {
-        super(context, db_name,null, 1);
+        super(context, db_name, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String qry="create table usertb_data(id integer primary key,image BLOB, name TEXT,species TEXT, breed TEXT,size TEXT,gender BOOLEAN,neutered BOOLEAN,vaccinated BOOLEAN,Friendlywithdogs BOOLEAN,Friendlywithcats BOOLEAN,Friendlywithkids10 BOOLEAN,Friendlywithkids10G BOOLEAN)";
+        String qry = "create table usertb_data(id integer primary key,image BLOB, name TEXT,species TEXT, breed TEXT,size TEXT,gender BOOLEAN,neutered BOOLEAN,vaccinated BOOLEAN,Friendlywithdogs BOOLEAN,Friendlywithcats BOOLEAN,Friendlywithkids10 BOOLEAN,Friendlywithkids10G BOOLEAN)";
         db.execSQL(qry);
     }
 
@@ -29,18 +29,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(qry);
     }
 
-    public boolean insertData(ContentValues contentValues){
-        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        long i=sqLiteDatabase.insert(" usertb_data ",null,contentValues);
-        if (i==-1){
+    public boolean insertData(ContentValues contentValues) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        long i = sqLiteDatabase.insert(" usertb_data ", null, contentValues);
+        if (i == -1) {
             return false;
-        }else {
+        } else {
             return true;
         }
     }
 
-    public boolean updateRecord(ContentValues contentValues,String id){
-        SQLiteDatabase db=this.getWritableDatabase();
+    public boolean updateRecord(ContentValues contentValues, String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
 //     ContentValues contentValues=new ContentValues();
 
 //        ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
@@ -60,30 +60,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        contentValues.put("state6", value[5]);
 
 
-
-       long i= db.update(" usertb_data ", contentValues , Id_CL + " = ? ", new String[]{id});
-       if (i==-1){
-           return false;
-       }else {
-           return true;
-       }
+        long i = db.update(" usertb_data ", contentValues, Id_CL + " = ? ", new String[]{id});
+        if (i == -1) {
+            return false;
+        } else {
+            return true;
+        }
 
     }
 
-    public void deleteData(String id){
-        SQLiteDatabase db=this.getWritableDatabase();
-        db.delete("usertb_data",Id_CL + " = ? ", new String[]{id});
+    public void deleteData(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("usertb_data", Id_CL + " = ? ", new String[]{id});
     }
 
-    public void delteAllData(){
-        SQLiteDatabase db=this.getWritableDatabase();
+    public void delteAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM usertb_data ");
     }
 
-    public Cursor getData(){
-        SQLiteDatabase db=this.getWritableDatabase();
-        String qry=" select * from usertb_data";
-        Cursor cursor=db.rawQuery(qry, null);
+    public Cursor getData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String qry = " select * from usertb_data";
+        Cursor cursor = db.rawQuery(qry, null);
         return cursor;
     }
 }

@@ -68,7 +68,7 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
 
             case R.id.s_txt1:
                 Intent i = new Intent(Introduction.this, Sign_In.class);
@@ -88,7 +88,7 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void init(){
+    private void init() {
         viewPager = findViewById(R.id.viewpager);
         textView = findViewById(R.id.s_txt1);
         button = findViewById(R.id.next_btn);

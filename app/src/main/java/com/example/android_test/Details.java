@@ -308,12 +308,11 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         }
 
 
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
 
             case R.id.cardView:
 
@@ -341,23 +340,22 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
                 imagePickDialog();
                 break;
 
-                case R.id.submit_btn:
+            case R.id.submit_btn:
 
-                    details();
-                    break;
+                details();
+                break;
 
 
         }
     }
 
-    private void init(){
+    private void init() {
 
         cardView01 = findViewById(R.id.cardView);
         cardView02 = findViewById(R.id.cardView2);
 
         cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
         cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
-
 
 
         textView = findViewById(R.id.textView15);
@@ -385,7 +383,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    public void details(){
+    public void details() {
         ContentValues contentValues = new ContentValues();
         name = ed1.getText().toString();
         species = ed2.getText().toString();

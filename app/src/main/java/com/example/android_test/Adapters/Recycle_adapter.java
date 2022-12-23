@@ -31,22 +31,23 @@ import com.example.android_test.R;
 import java.util.ArrayList;
 
 public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHolder> {
-    ArrayList<Recycle_model> details=new ArrayList<>();
+    ArrayList<Recycle_model> details = new ArrayList<>();
     Context context;
     DatabaseHelper dbHelper;
     Bitmap bitmap;
 
-    public Recycle_adapter(Context context,ArrayList<Recycle_model> details){
-            this.context=context;
-            this.details=details;
-            dbHelper = new DatabaseHelper(context);
+    public Recycle_adapter(Context context, ArrayList<Recycle_model> details) {
+        this.context = context;
+        this.details = details;
+        dbHelper = new DatabaseHelper(context);
 
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(context).inflate(R.layout.recycle_info,parent,false);
-        ViewHolder viewHolder=new ViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.recycle_info, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
@@ -54,79 +55,73 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         //get data
-        Recycle_model model=details.get(position);
-        String id=model.getId();
-        byte[] image= model.getImg();
-        String name= model.getName();
+        Recycle_model model = details.get(position);
+        String id = model.getId();
+        byte[] image = model.getImg();
+        String name = model.getName();
         String species = model.getSpecies();
         String breed = model.getBreed();
         String size = model.getSize();
-        String gender=model.getGender();
-        String neutured=model.getNeutured();
-        String vaccinated= model.getVaccinated();
-        String fwithdogs= model.getFwithdogs();
-        String fwithcats= model.getFwithcats();
-        String fwithkids= model.getFwithkids();
-        String fwithkidsg= model.getGetFwithkidssg();
-
-
+        String gender = model.getGender();
+        String neutured = model.getNeutured();
+        String vaccinated = model.getVaccinated();
+        String fwithdogs = model.getFwithdogs();
+        String fwithcats = model.getFwithcats();
+        String fwithkids = model.getFwithkids();
+        String fwithkidsg = model.getGetFwithkidssg();
 
 
         //set data
-        if (image==null){
+        if (image == null) {
             holder.image_view1.setImageResource(R.drawable.dogimg);
-        }else {
+        } else {
             bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
             holder.image_view1.setImageBitmap(bitmap);
         }
+
         holder.txt1.setText(name);
         holder.txt2.setText(species);
         holder.txt3.setText(breed);
-//        holder.txt4.setText(gender);
-//        holder.txt5.setText(neutured);
-//        holder.txt6.setText(vaccinated);
-//        holder.txt7.setText(fwithdogs);
-//        holder.txt8.setText(fwithcats);
-        holder.txt9.setText(size +" "+ "inch");
 
-        if (gender.equals("1")){
+        holder.txt9.setText(size + " " + "inch");
+
+        if (gender.equals("1")) {
             holder.txt4.setText("female");
-        }else if (gender.equals(null)){
+        } else if (gender.equals(null)) {
             holder.txt4.setText(" ");
-        }else {
+        } else {
             holder.txt4.setText("male");
         }
 
         if (neutured.equals("1")) {
             holder.txt5.setText("Neutured");
-        }else {
+        } else {
             holder.txt5.setText("");
         }
 
         if (vaccinated.equals("1")) {
             holder.txt6.setText("Vaccinated");
-        }else {
+        } else {
             holder.txt6.setText("");
         }
 
         if (fwithdogs.equals("1")) {
             holder.txt7.setText("Friendly with dogs");
-        }else {
+        } else {
             holder.txt7.setText("");
         }
 
         if (fwithcats.equals("1")) {
             holder.txt8.setText("Friendly with cats");
-        }else {
+        } else {
             holder.txt8.setText("");
         }
-
 
 
         holder.image_view1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(context, Information.class);
+                Intent i = new Intent(context, Information.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
             }
@@ -134,14 +129,14 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         holder.imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(context, Details.class);
+                Intent i = new Intent(context, Details.class);
                 i.putExtra("id", id);
                 i.putExtra("image", model.getImg());
                 i.putExtra("name", name);
-                i.putExtra("species",species);
-                i.putExtra("breed",breed);
+                i.putExtra("species", species);
+                i.putExtra("breed", breed);
                 i.putExtra("size", size);
-                i.putExtra("gender",gender);
+                i.putExtra("gender", gender);
                 i.putExtra("neutered", neutured);
                 i.putExtra("vaccinated", vaccinated);
                 i.putExtra("Friendlywithdogs", fwithdogs);
@@ -158,15 +153,14 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         holder.imageView.setOnClickListener(v -> {
 
 
-            Dialog dialog =new Dialog(context);
+            Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.custom_delete_dialog);
 
 
-
-            Button btn1=dialog.findViewById(R.id.yes_btn);
-            Button btn2=dialog.findViewById(R.id.no_btn);
-            ImageView btn3=dialog.findViewById(R.id.cross_btn);
+            Button btn1 = dialog.findViewById(R.id.yes_btn);
+            Button btn2 = dialog.findViewById(R.id.no_btn);
+            ImageView btn3 = dialog.findViewById(R.id.cross_btn);
 
 
             btn1.setOnClickListener(v1 -> {
@@ -179,7 +173,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
             btn2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                dialog.cancel();
+                    dialog.cancel();
                 }
             });
 
@@ -196,7 +190,6 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
             dialog.getWindow().setGravity(Gravity.BOTTOM);
 
 
-
         });
 //        holder.btn1.setOnClickListener(v -> {
 //            details.remove(position);
@@ -211,24 +204,25 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8,txt9;
-        ImageView image_view1,imageView,imageView2;
+        TextView txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9;
+        ImageView image_view1, imageView, imageView2;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txt1=itemView.findViewById(R.id.dogname_txt);
-            txt2=itemView.findViewById(R.id.species_txt);
-            txt3=itemView.findViewById(R.id.breed_name_txt);
+            txt1 = itemView.findViewById(R.id.dogname_txt);
+            txt2 = itemView.findViewById(R.id.species_txt);
+            txt3 = itemView.findViewById(R.id.breed_name_txt);
             txt4 = itemView.findViewById(R.id.gender_txt);
-            txt5=itemView.findViewById(R.id.neutered_txt);
-            txt6=itemView.findViewById(R.id.vacci_txt);
-            txt7=itemView.findViewById(R.id.friwithdogs_txt);
-            txt8=itemView.findViewById(R.id.friwithcats_txt);
-            txt9=itemView.findViewById(R.id.size_txt);
-            image_view1=itemView.findViewById(R.id.main_img);
+            txt5 = itemView.findViewById(R.id.neutered_txt);
+            txt6 = itemView.findViewById(R.id.vacci_txt);
+            txt7 = itemView.findViewById(R.id.friwithdogs_txt);
+            txt8 = itemView.findViewById(R.id.friwithcats_txt);
+            txt9 = itemView.findViewById(R.id.size_txt);
+            image_view1 = itemView.findViewById(R.id.main_img);
 //
-            imageView=itemView.findViewById(R.id.delete_img);
-            imageView2=itemView.findViewById(R.id.update_btn);
+            imageView = itemView.findViewById(R.id.delete_img);
+            imageView2 = itemView.findViewById(R.id.update_btn);
 
         }
     }

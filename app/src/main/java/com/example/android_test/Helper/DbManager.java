@@ -47,25 +47,25 @@ public class DbManager extends SQLiteOpenHelper {
         }
     }
 
-    public Boolean checkuser(String email){
-        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        Cursor cursor =sqLiteDatabase.rawQuery("select * from user_records where email = ?",new String[] {email});
-        if (cursor.getCount()>0){
+    public Boolean checkuser(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from user_records where email = ?", new String[]{email});
+        if (cursor.getCount() > 0) {
             return true;
-        }else{
-            return  false;
+        } else {
+            return false;
         }
 
 
     }
 
-    public Boolean checkusermailpass(String email,String password){
-        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        Cursor cursor =sqLiteDatabase.rawQuery("select * from user_records where email = ? and password = ?",new String[] {email,password});
-        if (cursor.getCount()>0){
+    public Boolean checkusermailpass(String email, String password) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from user_records where email = ? and password = ?", new String[]{email, password});
+        if (cursor.getCount() > 0) {
             return true;
-        }else{
-            return  false;
+        } else {
+            return false;
         }
 
     }

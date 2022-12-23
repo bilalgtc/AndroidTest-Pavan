@@ -30,7 +30,6 @@ import java.util.ArrayList;
 public class Dashboard extends AppCompatActivity {
 
 
-
     FrameLayout frameLayout;
     BottomNavigationView bottomNavigationView;
 
@@ -39,18 +38,18 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        bottomNavigationView =findViewById(R.id.bottom_navigation);
-        frameLayout =findViewById(R.id.fragment_container);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        frameLayout = findViewById(R.id.fragment_container);
 
         setFragment(new HomeFragment());
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
 
                     case R.id.home_icon:
                         setFragment(new HomeFragment());
-                            return  true;
+                        return true;
 
                     case R.id.clock_icon:
                         setFragment(new AppoinmentFragment());
@@ -58,12 +57,12 @@ public class Dashboard extends AppCompatActivity {
 
                     case R.id.explore_icon:
                         setFragment(new ExploreFragment());
-                        return  true;
+                        return true;
 
                     case R.id.profile_icon:
 
                         setFragment(new ProfileFragment());
-                        return  true;
+                        return true;
 
 
                     default:
@@ -73,18 +72,11 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
+    }
 
-
-
-     }
-
-     private void setFragment(Fragment fragment){
-         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-         fragmentTransaction.replace(R.id.fragment_container,fragment);
-         fragmentTransaction.commit();
-     }
-
-    @Override
-    public void onBackPressed() {
+    private void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
 }

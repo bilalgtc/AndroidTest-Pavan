@@ -30,16 +30,16 @@ public class Information extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-            switch (v.getId()){
+        switch (v.getId()) {
 
-                case R.id.info_back_btn:
-                    Intent i = new Intent(getApplicationContext(), Dashboard.class);
-                    startActivity(i);
-                    break;
-            }
+            case R.id.info_back_btn:
+                Intent i = new Intent(getApplicationContext(), Dashboard.class);
+                startActivity(i);
+                break;
+        }
     }
 
-    private void init(){
+    private void init() {
         imageView = findViewById(R.id.info_back_btn);
     }
 }

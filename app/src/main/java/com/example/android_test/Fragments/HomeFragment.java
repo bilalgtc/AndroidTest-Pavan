@@ -31,13 +31,12 @@ import java.util.ArrayList;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     RecyclerView recyclerView;
     ArrayList<Recycle_model> details = new ArrayList<>();
     ImageView imageView;
-    String id, name, breed;
-    byte[] image;
+    TextView textView;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -75,33 +74,25 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
 
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
-//
 
         imageView = v.findViewById(R.id.plus_btn);
         recyclerView = v.findViewById(R.id.dash_recyclerView);
-        TextView textView;
         textView = v.findViewById(R.id.dash_textView);
+
+
         String text = "What are you\nlooking for, Maria?";
         SpannableString s = new SpannableString(text);
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
 
         Cursor cursor = new DatabaseHelper(getContext()).getData();
-
-//        while (cursor.moveToNext()){
-//            Recycle_model obj = new Recycle_model(cursor.getString(1), cursor.getString(2), cursor.getString(3));
-//                    details.add(obj);
-//        }
-        if(cursor!=null && cursor.getCount() > 0)
-        {
-            if (cursor.moveToFirst())
-            {
-                do {                                            //cursor.getBlob(1),cursor.getString(2),cursor.getString(3), cursor.getString(4)
-                    Recycle_model obj = new Recycle_model(cursor.getString(0),cursor.getBlob(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getString(7),cursor.getString(8),cursor.getString(9),cursor.getString(10), cursor.getString(11), cursor.getString(12));
+        if (cursor != null && cursor.getCount() > 0) {
+            if (cursor.moveToFirst()) {
+                do {
+                    Recycle_model obj = new Recycle_model(cursor.getString(0), cursor.getBlob(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12));
                     details.add(obj);
                 } while (cursor.moveToNext());
             }
@@ -114,15 +105,7 @@ public class HomeFragment extends Fragment {
         s.setSpan(fc, 25, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(s);
 
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(), Details.class);
-                startActivity(i);
-                getActivity().finish();
-            }
-        });
+        imageView.setOnClickListener(this);
 
 
         return v;
@@ -131,9 +114,19 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//              details.add(new Recycle_model("Troy","Dog","German",image));
-
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.plus_btn:
+
+                Intent i = new Intent(getContext(), Details.class);
+                startActivity(i);
+                getActivity().finish();
+                break;
+
+        }
+    }
 }

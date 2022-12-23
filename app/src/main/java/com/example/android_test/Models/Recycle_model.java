@@ -37,7 +37,7 @@ public class Recycle_model {
     }
 
     public Recycle_model(String id, byte[] img, String name, String species, String breed, String size, String gender, String neutured, String vaccinated, String fwithdogs, String fwithcats, String fwithkids, String getFwithkidssg) {
-        this.id=id;
+        this.id = id;
         this.img = img;
         this.name = name;
         this.species = species;
@@ -110,11 +110,11 @@ public class Recycle_model {
     public byte[] getImg() {
         return img;
     }
+
     public void setImg(byte[] img) {
         this.img = img;
     }
 //
-
 
 
     public String getSpecies() {
@@ -126,8 +126,6 @@ public class Recycle_model {
     }
 
 
-
-
     public String getName() {
         return name;
     }
@@ -137,7 +135,7 @@ public class Recycle_model {
     }
 
     public String getBreed() {
-       return breed;
+        return breed;
     }
 
     public void setBreed(String breed) {
