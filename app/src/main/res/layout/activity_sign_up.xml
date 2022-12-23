@@ -328,7 +328,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:fontFamily="@font/encode_sans"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_10ssp"
                         android:text="I agree with the rules"
                         android:textColor="#070821"
                         app:layout_constraintBottom_toBottomOf="@+id/checkbox_img1"
@@ -351,7 +351,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:fontFamily="@font/encode_sans"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_10ssp"
                         android:text="I do not want to receive newsletter"
                         android:textColor="#070821"
                         app:layout_constraintBottom_toBottomOf="@+id/checkbox_img2"
@@ -399,24 +399,24 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView9"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="@dimen/_43sdp"
+            android:layout_height="@dimen/_43sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/circlefb"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintHorizontal_bias="0.54"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView10"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="@dimen/_43sdp"
+            android:layout_height="@dimen/_43sdp"
 
             android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/circlegoogle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -424,12 +424,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:layout_marginBottom="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/appCompatImageView10"
-            app:layout_constraintStart_toStartOf="@+id/appCompatImageView9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appCompatImageView10">
 
             <TextView

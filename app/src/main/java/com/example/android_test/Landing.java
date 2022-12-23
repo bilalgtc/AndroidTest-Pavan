@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -51,6 +52,7 @@ public class Landing extends AppCompatActivity implements View.OnClickListener {
         textView2.setText(s2);
         textView3.setText(s3);
 
+//        textView2.setText(Html.fromHtml("Continue with <b>Facebook</b>"));
         button1.setOnClickListener(this);
         textView4.setOnClickListener(this);
         textView5.setOnClickListener(this);
