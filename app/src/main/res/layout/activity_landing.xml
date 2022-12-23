@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradientback"
-    tools:context=".Registration_fb_google">
+    tools:context=".Landing">
 
     <TextView
         android:id="@+id/reg_txt1"
@@ -19,14 +19,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12999999" />
+        app:layout_constraintVertical_bias="0.13999999" />
 
     <LinearLayout
         android:id="@+id/btn1"
         android:layout_marginTop="@dimen/_50sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_36sdp"
-        android:background="@drawable/btn_style44"
+        android:background="@drawable/btn2_style"
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_marginStart="@dimen/_40sdp"
@@ -67,7 +67,7 @@
         android:id="@+id/btn2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_36sdp"
-        android:background="@drawable/btn_style44"
+        android:background="@drawable/btn2_style"
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/_20sdp"
@@ -108,14 +108,14 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerEmailbtn"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_36sdp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_48sdp"
         android:layout_marginEnd="@dimen/_40sdp"
-        android:textSize="@dimen/_10sdp"
-        android:background="@drawable/btn_style55"
+        android:background="@drawable/btn3_style"
         android:fontFamily="@font/encode_sans_bold"
         android:text="Register with Email"
+        android:textSize="@dimen/_12sdp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/btn2"
@@ -140,7 +140,7 @@
             android:layout_height="wrap_content"
             android:text="Already have an account? "
             android:textColor="@color/white"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:id="@+id/regfb_txt2"
@@ -149,7 +149,7 @@
             android:fontFamily="@font/encode_sans_bold"
             android:text="Sign In"
             android:textColor="@color/white"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_14ssp" />
 
     </LinearLayout>
 

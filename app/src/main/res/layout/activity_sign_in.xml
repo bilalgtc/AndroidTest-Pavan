@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
 
-    tools:context=".Registration">
+    tools:context=".Sign_Up">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -18,8 +18,6 @@ import android.widget.Toast;
 
 import com.example.android_test.Helper.DbManager;
 
-import java.util.regex.Pattern;
-
 public class Sign_In extends AppCompatActivity {
         ImageView img,successimg;
         TextView txt1,txt2;
@@ -134,7 +132,7 @@ public class Sign_In extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Sign_In.this, Registration_fb_google.class);
+                Intent i=new Intent(Sign_In.this, Landing.class);
                 startActivity(i);
                 finish();
             }
@@ -143,7 +141,7 @@ public class Sign_In extends AppCompatActivity {
         txt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Sign_In.this,Registration.class);
+                Intent i=new Intent(Sign_In.this, Sign_Up.class);
                 startActivity(i);
                 finish();
             }
@@ -152,7 +150,7 @@ public class Sign_In extends AppCompatActivity {
         txt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Sign_In.this,Registration.class);
+                Intent i=new Intent(Sign_In.this, Sign_Up.class);
                 startActivity(i);
                 finish();
             }

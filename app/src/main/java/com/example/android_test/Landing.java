@@ -15,13 +15,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-public class Registration_fb_google extends AppCompatActivity {
+public class Landing extends AppCompatActivity {
         TextView textView,textView2,textView3,textView4,textView5;
         AppCompatButton button1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration_fb_google);
+        setContentView(R.layout.activity_landing);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -70,7 +70,7 @@ public class Registration_fb_google extends AppCompatActivity {
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Registration_fb_google.this,Sign_In.class);
+                Intent i=new Intent(Landing.this,Sign_In.class);
                 startActivity(i);
                 finish();
             }
@@ -79,7 +79,7 @@ public class Registration_fb_google extends AppCompatActivity {
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Registration_fb_google.this,Sign_In.class);
+                Intent i=new Intent(Landing.this,Sign_In.class);
                 startActivity(i);
                 finish();
             }
@@ -89,7 +89,7 @@ public class Registration_fb_google extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Registration_fb_google.this,Registration.class);
+                Intent i=new Intent(Landing.this, Sign_Up.class);
                 startActivity(i);
                 finish();
 

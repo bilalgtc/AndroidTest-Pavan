@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.example.android_test.Adapters.ViewAdapter;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
-public class Welcome_screen extends AppCompatActivity {
+public class Introduction extends AppCompatActivity {
     TextView textView;
     ViewPager viewPager;
     DotsIndicator dotsIndicator;
@@ -23,7 +23,7 @@ public class Welcome_screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_screen);
+        setContentView(R.layout.activity_introduction);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -40,7 +40,7 @@ public class Welcome_screen extends AppCompatActivity {
             if (getitem(0)<2)
                 viewPager.setCurrentItem(getitem(1), true);
             else{
-                Intent i=new Intent(Welcome_screen.this, Registration_fb_google.class);
+                Intent i=new Intent(Introduction.this, Landing.class);
                 startActivity(i);
                 finish();
             }
@@ -56,7 +56,7 @@ public class Welcome_screen extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Welcome_screen.this,Sign_In.class);
+                Intent i=new Intent(Introduction.this,Sign_In.class);
                 startActivity(i);
                 finish();
             }

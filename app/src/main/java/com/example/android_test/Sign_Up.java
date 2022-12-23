@@ -1,13 +1,10 @@
 package com.example.android_test;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
@@ -22,7 +19,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.android_test.Helper.DbManager;
 
-public class Registration extends AppCompatActivity {
+public class Sign_Up extends AppCompatActivity {
 
     TextView textView,textView1,textView2;
     TextView edt1,edt2,edt3,edt4;
@@ -37,7 +34,7 @@ public class Registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_sign_up);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -174,7 +171,7 @@ public class Registration extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Registration.this, Registration_fb_google.class);
+                Intent i=new Intent(Sign_Up.this, Landing.class);
                 startActivity(i);
                 finish();
             }
@@ -183,7 +180,7 @@ public class Registration extends AppCompatActivity {
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Registration.this,Sign_In.class);
+                Intent i=new Intent(Sign_Up.this,Sign_In.class);
                 startActivity(i);
                 finish();
             }
@@ -192,7 +189,7 @@ public class Registration extends AppCompatActivity {
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Registration.this,Sign_In.class);
+                Intent i=new Intent(Sign_Up.this,Sign_In.class);
                 startActivity(i);
                 finish();
             }
@@ -223,17 +220,17 @@ public class Registration extends AppCompatActivity {
                                 emailed.setText("");
                                 passworded.setText("");
                                 mobileed.setText("");
-                                Toast.makeText(Registration.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Sign_Up.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                 Intent i =new Intent(getApplicationContext(),Sign_In.class);
                                 startActivity(i);
 
 
                                 }else{
-                                    Toast.makeText(Registration.this, "Failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Sign_Up.this, "Failed", Toast.LENGTH_SHORT).show();
                                 }
 
                         }else {
-                            Toast.makeText(Registration.this, "User already exists", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Sign_Up.this, "User already exists", Toast.LENGTH_SHORT).show();
                         }
                     }
             }

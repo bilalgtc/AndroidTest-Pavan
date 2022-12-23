@@ -14,7 +14,6 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -29,12 +28,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.android_test.Fragments.HomeFragment;
 import com.example.android_test.Helper.DatabaseHelper;
-import com.example.android_test.Helper.DbManager8;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 //implements View.OnClickListener

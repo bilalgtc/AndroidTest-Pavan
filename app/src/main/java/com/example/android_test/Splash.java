@@ -8,12 +8,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-public class Loader extends AppCompatActivity {
+public class Splash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loader);
+        setContentView(R.layout.activity_splash);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -22,7 +22,7 @@ public class Loader extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i=new Intent(Loader.this, Welcome_screen.class);
+                Intent i=new Intent(Splash.this, Introduction.class);
                 startActivity(i);
                 finish();
             }
