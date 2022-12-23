@@ -387,31 +387,31 @@
                 android:fontFamily="@font/encode_sans"
                 android:text="or continue with"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView9"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:src="@drawable/circlefb"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView9"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/circlefb"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView10"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:src="@drawable/circlegoogle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView10"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/circlegoogle"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <LinearLayout
             android:layout_marginTop="@dimen/_25sdp"
@@ -429,7 +429,7 @@
                 android:layout_height="wrap_content"
                 android:text="Already have an account? "
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_13ssp" />
 
             <TextView
                 android:id="@+id/goto_signin2"
@@ -438,7 +438,7 @@
                 android:fontFamily="@font/encode_sans_bold"
                 android:text="Sign In"
                 android:textColor="#4552CB"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_13ssp" />
 
         </LinearLayout>
 

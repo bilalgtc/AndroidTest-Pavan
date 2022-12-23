@@ -15,7 +15,7 @@
         android:layout_marginLeft="@dimen/_40sdp"
         android:text="@string/welcome_to"
         android:textColor="@color/white"
-        android:textSize="@dimen/_27ssp"
+        android:textSize="@dimen/_35ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,9 +23,9 @@
 
     <LinearLayout
         android:id="@+id/btn1"
-        android:layout_marginTop="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="@dimen/_36sdp"
         android:background="@drawable/btn_style44"
         android:gravity="center"
         android:orientation="horizontal"
@@ -38,27 +38,27 @@
 
 
 
-    <ImageView
-        android:layout_gravity="center"
-        android:layout_width="@dimen/_17sdp"
-        android:layout_height="@dimen/_17sdp"
-        android:src="@drawable/fb_icon" />
-
+            <ImageView
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_11sdp"
+                android:src="@drawable/fb_icon" />
 
 
 
             <TextView
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_gravity="center"
                 android:id="@+id/reg_txt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textAllCaps="false"
-                android:text="Continue with Facebook"
+                android:layout_gravity="center"
                 android:fontFamily="@font/encode_sans"
+                android:gravity="center_vertical"
+                android:text="Continue with Facebook"
+                android:textAllCaps="false"
                 android:textColor="#4552CB"
-                android:textSize="@dimen/_13sdp" />
+                android:textSize="@dimen/_12sdp" />
+
         </LinearLayout>
 
 
@@ -66,7 +66,7 @@
     <LinearLayout
         android:id="@+id/btn2"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="@dimen/_36sdp"
         android:background="@drawable/btn_style44"
         android:gravity="center"
         android:orientation="horizontal"
@@ -79,31 +79,28 @@
 
 
 
-
         <ImageView
-            android:layout_marginLeft="-10dp"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
             android:layout_gravity="center"
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:src="@drawable/googleicon"
-            />
-
-
+            android:layout_marginEnd="@dimen/_11sdp"
+            android:src="@drawable/googleicon" />
 
 
 
         <TextView
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_gravity="center"
             android:id="@+id/reg_txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAllCaps="false"
-            android:text="Continue with Google"
+            android:layout_gravity="center"
             android:fontFamily="@font/encode_sans"
+            android:gravity="center_vertical"
+            android:text="Continue with Google"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textAllCaps="false"
             android:textColor="#4552CB"
-            android:textSize="@dimen/_13sdp" />
+            android:textSize="@dimen/_12sdp" />
+
 
     </LinearLayout>
 
@@ -111,11 +108,11 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerEmailbtn"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="@dimen/_36sdp"
         android:layout_marginStart="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_48sdp"
         android:layout_marginEnd="@dimen/_40sdp"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_10sdp"
         android:background="@drawable/btn_style55"
         android:fontFamily="@font/encode_sans_bold"
         android:text="Register with Email"
@@ -129,7 +126,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/appCompatImageView2"
         app:layout_constraintEnd_toEndOf="@+id/registerEmailbtn"
@@ -143,7 +140,7 @@
             android:layout_height="wrap_content"
             android:text="Already have an account? "
             android:textColor="@color/white"
-            android:textSize="@dimen/_11ssp" />
+            android:textSize="@dimen/_12ssp" />
 
         <TextView
             android:id="@+id/regfb_txt2"
@@ -152,7 +149,7 @@
             android:fontFamily="@font/encode_sans_bold"
             android:text="Sign In"
             android:textColor="@color/white"
-            android:textSize="@dimen/_11ssp" />
+            android:textSize="@dimen/_12ssp" />
 
     </LinearLayout>
 

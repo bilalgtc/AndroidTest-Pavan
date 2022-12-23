@@ -25,7 +25,7 @@
         android:id="@+id/btn1"
         android:layout_marginTop="@dimen/_50sdp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="@dimen/_36sdp"
         android:background="@drawable/btn2_style"
         android:gravity="center"
         android:orientation="horizontal"
@@ -38,27 +38,27 @@
 
 
 
-    <ImageView
-        android:layout_gravity="center"
-        android:layout_width="@dimen/_17sdp"
-        android:layout_height="@dimen/_17sdp"
-        android:src="@drawable/fb_icon" />
-
+            <ImageView
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_11sdp"
+                android:src="@drawable/fb_icon" />
 
 
 
             <TextView
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_gravity="center"
                 android:id="@+id/reg_txt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textAllCaps="false"
-                android:text="Continue with Facebook"
+                android:layout_gravity="center"
                 android:fontFamily="@font/encode_sans"
+                android:gravity="center_vertical"
+                android:text="Continue with Facebook"
+                android:textAllCaps="false"
                 android:textColor="#4552CB"
-                android:textSize="@dimen/_13sdp" />
+                android:textSize="@dimen/_12sdp" />
+
         </LinearLayout>
 
 
@@ -66,7 +66,7 @@
     <LinearLayout
         android:id="@+id/btn2"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="@dimen/_36sdp"
         android:background="@drawable/btn2_style"
         android:gravity="center"
         android:orientation="horizontal"
@@ -79,31 +79,28 @@
 
 
 
-
         <ImageView
-            android:layout_marginLeft="-10dp"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
             android:layout_gravity="center"
-            android:layout_width="@dimen/_17sdp"
-            android:layout_height="@dimen/_17sdp"
-            android:src="@drawable/googleicon"
-            />
-
-
+            android:layout_marginEnd="@dimen/_11sdp"
+            android:src="@drawable/googleicon" />
 
 
 
         <TextView
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_gravity="center"
             android:id="@+id/reg_txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAllCaps="false"
-            android:text="Continue with Google"
+            android:layout_gravity="center"
             android:fontFamily="@font/encode_sans"
+            android:gravity="center_vertical"
+            android:text="Continue with Google"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textAllCaps="false"
             android:textColor="#4552CB"
-            android:textSize="@dimen/_13sdp" />
+            android:textSize="@dimen/_12sdp" />
+
 
     </LinearLayout>
 
@@ -118,6 +115,7 @@
         android:background="@drawable/btn3_style"
         android:fontFamily="@font/encode_sans_bold"
         android:text="Register with Email"
+        android:textSize="@dimen/_12sdp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/btn2"
@@ -128,7 +126,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/appCompatImageView2"
         app:layout_constraintEnd_toEndOf="@+id/registerEmailbtn"
