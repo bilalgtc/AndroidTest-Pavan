@@ -505,4 +505,5 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
 
     }
+
 }

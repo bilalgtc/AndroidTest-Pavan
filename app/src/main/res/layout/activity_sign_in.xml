@@ -97,7 +97,7 @@
                     <EditText
                         android:textColorHighlight="@color/blue"
                         android:id="@+id/email2_ed"
-                        android:inputType="textEmailSubject"
+                        android:inputType="textEmailAddress"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_25sdp"
                         android:background="#00000000"

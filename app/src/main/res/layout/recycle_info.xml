@@ -7,6 +7,8 @@
     
     
     <androidx.cardview.widget.CardView
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
         app:cardCornerRadius="@dimen/_16sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_120sdp"
@@ -175,7 +177,7 @@
                 android:fontFamily="@font/encode_sans"
                 android:text="Neutered"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_6ssp"
+                android:textSize="@dimen/_5ssp"
                 app:layout_constraintBottom_toBottomOf="@id/cardView2"
                 app:layout_constraintEnd_toEndOf="@+id/imageView7"
                 app:layout_constraintStart_toStartOf="@+id/imageView7" />
@@ -186,9 +188,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans"
                 android:text="Vaccinated"
-                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_7sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_6ssp"
+                android:textSize="@dimen/_5ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/neutered_txt"
                 app:layout_constraintStart_toEndOf="@+id/neutered_txt"
                 app:layout_constraintTop_toTopOf="@+id/neutered_txt" />
@@ -199,9 +201,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans"
                 android:text="Friendly with dogs"
-                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_7sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_6ssp"
+                android:textSize="@dimen/_5ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/vacci_txt"
                 app:layout_constraintStart_toEndOf="@+id/vacci_txt"
                 app:layout_constraintTop_toTopOf="@+id/vacci_txt" />
@@ -212,9 +214,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans"
                 android:text="Friendly with cats"
-                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_7sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_6ssp"
+                android:textSize="@dimen/_5ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/friwithdogs_txt"
                 app:layout_constraintStart_toEndOf="@+id/friwithdogs_txt"
                 app:layout_constraintTop_toTopOf="@+id/friwithdogs_txt" />

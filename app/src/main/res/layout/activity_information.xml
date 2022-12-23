@@ -230,10 +230,11 @@
 
                 <TextView
                     android:id="@+id/info_txt1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/cons_layout"
                     android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:text="Introduction"
                     android:textSize="@dimen/_18sdp"
@@ -243,22 +244,25 @@
 
                 <TextView
                     android:id="@+id/info_txt2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/info_txt1"
                     android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
                     android:fontFamily="@font/encode_sans"
                     android:text="I'm 17 month old German Shepherd called Troy, Snaffs (or \nSnafu when naughty). Apparently l'm characterised as\n'special needs'because I'm a tripaw. Pff, no special needs \nhere except I'm the doggy equivalent of a teenager."
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_11ssp" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/info_txt3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/info_txt2"
                     android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_below="@id/info_txt2"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:text="Personality"
                     android:textSize="@dimen/_18sdp"
@@ -268,22 +272,22 @@
 
                 <TextView
                     android:id="@+id/info_txt4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/info_txt3"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:fontFamily="@font/encode_sans"
                     android:text="This should be the biggest section, and cover personality features, adorable things they do, energy level, if they are affectionate (and if so, in what ways), things they love to do, any training they have, favorite pastimes, any funny things they do, etc.). When we write our bios, this section is usually 3-6 paragraphs long! The more specific info you give, the more people will get a feel for your dog and the better response you will get.
 "
-                    android:layout_below="@id/info_txt3"
-                    android:layout_marginStart="@dimen/_17sdp"
-                    android:layout_marginEnd="@dimen/_17sdp"
-                    android:layout_centerInParent="true"
-                    android:textSize="@dimen/_10ssp"
-                    android:fontFamily="@font/encode_sans"
                     android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"/>
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
                     android:id="@+id/info_txt5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/info_txt4"
                     android:layout_marginStart="@dimen/_20sdp"
@@ -296,18 +300,18 @@
 
                 <TextView
                     android:id="@+id/info_txt6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/info_txt5"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:fontFamily="@font/encode_sans"
                     android:text="German Shepherds were bred specifically for their intelligence.In a list of breeds most likely to bark as watchdogs, Stanley Coren ranked the breed in second place.Coupled with their strength, this trait makes the breed desirable as police, guard and search and rescue dogs, as they are able to quickly learn various tasks and interpret instructions better than other breeds.
 "
-                    android:layout_below="@id/info_txt5"
-                    android:layout_marginStart="@dimen/_18sdp"
-                    android:layout_marginEnd="@dimen/_18sdp"
-                    android:layout_centerInParent="true"
-                    android:textSize="@dimen/_10ssp"
-                    android:fontFamily="@font/encode_sans"
                     android:textColor="@color/black"
-                    android:layout_marginTop="@dimen/_15sdp"/>
+                    android:textSize="@dimen/_10ssp" />
 
 
                 <TextView
