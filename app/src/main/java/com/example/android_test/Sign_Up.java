@@ -36,7 +36,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
 
@@ -54,17 +54,16 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         textView.setText(s1);
 
 
+        dbManager = new DbManager(this);
 
-//        dataHelper = new DataHelper(this);
-            dbManager = new DbManager(this);
 
         nameed.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b){
+                if (b) {
                     v.setBackgroundColor(Color.parseColor("#4552CB"));
                     edt1.setTextColor(Color.parseColor("#4552CB"));
-                }else {
+                } else {
                     v.setBackgroundColor(Color.parseColor("#BBC3CE"));
                     edt1.setTextColor(Color.parseColor("#CCCCCC"));
                 }
@@ -72,14 +71,13 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         });
 
 
-
         emailed.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b){
+                if (b) {
                     v2.setBackgroundColor(Color.parseColor("#4552CB"));
                     edt2.setTextColor(Color.parseColor("#4552CB"));
-                }else {
+                } else {
                     v2.setBackgroundColor(Color.parseColor("#BBC3CE"));
                     edt2.setTextColor(Color.parseColor("#CCCCCC"));
                 }
@@ -89,10 +87,10 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         mobileed.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b){
+                if (b) {
                     v3.setBackgroundColor(Color.parseColor("#4552CB"));
                     edt3.setTextColor(Color.parseColor("#4552CB"));
-                }else {
+                } else {
                     v3.setBackgroundColor(Color.parseColor("#BBC3CE"));
                     edt3.setTextColor(Color.parseColor("#CCCCCC"));
                 }
@@ -103,10 +101,10 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         passworded.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b){
+                if (b) {
                     v4.setBackgroundColor(Color.parseColor("#4552CB"));
                     edt4.setTextColor(Color.parseColor("#4552CB"));
-                }else {
+                } else {
                     v4.setBackgroundColor(Color.parseColor("#BBC3CE"));
                     edt4.setTextColor(Color.parseColor("#CCCCCC"));
                 }
@@ -114,108 +112,100 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         });
 
 
-        imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (temp==0){
-//                    button.setEnabled(true);
-                    imageView2.setImageResource(R.drawable.activeted);
-                    temp++;
-                }else if (temp==1){
-//                    button.setEnabled(false);
-                    imageView2.setImageResource(R.drawable.disabled);
-                    temp--;
-                }
 
-            }
-        });
 
-        imageView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (temp==0){
-                    imageView3.setImageResource(R.drawable.activeted);
-                    temp++;
 
-                }else if (temp==1){
-                    imageView3.setImageResource(R.drawable.disabled);
-                    temp--;
-                }
 
-            }
-        });
+    }
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(Sign_Up.this, Landing.class);
-                startActivity(i);
-                finish();
-            }
-        });
+    @Override
+    public void onClick(View v) {
 
-        textView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(Sign_Up.this,Sign_In.class);
-                startActivity(i);
-                finish();
-            }
-        });
+        switch (v.getId()){
 
-        textView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(Sign_Up.this,Sign_In.class);
-                startActivity(i);
-                finish();
-            }
-        });
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            case R.id.signup_btn:
 
                 String email=emailed.getText().toString();
                 String password=passworded.getText().toString();
                 String name = nameed.getText().toString();
                 String mobile = mobileed.getText().toString();
 
-                    if (name.equals("") || email.equals("") || mobile.equals("") || password.equals("")) {
-                        nameed.setError("Field is empty");
-                        emailed.setError("Field is empty");
-                        mobileed.setError("Field is empty");
-                        passworded.setError("Field is empty");
+                if (name.equals("") || email.equals("") || mobile.equals("") || password.equals("")) {
+                    nameed.setError("Field is empty");
+                    emailed.setError("Field is empty");
+                    mobileed.setError("Field is empty");
+                    passworded.setError("Field is empty");
+
+                }else {
+
+                    Boolean usercheckresult =dbManager.checkuser(email);
+                    if (usercheckresult == false){
+
+                        boolean id = dbManager.addRecord(name,email,mobile, password);
+                        if (id == true){
+                            nameed.setText("");
+                            emailed.setText("");
+                            passworded.setText("");
+                            mobileed.setText("");
+                            Toast.makeText(Sign_Up.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                            Intent i =new Intent(getApplicationContext(),Sign_In.class);
+                            startActivity(i);
+
+
+                        }else{
+                            Toast.makeText(Sign_Up.this, "Failed", Toast.LENGTH_SHORT).show();
+                        }
 
                     }else {
-
-                        Boolean usercheckresult =dbManager.checkuser(email);
-                        if (usercheckresult == false){
-
-                            boolean id = dbManager.addRecord(name,email,mobile, password);
-                            if (id == true){
-                                nameed.setText("");
-                                emailed.setText("");
-                                passworded.setText("");
-                                mobileed.setText("");
-                                Toast.makeText(Sign_Up.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                Intent i =new Intent(getApplicationContext(),Sign_In.class);
-                                startActivity(i);
-
-
-                                }else{
-                                    Toast.makeText(Sign_Up.this, "Failed", Toast.LENGTH_SHORT).show();
-                                }
-
-                        }else {
-                            Toast.makeText(Sign_Up.this, "User already exists", Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(Sign_Up.this, "User already exists", Toast.LENGTH_SHORT).show();
                     }
-            }
-        });
-    }
+                }
+                break;
 
-    @Override
-    public void onClick(View v) {
+            case R.id.goto_signin1:
+
+            case R.id.goto_signin2:
+
+                Intent i=new Intent(Sign_Up.this,Sign_In.class);
+                startActivity(i);
+                finish();
+                break;
+
+            case R.id.reg_backbtn:
+
+                Intent i2 = new Intent(Sign_Up.this, Landing.class);
+                startActivity(i2);
+                finish();
+                break;
+
+            case R.id.checkbox_img1:
+
+                if (temp == 0) {
+                    imageView3.setImageResource(R.drawable.activeted);
+                    temp++;
+
+                } else if (temp == 1) {
+                    imageView3.setImageResource(R.drawable.disabled);
+                    temp--;
+                }
+                break;
+
+            case R.id.checkbox_img2:
+
+                if (temp == 0) {
+//                    button.setEnabled(true);
+                    imageView2.setImageResource(R.drawable.activeted);
+                    temp++;
+                } else if (temp == 1) {
+//                    button.setEnabled(false);
+                    imageView2.setImageResource(R.drawable.disabled);
+                    temp--;
+                }
+                break;
+
+
+
+        }
 
     }
 
