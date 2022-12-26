@@ -106,8 +106,8 @@
 
                     <ImageView
                         android:id="@+id/up_password_toggle"
-                        android:layout_width="@dimen/_12sdp"
-                        android:layout_height="@dimen/_12sdp"
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_gravity="center_vertical"
                         />
