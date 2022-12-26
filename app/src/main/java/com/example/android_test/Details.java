@@ -318,14 +318,14 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
                 state[0] = cardView01.isEnabled();
                 cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-                cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+                cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
                 break;
 
             case R.id.cardView2:
 
                 state[1] = cardView02.isEnabled();
                 cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-                cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+                cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
                 break;
 
             case R.id.details_back_btn:
@@ -354,8 +354,6 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         cardView01 = findViewById(R.id.cardView);
         cardView02 = findViewById(R.id.cardView2);
 
-        cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
-        cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
 
 
         textView = findViewById(R.id.textView15);

@@ -452,6 +452,7 @@
                 android:layout_height="@dimen/_32sdp"
                 android:layout_below="@id/txt6"
                 android:text="Submit"
+                android:textAllCaps="false"
                 android:textSize="@dimen/_10ssp"
                 android:fontFamily="@font/encode_sans_bold"
                 android:textColor="@color/white"

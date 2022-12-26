@@ -20,21 +20,11 @@ tools:context=".Dashboard">
         android:layout_width="match_parent"
        android:layout_height="@dimen/_20sdp"
         android:layout_gravity="bottom"
-        android:layout_above="@id/bar"
         app:elevation="0dp"
+        android:layout_alignParentBottom="true"
         app:labelVisibilityMode="labeled"
-        android:layout_marginBottom="@dimen/_10sdp"
         app:menu="@menu/menu_items" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/bar"
-        android:layout_centerHorizontal="true"
-        android:layout_width="@dimen/_132sdp"
-        android:layout_height="@dimen/_5sdp"
-        android:src="@drawable/home2"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"/>
 
 <!--    <androidx.appcompat.widget.AppCompatImageView-->
 <!--        android:id="@+id/appCompatImageView7"-->

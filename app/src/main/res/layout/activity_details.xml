@@ -117,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -201,6 +202,7 @@
                         android:layout_height="@dimen/_13sdp"
                         android:layout_marginEnd="@dimen/_7sdp"
                         android:src="@drawable/male_icon"
+                        app:tint="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/textView15"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -211,8 +213,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/encode_sans_bold"
                         android:text="Male"
-
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.57"
@@ -223,7 +224,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:clickable="true"
                 android:layout_width="@dimen/_135sdp"
                 android:layout_height="@dimen/_32sdp"
@@ -246,7 +247,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/textView16"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/white" />
+                        app:tint="@color/black" />
 
                     <TextView
                         android:id="@+id/textView16"
@@ -254,7 +255,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/encode_sans_bold"
                         android:text="Female"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.57"
@@ -263,7 +264,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
@@ -444,6 +445,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt6"
                 android:text="Submit"
+                android:textAllCaps="false"
                 android:fontFamily="@font/encode_sans_bold"
                 android:textColor="@color/white"
                 android:background="@drawable/btn1_style"

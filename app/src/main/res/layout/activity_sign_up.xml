@@ -385,25 +385,28 @@
 
         <View
             android:id="@+id/l1"
-            android:layout_width="@dimen/_80sdp"
+            android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_1sdp"
             android:background="#F0F0F8"
+            android:layout_marginStart="@dimen/_5sdp"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/textView6" />
 
         <View
             android:id="@+id/l2"
-            android:layout_width="@dimen/_80sdp"
+            android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_1sdp"
             android:background="#F0F0F8"
+            android:layout_marginEnd="@dimen/_5sdp"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintEnd_toStartOf="@+id/textView6"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout3"
             app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-            <TextView
+
+        <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
