@@ -201,7 +201,11 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
 
                     Toast.makeText(this, "Field might be empty", Toast.LENGTH_SHORT).show();
 
-                } else {
+                }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            Toast.makeText(this, "Enter valid email", Toast.LENGTH_SHORT).show();
+        }else if (!(mobile.length() == 10)) {
+            Toast.makeText(this, "Mobile number is not valid", Toast.LENGTH_SHORT).show();
+        }else {
 
                     Boolean usercheckresult = dbManager.checkuser(email);
                     if (!usercheckresult) {

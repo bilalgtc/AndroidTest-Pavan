@@ -16,6 +16,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,9 +40,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Details extends AppCompatActivity implements View.OnClickListener {
 
     CardView cardView01, cardView02;
-    ImageView imageView, imageView2;
+    ImageView imageView, imageView2,male,female;
     CircleImageView img;
-    TextView textView;
+    TextView textView,male1,female1;
     EditText ed1, ed2, ed3, ed4;
     Button button;
     SwitchCompat sw1;
@@ -74,11 +76,17 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        init();
+        female1.setTextColor(Color.BLACK);
+        male1.setTextColor(Color.BLACK);
+
+        male.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.black));
+        female.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.black));
 
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        init();
+
 
 
         dbhelper = new DatabaseHelper(this);
@@ -319,6 +327,10 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
                 state[0] = cardView01.isEnabled();
                 cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
                 cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                male1.setTextColor(Color.WHITE);
+                female1.setTextColor(Color.BLACK);
+                male.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.white));
+                female.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.black));
                 break;
 
             case R.id.cardView2:
@@ -326,6 +338,10 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
                 state[1] = cardView02.isEnabled();
                 cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
                 cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                female1.setTextColor(Color.WHITE);
+                male1.setTextColor(Color.BLACK);
+                female.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.white));
+                male.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.black));
                 break;
 
             case R.id.details_back_btn:
@@ -350,6 +366,16 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void init() {
+
+
+
+
+        male1=findViewById(R.id.male_txt);
+        female1=findViewById(R.id.female_txt);
+
+        male=findViewById(R.id.male_img);
+        female=findViewById(R.id.female_img);
+
 
         cardView01 = findViewById(R.id.cardView);
         cardView02 = findViewById(R.id.cardView2);
@@ -378,6 +404,8 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
 
         button = findViewById(R.id.submit_btn);
+
+
 
     }
 
