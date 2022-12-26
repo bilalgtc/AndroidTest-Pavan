@@ -246,10 +246,10 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
             case R.id.up_password_toggle:
                 if (passworded.getTransformationMethod().getClass().getSimpleName().equals("PasswordTransformationMethod")) {
                     passworded.setTransformationMethod(new SingleLineTransformationMethod());
-                    password_img.setImageResource(R.drawable.invisible_eye);
+                    password_img.setImageResource(R.drawable.remove_red_eye_24);
                 }else {
                     passworded.setTransformationMethod(new PasswordTransformationMethod());
-                    password_img.setImageResource(R.drawable.remove_red_eye_24);
+                    password_img.setImageResource(R.drawable.invisible_eye);
                 }
                 passworded.setSelection(passworded.getText().length());
                 break;

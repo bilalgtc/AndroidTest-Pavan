@@ -295,7 +295,7 @@
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginEnd="@dimen/_10sdp"
-                                android:src="@drawable/remove_red_eye_24"
+                                android:src="@drawable/invisible_eye"
                                 android:layout_gravity="center_vertical"
                                 />
                         </LinearLayout>
@@ -382,6 +382,26 @@
 
 
             </LinearLayout>
+
+        <View
+            android:id="@+id/l1"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_1sdp"
+            android:background="#F0F0F8"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <View
+            android:id="@+id/l2"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_1sdp"
+            android:background="#F0F0F8"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
 
             <TextView
                 android:id="@+id/textView6"

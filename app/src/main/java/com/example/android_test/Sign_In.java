@@ -21,7 +21,7 @@ import android.widget.Toast;
 import com.example.android_test.Helper.DbManager;
 
 public class Sign_In extends AppCompatActivity implements View.OnClickListener {
-    ImageView img, successimg,password_eye;
+    ImageView img, successimg, password_eye;
     TextView txt1, txt2;
     AppCompatButton button;
     TextView edt1, edt2;
@@ -96,8 +96,6 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -119,11 +117,10 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
 
                 if (passworded.getTransformationMethod().getClass().getSimpleName().equals("PasswordTransformationMethod")) {
                     passworded.setTransformationMethod(new SingleLineTransformationMethod());
-                    password_eye.setImageResource(R.drawable.invisible_eye);
-                }
-                else {
-                    passworded.setTransformationMethod(new PasswordTransformationMethod());
                     password_eye.setImageResource(R.drawable.remove_red_eye_24);
+                } else {
+                    passworded.setTransformationMethod(new PasswordTransformationMethod());
+                    password_eye.setImageResource(R.drawable.invisible_eye);
                 }
 
                 passworded.setSelection(passworded.getText().length());
@@ -160,7 +157,7 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
 
         img = findViewById(R.id.signin_backbtn);
         successimg = findViewById(R.id.up_password_toggle);
-        password_eye=findViewById(R.id.in_password_toggle);
+        password_eye = findViewById(R.id.in_password_toggle);
 
         v = findViewById(R.id.ed1_line4);
         v2 = findViewById(R.id.ed1_line5);
