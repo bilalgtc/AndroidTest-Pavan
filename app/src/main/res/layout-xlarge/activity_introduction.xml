@@ -36,6 +36,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     app:dotsColor="#E6E7F8"
     app:dotsSize="@dimen/_8sdp"
     app:selectedDotColor="#F1A852"/>
+
+
 <androidx.viewpager.widget.ViewPager
     android:id="@+id/viewpager"
     android:layout_marginTop="@dimen/_5sdp"
@@ -60,13 +62,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:textColor="@color/white"
         android:textSize="@dimen/_10ssp" />
 
-<androidx.appcompat.widget.AppCompatImageView
-    android:id="@+id/appCompatImageView8"
-    android:layout_width="@dimen/_132sdp"
-    android:layout_height="@dimen/_5sdp"
-    android:layout_marginBottom="@dimen/_8sdp"
-    android:foreground="#BBC3CE"
-    android:layout_centerInParent="true"
-    android:layout_alignParentBottom="true"
-    android:src="@drawable/home2"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView8"
+        android:layout_width="@dimen/_132sdp"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:tint="#BBC3CE"
+        android:src="@drawable/home2" />
 </RelativeLayout>

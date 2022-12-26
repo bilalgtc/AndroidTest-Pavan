@@ -36,6 +36,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     app:dotsColor="#E6E7F8"
     app:dotsSize="@dimen/_8sdp"
     app:selectedDotColor="#F1A852"/>
+
+
 <androidx.viewpager.widget.ViewPager
     android:id="@+id/viewpager"
     android:layout_marginTop="@dimen/_17sdp"
@@ -67,6 +69,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/_8sdp"
-        android:foreground="#BBC3CE"
+        android:tint="#BBC3CE"
         android:src="@drawable/home2" />
 </RelativeLayout>
