@@ -197,6 +197,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
                 String name = nameed.getText().toString();
                 String mobile = mobileed.getText().toString();
 
+
                 if (name.equals("") || email.equals("") || mobile.equals("") || password.equals("")) {
 
                     Toast.makeText(this, "Field might be empty", Toast.LENGTH_SHORT).show();
@@ -205,7 +206,13 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
             Toast.makeText(this, "Enter valid email", Toast.LENGTH_SHORT).show();
         }else if (!(mobile.length() == 10)) {
             Toast.makeText(this, "Mobile number is not valid", Toast.LENGTH_SHORT).show();
-        }else {
+
+        }else if (temp ==0) {
+                    button.setEnabled(false);
+                    Toast.makeText(this, "Accept Policy", Toast.LENGTH_SHORT).show();
+                    temp++;
+
+                }else {
 
                     Boolean usercheckresult = dbManager.checkuser(email);
                     if (!usercheckresult) {
@@ -263,11 +270,11 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
             case R.id.checkbox_img1:
 
                 if (temp == 0) {
-//                    button.setEnabled(true);
+                    button.setEnabled(true);
                     imageView2.setImageResource(R.drawable.activeted);
                     temp++;
                 } else if (temp == 1) {
-//                    button.setEnabled(false);
+                    button.setEnabled(false);
                     imageView2.setImageResource(R.drawable.disabled);
                     temp--;
                 }
@@ -277,10 +284,12 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
             case R.id.checkbox_img2:
 
                 if (temp == 0) {
+                    button.setEnabled(true);
                     imageView3.setImageResource(R.drawable.activeted);
                     temp++;
 
                 } else if (temp == 1) {
+                    button.setEnabled(false);
                     imageView3.setImageResource(R.drawable.disabled);
                     temp--;
                 }

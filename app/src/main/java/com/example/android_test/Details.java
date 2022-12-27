@@ -471,19 +471,23 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
             }
 
 
-        } else {
-
-            if (name.isEmpty() && species.isEmpty() && breed.isEmpty() && size.isEmpty()) {
+        } else if (name.isEmpty() || species.isEmpty() || breed.isEmpty() || size.isEmpty()) {
                 Toast.makeText(Details.this, "Fields are empty", Toast.LENGTH_SHORT).show();
-            } else {
+
+
+        }
+        else if(imgToStore == null){
+
+            Toast.makeText(this, "Add Image", Toast.LENGTH_SHORT).show();
+
+            }
+        else {
 
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                if (imgToStore == null) {
-                    img.setImageResource(R.drawable.dogimg);
-                } else {
+
                     imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
                     image = outputStream.toByteArray();
-                }
+
 
                 contentValues.put("image", image);
                 contentValues.put("name", name);
@@ -532,4 +536,3 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-}

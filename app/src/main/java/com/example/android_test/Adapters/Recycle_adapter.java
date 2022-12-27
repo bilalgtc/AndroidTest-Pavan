@@ -27,6 +27,7 @@ import com.example.android_test.Helper.DatabaseHelper;
 import com.example.android_test.Information;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     Context context;
     DatabaseHelper dbHelper;
     Bitmap bitmap;
+    BottomSheetDialog dialog;
 
     public Recycle_adapter(Context context, ArrayList<Recycle_model> details) {
         this.context = context;
@@ -97,24 +99,28 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
             holder.txt5.setText("Neutured");
         } else {
             holder.txt5.setText("");
+            holder.txt5.setBackground(null);
         }
 
         if (vaccinated.equals("1")) {
             holder.txt6.setText("Vaccinated");
         } else {
             holder.txt6.setText("");
+            holder.txt6.setBackground(null);
         }
 
         if (fwithdogs.equals("1")) {
             holder.txt7.setText("Friendly with dogs");
         } else {
             holder.txt7.setText("");
+            holder.txt7.setBackground(null);
         }
 
         if (fwithcats.equals("1")) {
             holder.txt8.setText("Friendly with cats");
         } else {
             holder.txt8.setText("");
+            holder.txt8.setBackground(null);
         }
 
 
@@ -151,7 +157,6 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         });
 
         holder.imageView.setOnClickListener(v -> {
-
 
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -220,6 +225,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
             txt8 = itemView.findViewById(R.id.friwithcats_txt);
             txt9 = itemView.findViewById(R.id.size_txt);
             image_view1 = itemView.findViewById(R.id.main_img);
+
 //
             imageView = itemView.findViewById(R.id.delete_img);
             imageView2 = itemView.findViewById(R.id.update_btn);

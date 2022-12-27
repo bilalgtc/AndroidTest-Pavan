@@ -21,6 +21,7 @@
             android:layout_height="match_parent">
 
 
+
             <ImageView
                 android:id="@+id/details_back_btn"
                 android:layout_width="@dimen/_21sdp"
@@ -45,6 +46,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/details_back_btn" />
 
+            <View
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="#F0F0F8"
+                android:layout_marginTop="11dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/circleImageView"
                 android:layout_width="@dimen/_110sdp"
@@ -53,7 +64,7 @@
                 android:src="@drawable/dogimg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <ImageView
                 android:id="@+id/add_image"
