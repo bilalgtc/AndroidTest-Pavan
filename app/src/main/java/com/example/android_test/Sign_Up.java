@@ -168,7 +168,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String mobile = mobileed.getText().toString();
-                if (mobile.length() >= 10){
+                if (mobile.length() == 10){
                     imageView6.setImageResource(R.drawable.success);
                     imageView6.setVisibility(View.VISIBLE);
                 }else{     imageView6.setVisibility(View.INVISIBLE);}

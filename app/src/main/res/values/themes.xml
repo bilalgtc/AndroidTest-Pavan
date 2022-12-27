@@ -37,7 +37,6 @@
     </style>
 
     <style name="hint">
-
         <item name="fontFamily">@font/encode_sans</item>
         <item name="android:hint">12sp</item>
     </style>
