@@ -226,7 +226,6 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
                         }
 
                     } else {
-
                         Toast.makeText(Sign_Up.this, "User already exists", Toast.LENGTH_SHORT).show();
                     }
                 }
