@@ -5,10 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.AppoinmentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sorry No Data!"
+            android:textAllCaps="false"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/encode_sans_bold"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/_15sdp"/>
+
+    </RelativeLayout>
 </FrameLayout>

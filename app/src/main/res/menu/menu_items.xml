@@ -7,13 +7,16 @@
 
     <item android:id="@+id/clock_icon"
         android:title="Appointments"
+
         android:icon="@drawable/xclock"/>
 
     <item android:id="@+id/explore_icon"
         android:title="Explore"
+
         android:icon="@drawable/explore"/>
 
     <item android:id="@+id/profile_icon"
         android:title="Profile"
+
         android:icon="@drawable/profile"/>
 </menu>

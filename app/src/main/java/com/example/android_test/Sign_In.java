@@ -3,7 +3,9 @@ package com.example.android_test;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -29,6 +31,7 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
     View v, v2;
     DbManager dbManager;
     String email, password;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,16 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
+
+
+        sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+//
+//        if (sharedPreferences.contains("email")){
+//            Intent i=new Intent(getApplicationContext(),Dashboard.class);
+//            startActivity(i);
+//            finish();
+//        }
+
 
         init();
 
@@ -131,10 +144,18 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
                 email = emailed.getText().toString();
                 password = passworded.getText().toString();
 
+
                 if (!email.isEmpty() && !password.isEmpty()) {
 
 
+
                     if (dbManager.checkusermailpass(email, password)) {
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("email", email);
+                        editor.putString("password", password);
+                        editor.apply();
+
                         emailed.setText("");
                         passworded.setText("");
                         Toast.makeText(Sign_In.this, "Login Successful", Toast.LENGTH_SHORT).show();

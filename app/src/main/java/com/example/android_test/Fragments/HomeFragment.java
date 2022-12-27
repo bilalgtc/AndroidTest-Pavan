@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -38,7 +39,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     ArrayList<Recycle_model> details = new ArrayList<>();
     ImageView imageView;
     TextView textView;
-
+    Recycle_adapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,6 +78,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
 
 
+
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
 
@@ -95,12 +97,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 do {
                     Recycle_model obj = new Recycle_model(cursor.getString(0), cursor.getBlob(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12));
                     details.add(obj);
+
                 } while (cursor.moveToNext());
             }
         }
 
 
-        Recycle_adapter adapter = new Recycle_adapter(getContext(), details);
+        adapter = new Recycle_adapter(getContext(), details);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         s.setSpan(fc, 25, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -115,6 +118,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override

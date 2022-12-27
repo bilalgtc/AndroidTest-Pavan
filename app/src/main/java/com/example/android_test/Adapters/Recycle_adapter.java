@@ -4,12 +4,14 @@ package com.example.android_test.Adapters;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -38,6 +40,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     Bitmap bitmap;
     BottomSheetDialog dialog;
 
+
     public Recycle_adapter(Context context, ArrayList<Recycle_model> details) {
         this.context = context;
         this.details = details;
@@ -49,6 +52,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.recycle_info, parent, false);
+
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -157,7 +161,6 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         });
 
         holder.imageView.setOnClickListener(v -> {
-
             Dialog dialog = new Dialog(context);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.custom_delete_dialog);
@@ -167,17 +170,21 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
             Button btn2 = dialog.findViewById(R.id.no_btn);
             ImageView btn3 = dialog.findViewById(R.id.cross_btn);
 
-
             btn1.setOnClickListener(v1 -> {
 //                Toast.makeText(context.getApplicationContext(),"Yes" , Toast.LENGTH_LONG).show();
+
+                btn1.setBackgroundColor(Color.BLUE);
+                btn1.setTextColor(Color.WHITE);
                 dbHelper.deleteData(id);
-//                details.remove(holder.getAdapterPosition());
-                notifyDataSetChanged();
+                details.remove(position);
+                notifyItemRemoved(position);
                 dialog.cancel();
             });
             btn2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    btn2.setBackgroundColor(Color.BLUE);
+                    btn2.setTextColor(Color.WHITE);
                     dialog.cancel();
                 }
             });

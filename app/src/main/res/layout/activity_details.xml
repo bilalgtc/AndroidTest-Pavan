@@ -24,10 +24,11 @@
 
             <ImageView
                 android:id="@+id/details_back_btn"
-                android:layout_width="@dimen/_21sdp"
-                android:layout_height="@dimen/_21sdp"
-                android:layout_marginStart="@dimen/_22sdp"
-                android:layout_marginTop="@dimen/_22sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:padding="@dimen/_5sdp"
                 android:src="@drawable/back_arrow"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +41,7 @@
                 android:fontFamily="@font/encode_sans_bold"
                 android:text="Add pet detail"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18ssp"
+                android:textSize="@dimen/_17ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/details_back_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +84,7 @@
                 android:fontFamily="@font/encode_sans_bold"
                 android:text="General information"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_15ssp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
@@ -96,6 +97,7 @@
                 android:text="Pet's name"
                 android:fontFamily="@font/encode_sans_semibold"
                 android:textColor="#BBC3CE"
+                android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toStartOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -117,6 +119,7 @@
                 android:fontFamily="@font/encode_sans_semibold"
                 android:text="Species of your pet"
                 android:layout_marginTop="@dimen/_13sdp"
+                android:textSize="@dimen/_10ssp"
                 android:textColor="#BBC3CE"
                 app:layout_constraintStart_toStartOf="@+id/name_ed"
                 app:layout_constraintTop_toBottomOf="@+id/name_ed" />
@@ -138,6 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/encode_sans_semibold"
+                android:textSize="@dimen/_10ssp"
                 android:text="Breed"
                 android:textColor="#BBC3CE"
                 android:layout_marginTop="@dimen/_13sdp"
@@ -159,6 +163,7 @@
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/_10ssp"
                 android:fontFamily="@font/encode_sans_semibold"
                 android:text="Size (optional)"
                 android:layout_marginTop="@dimen/_13sdp"
@@ -188,7 +193,7 @@
                 android:text="Gender"
                 android:fontFamily="@font/encode_sans_semibold"
                 android:textColor="#BBC3CE"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_12sdp"
                 app:layout_constraintStart_toStartOf="@+id/size_ed"
                 app:layout_constraintTop_toBottomOf="@+id/size_ed" />
 
@@ -285,7 +290,7 @@
                 android:fontFamily="@font/encode_sans_bold"
                 android:text="Additional Information"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15ssp"
+                android:textSize="@dimen/_14ssp"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_below="@id/layout3" />
 
@@ -296,7 +301,7 @@
                 android:text="Neutered"
                 android:gravity="center_vertical"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_11ssp"
                 android:layout_below="@id/ad_txt"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
@@ -324,7 +329,7 @@
                 android:gravity="center_vertical"
                 android:layout_below="@id/txt1"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_11ssp"
                 android:layout_marginTop="@dimen/_27sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
@@ -350,7 +355,7 @@
                 android:gravity="center_vertical"
                 android:layout_below="@id/txt2"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_11ssp"
                 android:layout_marginTop="@dimen/_27sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
@@ -376,7 +381,7 @@
                 android:gravity="center_vertical"
                 android:layout_below="@id/txt3"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_11ssp"
                 android:layout_marginTop="@dimen/_27sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
@@ -403,7 +408,7 @@
                 android:gravity="center_vertical"
                 android:layout_below="@id/txt4"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_11ssp"
                 android:layout_marginTop="@dimen/_27sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
@@ -428,7 +433,7 @@
                 android:gravity="center_vertical"
                 android:layout_below="@id/txt5"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_11ssp"
                 android:layout_marginTop="@dimen/_27sdp"
                 android:layout_marginStart="@dimen/_20sdp"/>
 
