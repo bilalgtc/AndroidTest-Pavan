@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,8 +18,8 @@
         <activity
             android:name=".Details"
             android:exported="false"
-            android:theme="@style/Theme.Android_Test2"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Android_Test2">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -25,8 +27,8 @@
         <activity
             android:name=".AddDetails"
             android:exported="true"
-            android:theme="@style/Theme.Android_Test2"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Android_Test2">
 
 
             <meta-data
@@ -36,8 +38,8 @@
         <activity
             android:name=".Dashboard"
             android:exported="true"
-            android:theme="@style/Theme.Android_Test2"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Android_Test2">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -46,8 +48,8 @@
         <activity
             android:name=".SignIn"
             android:exported="true"
-            android:theme="@style/Theme.Android_Test2"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Android_Test2">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -55,8 +57,8 @@
         <activity
             android:name=".SignUp"
             android:exported="true"
-            android:theme="@style/Theme.Android_Test2"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Android_Test2">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -64,8 +66,8 @@
         <activity
             android:name=".Landing"
             android:exported="true"
-            android:theme="@style/Theme.Android_Test2"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Android_Test2">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -73,8 +75,8 @@
         <activity
             android:name=".Introduction"
             android:exported="true"
-            android:theme="@style/Theme.Android_Test2"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Android_Test2">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -82,8 +84,8 @@
         <activity
             android:name=".Splash"
             android:exported="true"
-            android:theme="@style/Theme.Android_Test2"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Android_Test2">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
