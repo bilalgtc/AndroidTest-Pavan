@@ -49,12 +49,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/encode_sans_semibold"
+            android:fontFamily="@font/encode_sans"
             android:gravity="center_vertical"
-            android:text="Continue with Facebook"
+            android:text="Continue with "
             android:textAllCaps="false"
             android:textColor="#4552CB"
             android:textSize="@dimen/_12sdp" />
+        <TextView
+            android:id="@+id/reg_txt4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/encode_sans_bold"
+            android:gravity="center_vertical"
+            android:text="Facebook"
+            android:textAllCaps="false"
+            android:textColor="#4552CB"
+            android:textSize="@dimen/_12sdp" />
+
 
     </LinearLayout>
 
@@ -87,13 +99,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:fontFamily="@font/encode_sans_semibold"
+            android:fontFamily="@font/encode_sans"
             android:gravity="center_vertical"
-            android:text="Continue with Google"
+            android:text="Continue with "
             android:textAllCaps="false"
             android:textColor="#4552CB"
             android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/reg_txt5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/encode_sans_bold"
+            android:gravity="center_vertical"
+            android:text="Google"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:textAllCaps="false"
+            android:textColor="#4552CB"
+            android:textSize="@dimen/_12sdp" />
+
 
 
     </LinearLayout>
