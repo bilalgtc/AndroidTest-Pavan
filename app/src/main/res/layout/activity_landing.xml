@@ -131,7 +131,7 @@
         android:layout_marginStart="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_48sdp"
         android:layout_marginEnd="@dimen/_40sdp"
-        android:background="@drawable/btn3_style"
+        android:background="@drawable/button_ripple"
         android:fontFamily="@font/encode_sans_bold"
         android:text="Register with Email"
         android:textAllCaps="false"
