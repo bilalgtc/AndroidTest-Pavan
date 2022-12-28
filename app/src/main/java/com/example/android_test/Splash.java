@@ -12,6 +12,7 @@ import android.view.WindowManager;
 
 public class Splash extends AppCompatActivity {
     SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,17 +27,16 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
 
-            if (sharedPreferences.contains("email")){
-                Intent i=new Intent(getApplicationContext(),Dashboard.class);
+            if (sharedPreferences.contains("email")) {
+                Intent i = new Intent(getApplicationContext(), Dashboard.class);
                 startActivity(i);
                 finish();
-            }else {
+            } else {
                 Intent i = new Intent(Splash.this, Introduction.class);
                 startActivity(i);
                 finish();
             }
         }, 2000);
-
 
 
     }

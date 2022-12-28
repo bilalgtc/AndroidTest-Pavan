@@ -42,7 +42,6 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
 
-
         sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
 //
 //        if (sharedPreferences.contains("email")){
@@ -147,7 +146,6 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
 
 
                 if (!email.isEmpty() && !password.isEmpty()) {
-
 
 
                     if (dbManager.checkusermailpass(email, password)) {

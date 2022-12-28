@@ -92,6 +92,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         isEdit();
 
     }
+
     private void init() {
 
 
@@ -186,7 +187,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    private void clicks(){
+    private void clicks() {
 
         dbhelper = new DatabaseHelper(this);
 
@@ -199,7 +200,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    private void isEdit(){
+    private void isEdit() {
         Intent i = getIntent();
         isEditMode = i.getBooleanExtra("isEditMode", false);
         if (isEditMode) {
@@ -564,7 +565,6 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
 
     }
-
 
 
     @Override
