@@ -208,10 +208,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
             Toast.makeText(this, "Mobile number is not valid", Toast.LENGTH_SHORT).show();
 
         }else if (temp ==0) {
-                    button.setEnabled(false);
                     Toast.makeText(this, "Accept Policy", Toast.LENGTH_SHORT).show();
-                    temp++;
-
                 }else {
 
                     Boolean usercheckresult = dbManager.checkuser(email);
@@ -226,7 +223,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
                             Toast.makeText(SignUp.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getApplicationContext(), SignIn.class);
                             startActivity(i);
-
+                            finish();
 
                         } else {
                             Toast.makeText(SignUp.this, "Failed", Toast.LENGTH_SHORT).show();
@@ -270,11 +267,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
             case R.id.checkbox_img1:
 
                 if (temp == 0) {
-                    button.setEnabled(true);
                     imageView2.setImageResource(R.drawable.activeted);
                     temp++;
                 } else if (temp == 1) {
-                    button.setEnabled(false);
                     imageView2.setImageResource(R.drawable.disabled);
                     temp--;
                 }
@@ -284,12 +279,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener  {
             case R.id.checkbox_img2:
 
                 if (temp == 0) {
-                    button.setEnabled(true);
                     imageView3.setImageResource(R.drawable.activeted);
                     temp++;
 
                 } else if (temp == 1) {
-                    button.setEnabled(false);
                     imageView3.setImageResource(R.drawable.disabled);
                     temp--;
                 }

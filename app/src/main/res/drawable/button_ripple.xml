@@ -10,8 +10,8 @@
 
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
-            <stroke android:color="@color/white" android:width="2dp"/>
-            <corners android:radius="40dp"/>
+            <stroke android:color="@color/white" android:width="@dimen/_1sdp"/>
+            <corners android:radius="@dimen/_30sdp"/>
         </shape>
     </item>
 </ripple>
