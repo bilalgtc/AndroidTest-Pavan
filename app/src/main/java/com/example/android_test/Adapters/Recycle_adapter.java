@@ -78,12 +78,9 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
 
         //set data
-        if (image == null) {
-            holder.image_view1.setImageResource(R.drawable.dogimg);
-        } else {
+
             bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
             holder.image_view1.setImageBitmap(bitmap);
-        }
 
         holder.txt1.setText(name);
         holder.txt2.setText(species);

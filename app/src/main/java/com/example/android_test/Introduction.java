@@ -29,6 +29,7 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
 
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 //        getWindow().setStatusBarColor(Color.BLACK);
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.grey2));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
