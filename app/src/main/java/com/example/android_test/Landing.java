@@ -35,27 +35,15 @@ public class Landing extends AppCompatActivity implements View.OnClickListener {
 
 
         String text = "Welcome\t\t\t\nto Pet Care";
-        String text2 = "Continue with Facebook";
-        String text3 = "Continue with Google";
 
         SpannableString s = new SpannableString(text);
-        SpannableString s2 = new SpannableString(text2);
-        SpannableString s3 = new SpannableString(text3);
-
-        StyleSpan ss = new StyleSpan(Typeface.BOLD);
-        StyleSpan ss2 = new StyleSpan(Typeface.BOLD);
 
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#FFCF6F"));
 
         s.setSpan(fc, 13, 22, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        s2.setSpan(ss, 13, 22, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        s3.setSpan(ss2, 13, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView.setText(s);
-        textView2.setText(s2);
-        textView3.setText(s3);
 
-//        textView2.setText(Html.fromHtml("Continue with <b>Facebook</b>"));
         button1.setOnClickListener(this);
         textView4.setOnClickListener(this);
         textView5.setOnClickListener(this);
