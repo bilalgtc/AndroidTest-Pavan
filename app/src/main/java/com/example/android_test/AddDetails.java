@@ -72,7 +72,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adddetails);
+        setContentView(R.layout.activity_add_details);
 
         getWindow().setStatusBarColor(Color.TRANSPARENT);
         getWindow().setNavigationBarColor(getResources().getColor(R.color.white));
