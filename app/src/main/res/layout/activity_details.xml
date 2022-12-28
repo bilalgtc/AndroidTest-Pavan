@@ -6,267 +6,221 @@
     android:layout_height="match_parent"
     tools:context=".Details">
 
-    <ImageView
-        android:id="@+id/details_back_btn"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_25sdp"
-        android:padding="@dimen/_5sdp"
-        android:src="@drawable/back_arrow"
-        app:tint="#563BB5" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_25sdp"
-        android:fontFamily="@font/encode_sans_bold"
-        android:text="Add pet detail"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_17ssp" />
-
-    <View
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:layout_below="@id/textView"
-        android:layout_marginTop="11dp"
-        android:background="#F0F0F8" />
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black">
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layout3"
+                android:id="@+id/cons_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="@dimen/_410sdp">
 
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/circleImageView"
-                    android:layout_width="@dimen/_110sdp"
-                    android:layout_height="@dimen/_110sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:src="@drawable/dogimg"
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_350sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dogimg3x"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+
                 <ImageView
-                    android:id="@+id/add_image"
-                    android:layout_width="30dp"
-                    android:layout_height="@dimen/_30sdp"
-                    android:src="@drawable/add_icon"
-                    app:layout_constraintEnd_toEndOf="@+id/circleImageView"
-                    app:layout_constraintTop_toTopOf="@+id/circleImageView" />
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/info_back_btn"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:fontFamily="@font/encode_sans_bold"
-                    android:text="General information"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15ssp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:src="@drawable/back_arrow"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
-
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:fontFamily="@font/encode_sans_semibold"
-                    android:text="Pet's name"
-                    android:textColor="#BBC3CE"
-                    android:textSize="@dimen/_10ssp"
-                    app:layout_constraintStart_toStartOf="@+id/textView7"
-                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-                <EditText
-                    android:id="@+id/name_ed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
-                    android:backgroundTint="#F0F0F8"
+                    android:src="@drawable/like"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_13sdp"
-                    android:fontFamily="@font/encode_sans_semibold"
-                    android:text="Species of your pet"
-                    android:textColor="#BBC3CE"
-                    android:textSize="@dimen/_10ssp"
-                    app:layout_constraintStart_toStartOf="@+id/name_ed"
-                    app:layout_constraintTop_toBottomOf="@+id/name_ed" />
-
-                <EditText
-                    android:id="@+id/species_ed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
-                    android:backgroundTint="#F0F0F8"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_13sdp"
-                    android:fontFamily="@font/encode_sans_semibold"
-                    android:text="Breed"
-                    android:textColor="#BBC3CE"
-                    android:textSize="@dimen/_10ssp"
-                    app:layout_constraintStart_toStartOf="@+id/species_ed"
-                    app:layout_constraintTop_toBottomOf="@+id/species_ed" />
-
-                <EditText
-                    android:id="@+id/breed_ed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
-                    android:backgroundTint="#F0F0F8"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_13sdp"
-                    android:fontFamily="@font/encode_sans_semibold"
-                    android:text="Size (optional)"
-                    android:textColor="#BBC3CE"
-                    android:textSize="@dimen/_10ssp"
-                    app:layout_constraintStart_toStartOf="@+id/breed_ed"
-                    app:layout_constraintTop_toBottomOf="@+id/breed_ed" />
-
-                <EditText
-                    android:id="@+id/size_ed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
-                    android:backgroundTint="#F0F0F8"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:fontFamily="@font/encode_sans_semibold"
-                    android:text="Gender"
-                    android:textColor="#BBC3CE"
-                    android:textSize="@dimen/_12sdp"
-                    app:layout_constraintStart_toStartOf="@+id/size_ed"
-                    app:layout_constraintTop_toBottomOf="@+id/size_ed" />
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:src="@drawable/share"
+                    app:layout_constraintBottom_toBottomOf="@+id/info_back_btn"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
-                    android:layout_width="@dimen/_135sdp"
-                    android:layout_height="@dimen/_32sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:clickable="true"
-                    app:cardCornerRadius="@dimen/_25sdp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8">
+                    android:id="@+id/crdview"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_110sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:elevation="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_16sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView10">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <ImageView
-                            android:id="@+id/male_img"
-                            android:layout_width="@dimen/_11sdp"
-                            android:layout_height="@dimen/_13sdp"
-                            android:layout_marginEnd="@dimen/_7sdp"
-                            android:src="@drawable/male_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/male_txt"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView2"
+                            android:layout_width="@dimen/_64sdp"
+                            android:layout_height="@dimen/_65sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_11sdp"
+                            android:backgroundTint="#4552CB"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/encode_sans_bold"
+                                android:text="4.9"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_28sdp" />
+
+                        </androidx.cardview.widget.CardView>
+
 
                         <TextView
-                            android:id="@+id/male_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/encode_sans"
+                            android:text="125 reviews"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintEnd_toEndOf="@+id/cardView2"
+                            app:layout_constraintStart_toStartOf="@+id/cardView2"
+                            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                        <TextView
+                            android:id="@+id/dogname_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_11sdp"
                             android:fontFamily="@font/encode_sans_bold"
+                            android:text="Troy"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:src="@drawable/paw"
+                            app:layout_constraintStart_toStartOf="@+id/dogname_txt"
+                            app:layout_constraintTop_toBottomOf="@+id/dogname_txt" />
+
+                        <TextView
+                            android:id="@+id/breed_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/encode_sans"
+                            android:text="Dog"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_8ssp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                            app:layout_constraintStart_toEndOf="@+id/imageView5"
+                            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="@dimen/_11sdp"
+                            android:layout_height="@dimen/_11sdp"
+                            android:layout_marginStart="@dimen/_17sdp"
+                            android:src="@drawable/icon_dog"
+                            app:layout_constraintBottom_toBottomOf="@+id/breed_txt"
+                            app:layout_constraintStart_toEndOf="@+id/breed_txt"
+                            app:layout_constraintTop_toTopOf="@+id/breed_txt" />
+
+                        <TextView
+                            android:id="@+id/breed_name_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/encode_sans"
+                            android:text="German Shepard"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_7ssp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                            app:layout_constraintStart_toEndOf="@+id/imageView6"
+                            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:src="@drawable/gen_icon"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+                            app:layout_constraintStart_toStartOf="@+id/imageView5"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/encode_sans"
                             android:text="Male"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.57"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_8ssp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                            app:layout_constraintStart_toEndOf="@+id/imageView7"
+                            app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView2"
-                    android:layout_width="@dimen/_135sdp"
-                    android:layout_height="@dimen/_32sdp"
-                    android:clickable="true"
-                    app:cardCornerRadius="@dimen/_25sdp"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cardView"
-                    app:layout_constraintTop_toTopOf="@+id/cardView">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/female_img"
+                            android:id="@+id/imageView8"
                             android:layout_width="@dimen/_11sdp"
-                            android:layout_height="@dimen/_13sdp"
-                            android:layout_marginEnd="@dimen/_7sdp"
-                            android:src="@drawable/female_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/female_txt"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_height="@dimen/_11sdp"
+                            android:layout_marginStart="@dimen/_17sdp"
+                            android:src="@drawable/size_icon"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+                            app:layout_constraintStart_toEndOf="@+id/textView9"
+                            app:layout_constraintTop_toTopOf="@+id/textView9" />
 
                         <TextView
-                            android:id="@+id/female_txt"
+                            android:id="@+id/size_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/encode_sans_bold"
-                            android:text="Female"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.57"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:fontFamily="@font/encode_sans"
+                            android:text="80inch"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_7ssp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+                            app:layout_constraintStart_toEndOf="@+id/imageView8"
+                            app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -275,187 +229,246 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/ad_txt"
+                android:id="@+id/info_txt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cons_layout"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/encode_sans_bold"
+                android:text="Introduction"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp" />
+
+            <TextView
+                android:id="@+id/info_txt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/info_txt1"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/encode_sans"
+                android:text="I'm 17 month old German Shepherd called Troy, Snaffs (or \nSnafu when naughty). Apparently l'm characterised as\n'special needs'because I'm a tripaw. Pff, no special needs \nhere except I'm the doggy equivalent of a teenager."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp" />
+
+            <TextView
+                android:id="@+id/info_txt3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/info_txt2"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/encode_sans_bold"
+                android:text="Personality"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp" />
+
+            <TextView
+                android:id="@+id/info_txt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/info_txt3"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/encode_sans"
+                android:text="This should be the biggest section, and cover personality features, adorable things they do, energy level, if they are affectionate (and if so, in what ways), things they love to do, any training they have, favorite pastimes, any funny things they do, etc.). When we write our bios, this section is usually 3-6 paragraphs long! The more specific info you give, the more people will get a feel for your dog and the better response you will get.
+"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp" />
+
+            <TextView
+                android:id="@+id/info_txt5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/info_txt4"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/encode_sans_bold"
+                android:text="Intelligence"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp" />
+
+            <TextView
+                android:id="@+id/info_txt6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/info_txt5"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/encode_sans"
+                android:text="German Shepherds were bred specifically for their intelligence.In a list of breeds most likely to bark as watchdogs, Stanley Coren ranked the breed in second place.Coupled with their strength, this trait makes the breed desirable as police, guard and search and rescue dogs, as they are able to quickly learn various tasks and interpret instructions better than other breeds.
+"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp" />
+
+
+            <TextView
+                android:id="@+id/info_txt7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/layout3"
+                android:layout_below="@id/info_txt6"
                 android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:fontFamily="@font/encode_sans_bold"
                 android:text="Additional Information"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_16sdp" />
+
 
             <TextView
                 android:id="@+id/txt1"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_below="@id/ad_txt"
+                android:layout_height="@dimen/_21sdp"
+                android:layout_below="@id/info_txt7"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:gravity="center_vertical"
                 android:text="Neutered"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11ssp" />
+                android:textSize="@dimen/_12ssp" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <ImageView
                 android:id="@+id/s1"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_below="@id/ad_txt"
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
+                android:layout_below="@id/info_txt7"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_toEndOf="@id/txt1"
-                android:thumb="@drawable/switch_thumb"
-                app:track="@drawable/switch_track" />
-
+                android:src="@drawable/check_circle_24" />
 
             <TextView
                 android:id="@+id/txt2"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/txt1"
                 android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:gravity="center_vertical"
                 android:text="Vaccinated"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11ssp" />
+                android:textSize="@dimen/_12ssp" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <ImageView
                 android:id="@+id/s2"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/s1"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_toEndOf="@id/txt1"
-                android:thumb="@drawable/switch_thumb"
-                app:track="@drawable/switch_track" />
-
+                android:src="@drawable/check_circle_24" />
 
             <TextView
                 android:id="@+id/txt3"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/txt2"
                 android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:gravity="center_vertical"
                 android:text="Friendly with dogs"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11ssp" />
+                android:textSize="@dimen/_12ssp" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <ImageView
                 android:id="@+id/s3"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/s2"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_toEndOf="@id/txt1"
-                android:thumb="@drawable/switch_thumb"
-                app:track="@drawable/switch_track" />
+                android:src="@drawable/check_circle_24" />
 
 
             <TextView
                 android:id="@+id/txt4"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/txt3"
                 android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:gravity="center_vertical"
                 android:text="Friendly with cats"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11ssp" />
+                android:textSize="@dimen/_12ssp" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <ImageView
                 android:id="@+id/s4"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/s3"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_toEndOf="@id/txt1"
-                android:thumb="@drawable/switch_thumb"
-                app:track="@drawable/switch_track" />
+                android:src="@drawable/check_circle_24" />
 
 
             <TextView
                 android:id="@+id/txt5"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/txt4"
                 android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:gravity="center_vertical"
                 android:text="Friendly with kids &#60;10 year"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11ssp" />
+                android:textSize="@dimen/_12ssp" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <ImageView
                 android:id="@+id/s5"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/s4"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_toEndOf="@id/txt1"
-                android:thumb="@drawable/switch_thumb"
-                app:track="@drawable/switch_track" />
-
+                android:src="@drawable/check_circle_24" />
 
             <TextView
                 android:id="@+id/txt6"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/txt5"
                 android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:gravity="center_vertical"
                 android:text="Friendly with kids &#62;10 year"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11ssp" />
+                android:textSize="@dimen/_12ssp" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <ImageView
                 android:id="@+id/s6"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_21sdp"
+                android:layout_height="@dimen/_21sdp"
                 android:layout_below="@id/s5"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_27sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_toEndOf="@id/txt1"
-                android:thumb="@drawable/switch_thumb"
-                app:track="@drawable/switch_track" />
+                android:src="@drawable/check_circle_24" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/submit_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:layout_width="@dimen/_132sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:layout_below="@id/txt6"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_40sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/btn1_style"
-                android:fontFamily="@font/encode_sans_bold"
-                android:text="Submit"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
-
+                android:src="@drawable/home2" />
 
         </RelativeLayout>
-
     </ScrollView>
 
 </RelativeLayout>
-
-

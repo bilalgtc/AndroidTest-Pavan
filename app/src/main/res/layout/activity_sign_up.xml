@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5"
     android:theme="@style/Theme.Android_Test2"
-    tools:context=".Sign_Up">
+    tools:context=".SignUp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

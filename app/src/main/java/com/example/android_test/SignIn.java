@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import com.example.android_test.Helper.DbManager;
 
-public class Sign_In extends AppCompatActivity implements View.OnClickListener {
+public class SignIn extends AppCompatActivity implements View.OnClickListener {
     ImageView img, successimg, password_eye;
     TextView txt1, txt2;
     AppCompatButton button;
@@ -113,7 +113,7 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.signin_backbtn:
-                Intent i = new Intent(Sign_In.this, Landing.class);
+                Intent i = new Intent(SignIn.this, Landing.class);
                 startActivity(i);
                 finish();
                 break;
@@ -121,7 +121,7 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
             case R.id.s_in_txt1:
 
             case R.id.s_in_txt2:
-                Intent i2 = new Intent(Sign_In.this, Sign_Up.class);
+                Intent i2 = new Intent(SignIn.this, SignUp.class);
                 startActivity(i2);
                 finish();
                 break;
@@ -157,15 +157,15 @@ public class Sign_In extends AppCompatActivity implements View.OnClickListener {
 
                         emailed.setText("");
                         passworded.setText("");
-                        Toast.makeText(Sign_In.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent i3 = new Intent(getApplicationContext(), Dashboard.class);
                         startActivity(i3);
 
                     } else {
-                        Toast.makeText(Sign_In.this, "Invalid User", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignIn.this, "Invalid User", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(Sign_In.this, "Fields are empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignIn.this, "Fields are empty", Toast.LENGTH_SHORT).show();
                 }
                 break;
 

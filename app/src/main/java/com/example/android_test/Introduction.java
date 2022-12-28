@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.android_test.Adapters.ViewAdapter;
@@ -77,7 +76,7 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.s_txt1:
-                Intent i = new Intent(Introduction.this, Sign_In.class);
+                Intent i = new Intent(Introduction.this, SignIn.class);
                 startActivity(i);
                 finish();
                 break;

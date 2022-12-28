@@ -24,7 +24,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.android_test.Helper.DbManager;
 
-public class Sign_Up extends AppCompatActivity implements View.OnClickListener  {
+public class SignUp extends AppCompatActivity implements View.OnClickListener  {
 
     TextView textView, textView1, textView2;
     TextView edt1, edt2, edt3, edt4;
@@ -223,17 +223,17 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
                             emailed.setText("");
                             passworded.setText("");
                             mobileed.setText("");
-                            Toast.makeText(Sign_Up.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(getApplicationContext(), Sign_In.class);
+                            Toast.makeText(SignUp.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(getApplicationContext(), SignIn.class);
                             startActivity(i);
 
 
                         } else {
-                            Toast.makeText(Sign_Up.this, "Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
 
                     } else {
-                        Toast.makeText(Sign_Up.this, "User already exists", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUp.this, "User already exists", Toast.LENGTH_SHORT).show();
                     }
                 }
                 break;
@@ -242,14 +242,14 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener  
 
             case R.id.goto_signin2:
 
-                Intent i = new Intent(Sign_Up.this, Sign_In.class);
+                Intent i = new Intent(SignUp.this, SignIn.class);
                 startActivity(i);
                 finish();
                 break;
 
             case R.id.reg_backbtn:
 
-                Intent i2 = new Intent(Sign_Up.this, Landing.class);
+                Intent i2 = new Intent(SignUp.this, Landing.class);
                 startActivity(i2);
                 finish();
                 break;

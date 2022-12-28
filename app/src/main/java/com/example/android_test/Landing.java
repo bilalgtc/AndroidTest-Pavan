@@ -7,9 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -70,14 +68,14 @@ public class Landing extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.regfb_txt1:
             case R.id.regfb_txt2:
-                Intent i = new Intent(Landing.this, Sign_In.class);
+                Intent i = new Intent(Landing.this, SignIn.class);
                 startActivity(i);
                 finish();
                 break;
 
             case R.id.registerEmailbtn:
 
-                Intent i2 = new Intent(Landing.this, Sign_Up.class);
+                Intent i2 = new Intent(Landing.this, SignUp.class);
                 startActivity(i2);
                 finish();
 

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Android_Test"
         tools:targetApi="31">
         <activity
-            android:name=".Information"
+            android:name=".Details"
             android:exported="false"
             android:theme="@style/Theme.Android_Test2"
             android:screenOrientation="portrait">
@@ -23,7 +23,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Details"
+            android:name=".AddDetails"
             android:exported="true"
             android:theme="@style/Theme.Android_Test2"
             android:screenOrientation="portrait">
@@ -44,7 +44,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Sign_In"
+            android:name=".SignIn"
             android:exported="true"
             android:theme="@style/Theme.Android_Test2"
             android:screenOrientation="portrait">
@@ -53,7 +53,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Sign_Up"
+            android:name=".SignUp"
             android:exported="true"
             android:theme="@style/Theme.Android_Test2"
             android:screenOrientation="portrait">

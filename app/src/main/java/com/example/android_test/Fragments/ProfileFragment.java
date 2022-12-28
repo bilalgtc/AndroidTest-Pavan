@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.android_test.R;
-import com.example.android_test.Sign_In;
+import com.example.android_test.SignIn;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,7 +76,7 @@ public class ProfileFragment extends Fragment {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.clear();
                 editor.apply();
-                Intent i=new Intent(getContext(), Sign_In.class);
+                Intent i=new Intent(getContext(), SignIn.class);
                 startActivity(i);
                 getActivity().finish();
 

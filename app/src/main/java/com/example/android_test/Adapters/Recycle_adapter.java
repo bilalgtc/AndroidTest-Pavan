@@ -4,29 +4,25 @@ package com.example.android_test.Adapters;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android_test.Details;
+import com.example.android_test.AddDetails;
 import com.example.android_test.Helper.DatabaseHelper;
-import com.example.android_test.Information;
+import com.example.android_test.Details;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -128,7 +124,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         holder.image_view1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, Information.class);
+                Intent i = new Intent(context, Details.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
             }
@@ -136,7 +132,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         holder.imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, Details.class);
+                Intent i = new Intent(context, AddDetails.class);
                 i.putExtra("id", id);
                 i.putExtra("image", model.getImg());
                 i.putExtra("name", name);

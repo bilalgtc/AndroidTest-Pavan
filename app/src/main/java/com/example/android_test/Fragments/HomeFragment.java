@@ -6,10 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -21,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android_test.Adapters.Recycle_adapter;
-import com.example.android_test.Details;
+import com.example.android_test.AddDetails;
 import com.example.android_test.Helper.DatabaseHelper;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
@@ -127,7 +125,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.plus_btn:
 
-                Intent i = new Intent(getContext(), Details.class);
+                Intent i = new Intent(getContext(), AddDetails.class);
                 startActivity(i);
                 getActivity().finish();
                 break;
