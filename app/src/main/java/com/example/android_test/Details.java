@@ -17,14 +17,12 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -42,9 +40,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Details extends AppCompatActivity implements View.OnClickListener {
 
     CardView cardView01, cardView02;
-    ImageView imageView, imageView2, male, female;
+    ImageView imageView, imageView2, male_img, female_img;
     CircleImageView img;
-    TextView textView, male1, female1;
+    TextView textView, male1_txt, female1_txt;
     EditText ed1, ed2, ed3, ed4;
     Button button;
     SwitchCompat sw1;
@@ -84,7 +82,6 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
 
-
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
         init();
@@ -96,17 +93,17 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
     private void init() {
 
 
-        male1 = findViewById(R.id.male_txt);
-        female1 = findViewById(R.id.female_txt);
+        male1_txt = findViewById(R.id.male_txt);
+        female1_txt = findViewById(R.id.female_txt);
 
-        male = findViewById(R.id.male_img);
-        female = findViewById(R.id.female_img);
+        male_img = findViewById(R.id.male_img);
+        female_img = findViewById(R.id.female_img);
 
-        female1.setTextColor(Color.BLACK);
-        male1.setTextColor(Color.BLACK);
+        female1_txt.setTextColor(Color.BLACK);
+        male1_txt.setTextColor(Color.BLACK);
 
-        male.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
-        female.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
+        male_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
+        female_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
 
         cardView01 = findViewById(R.id.cardView);
         cardView02 = findViewById(R.id.cardView2);
@@ -134,6 +131,10 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
 
         button = findViewById(R.id.submit_btn);
+        cardView01.setBackground(getDrawable(R.drawable.card_border));
+        cardView01.setCardElevation(0);
+        cardView02.setBackground(getDrawable(R.drawable.card_border));
+        cardView02.setCardElevation(0);
 
 
     }
@@ -146,23 +147,33 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
             case R.id.cardView:
 
                 state[0] = cardView01.isEnabled();
-                cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-                cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                male1.setTextColor(Color.WHITE);
-                female1.setTextColor(Color.BLACK);
-                male.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                female.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
+
+                cardView01.setBackground(getDrawable(R.drawable.card_blue_back));
+                cardView01.setCardElevation(8);
+
+                cardView02.setBackground(getDrawable(R.drawable.card_border));
+                cardView02.setCardElevation(0);
+
+                male1_txt.setTextColor(Color.WHITE);
+                female1_txt.setTextColor(Color.BLACK);
+                male_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                female_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
                 break;
 
             case R.id.cardView2:
 
                 state[1] = cardView02.isEnabled();
-                cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-                cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                female1.setTextColor(Color.WHITE);
-                male1.setTextColor(Color.BLACK);
-                female.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                male.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
+
+                cardView02.setBackground(getDrawable(R.drawable.card_blue_back));
+                cardView02.setCardElevation(8);
+
+                cardView01.setBackground(getDrawable(R.drawable.card_border));
+                cardView01.setCardElevation(0);
+
+                female1_txt.setTextColor(Color.WHITE);
+                male1_txt.setTextColor(Color.BLACK);
+                female_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                male_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
                 break;
 
             case R.id.details_back_btn:
@@ -242,24 +253,41 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
 
 
             if (gender.equals("1")) {
-                cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-                cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                female1.setTextColor(Color.WHITE);
-                male1.setTextColor(Color.BLACK);
-                female.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                male.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
+
+                cardView02.setBackground(getDrawable(R.drawable.card_blue_back));
+                cardView02.setCardElevation(8);
+
+                cardView01.setBackground(getDrawable(R.drawable.card_border));
+                cardView01.setCardElevation(0);
+
+                female1_txt.setTextColor(Color.WHITE);
+                male1_txt.setTextColor(Color.BLACK);
+
+                female_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                male_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
+
             } else if (gender.equals("0")) {
-                cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.blue));
-                cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                female1.setTextColor(Color.BLACK);
-                male1.setTextColor(Color.WHITE);
-                male.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                female.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
+
+                cardView01.setBackground(getDrawable(R.drawable.card_blue_back));
+                cardView01.setCardElevation(8);
+
+                cardView02.setBackground(getDrawable(R.drawable.card_border));
+                cardView02.setCardElevation(0);
+
+                female1_txt.setTextColor(Color.BLACK);
+                male1_txt.setTextColor(Color.WHITE);
+                male_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
+                female_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
+
             } else {
-                cardView01.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                cardView02.setCardBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-                male1.setTextColor(Color.BLACK);
-                female1.setTextColor(Color.BLACK);
+                cardView01.setBackground(getDrawable(R.drawable.card_border));
+                cardView01.setCardElevation(0);
+
+                cardView02.setBackground(getDrawable(R.drawable.card_border));
+                cardView02.setCardElevation(0);
+
+                male1_txt.setTextColor(Color.BLACK);
+                female1_txt.setTextColor(Color.BLACK);
             }
 
             if (neutered.equals("1")) {
@@ -309,8 +337,6 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
             } else {
                 sw6.setChecked(false);
             }
-        } else {
-            Toast.makeText(this, "No Edit", Toast.LENGTH_SHORT).show();
         }
     }
 
