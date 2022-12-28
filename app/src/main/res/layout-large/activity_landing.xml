@@ -11,8 +11,8 @@
         android:id="@+id/reg_txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/encode_sans_bold"
         android:layout_marginLeft="@dimen/_40sdp"
+        android:fontFamily="@font/encode_sans_bold"
         android:text="@string/welcome_to"
         android:textColor="@color/white"
         android:textSize="@dimen/_35ssp"
@@ -23,60 +23,55 @@
 
     <LinearLayout
         android:id="@+id/btn1"
-        android:layout_marginTop="@dimen/_50sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginEnd="@dimen/_40sdp"
         android:background="@drawable/btn_style22"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginStart="@dimen/_40sdp"
-        android:layout_marginEnd="@dimen/_40sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_txt1">
 
 
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_11sdp"
+            android:src="@drawable/fb_icon" />
 
 
-            <ImageView
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/_11sdp"
-                android:src="@drawable/fb_icon" />
+        <TextView
+            android:id="@+id/reg_txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/encode_sans"
+            android:gravity="center_vertical"
+            android:text="Continue with Facebook"
+            android:textAllCaps="false"
+            android:textColor="#4552CB"
+            android:textSize="@dimen/_12sdp" />
 
-
-
-            <TextView
-                android:id="@+id/reg_txt2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/encode_sans"
-                android:gravity="center_vertical"
-                android:text="Continue with Facebook"
-                android:textAllCaps="false"
-                android:textColor="#4552CB"
-                android:textSize="@dimen/_12sdp" />
-
-        </LinearLayout>
-
+    </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/btn2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_40sdp"
         android:background="@drawable/btn_style22"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginStart="@dimen/_40sdp"
-        android:layout_marginEnd="@dimen/_40sdp"
         app:layout_constraintEnd_toEndOf="@+id/btn1"
         app:layout_constraintStart_toStartOf="@+id/btn1"
         app:layout_constraintTop_toBottomOf="@+id/btn1">
-
 
 
         <ImageView
@@ -87,16 +82,15 @@
             android:src="@drawable/googleicon" />
 
 
-
         <TextView
             android:id="@+id/reg_txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_12sdp"
             android:fontFamily="@font/encode_sans"
             android:gravity="center_vertical"
             android:text="Continue with Google"
-            android:layout_marginEnd="@dimen/_12sdp"
             android:textAllCaps="false"
             android:textColor="#4552CB"
             android:textSize="@dimen/_12sdp" />
@@ -112,12 +106,12 @@
         android:layout_marginStart="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_48sdp"
         android:layout_marginEnd="@dimen/_40sdp"
-        android:textSize="@dimen/_10sdp"
         android:background="@drawable/btn_style33"
         android:fontFamily="@font/encode_sans_bold"
         android:text="Register with Email"
         android:textAllCaps="false"
         android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="@+id/btn2"
         app:layout_constraintStart_toStartOf="@+id/btn2"
         app:layout_constraintTop_toBottomOf="@+id/btn2" />

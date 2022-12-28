@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AFACAC"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#AFACAC">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -20,194 +20,189 @@
         </com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
-<!--   <TextView-->
-<!--       android:id="@+id/txt1"-->
-<!--       android:layout_width="wrap_content"-->
-<!--       android:layout_height="wrap_content"-->
-<!--       android:layout_marginTop="@dimen/_20sdp"-->
-<!--       android:layout_marginEnd="@dimen/_20sdp"-->
-<!--       android:fontFamily="@font/encode_sans_semibold"-->
-<!--       android:text="@string/signIn"-->
-<!--       android:textColor="#4552CB"-->
-<!--       android:textSize="@dimen/_13ssp"-->
-<!--       android:layout_alignParentEnd="true"-->
-<!--       android:layout_marginRight="@dimen/_20sdp"/>-->
+    <!--   <TextView-->
+    <!--       android:id="@+id/txt1"-->
+    <!--       android:layout_width="wrap_content"-->
+    <!--       android:layout_height="wrap_content"-->
+    <!--       android:layout_marginTop="@dimen/_20sdp"-->
+    <!--       android:layout_marginEnd="@dimen/_20sdp"-->
+    <!--       android:fontFamily="@font/encode_sans_semibold"-->
+    <!--       android:text="@string/signIn"-->
+    <!--       android:textColor="#4552CB"-->
+    <!--       android:textSize="@dimen/_13ssp"-->
+    <!--       android:layout_alignParentEnd="true"-->
+    <!--       android:layout_marginRight="@dimen/_20sdp"/>-->
 
-<!--    <ImageView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="375dp"-->
-<!--        android:src="@drawable/illustration"-->
-<!--        android:layout_below="@id/txt1"/>-->
+    <!--    <ImageView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="375dp"-->
+    <!--        android:src="@drawable/illustration"-->
+    <!--        android:layout_below="@id/txt1"/>-->
 
-<!--    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator-->
+    <!--    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator-->
 
-<!--        android:layout_width="@dimen/_60sdp"-->
-<!--        android:layout_height="@dimen/_8sdp"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        app:dotsColor="#E6E7F8"-->
-<!--        app:dotsSize="@dimen/_14sdp"-->
-<!--        app:selectedDotColor="#F1A852"/>-->
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/viewpager"-->
-<!--        android:layout_marginTop="@dimen/_15sdp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="@dimen/_410sdp"-->
-<!--        android:layout_below="@+id/txt1">-->
+    <!--        android:layout_width="@dimen/_60sdp"-->
+    <!--        android:layout_height="@dimen/_8sdp"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        app:dotsColor="#E6E7F8"-->
+    <!--        app:dotsSize="@dimen/_14sdp"-->
+    <!--        app:selectedDotColor="#F1A852"/>-->
+    <!--    <androidx.viewpager.widget.ViewPager-->
+    <!--        android:id="@+id/viewpager"-->
+    <!--        android:layout_marginTop="@dimen/_15sdp"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="@dimen/_410sdp"-->
+    <!--        android:layout_below="@+id/txt1">-->
 
-<!--    </androidx.viewpager.widget.ViewPager>-->
+    <!--    </androidx.viewpager.widget.ViewPager>-->
 
 
-<!-- <Button-->
-<!--     android:id="@+id/next_btn"-->
-<!--     style="@style/Widget.MaterialComponents.Button.Icon"-->
-<!--     android:layout_width="@dimen/_200sdp"-->
-<!--     android:layout_height="@dimen/_40sdp"-->
-<!--     android:layout_below="@id/viewpager"-->
-<!--     android:layout_centerInParent="true"-->
-<!--     android:layout_marginTop="@dimen/_57sdp"-->
-<!--     android:background="@drawable/btn1_style"-->
-<!--     android:fontFamily="@font/encode_sans_bold"-->
-<!--     android:text="@string/next"-->
-<!--     android:textAllCaps="false"-->
-<!--     android:textColor="@color/white"-->
-<!--     android:textSize="@dimen/_12ssp"-->
-<!--      android:drawableLeft="@drawable/fb_icon"-->
-<!--      />-->
+    <!-- <Button-->
+    <!--     android:id="@+id/next_btn"-->
+    <!--     style="@style/Widget.MaterialComponents.Button.Icon"-->
+    <!--     android:layout_width="@dimen/_200sdp"-->
+    <!--     android:layout_height="@dimen/_40sdp"-->
+    <!--     android:layout_below="@id/viewpager"-->
+    <!--     android:layout_centerInParent="true"-->
+    <!--     android:layout_marginTop="@dimen/_57sdp"-->
+    <!--     android:background="@drawable/btn1_style"-->
+    <!--     android:fontFamily="@font/encode_sans_bold"-->
+    <!--     android:text="@string/next"-->
+    <!--     android:textAllCaps="false"-->
+    <!--     android:textColor="@color/white"-->
+    <!--     android:textSize="@dimen/_12ssp"-->
+    <!--      android:drawableLeft="@drawable/fb_icon"-->
+    <!--      />-->
 
-<!--    <androidx.appcompat.widget.AppCompatImageView-->
-<!--        android:id="@+id/appCompatImageView8"-->
-<!--        android:layout_width="@dimen/_132sdp"-->
-<!--        android:layout_height="@dimen/_5sdp"-->
-<!--        android:layout_marginBottom="@dimen/_8sdp"-->
-<!--        android:foreground="#BBC3CE"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:src="@drawable/home2"/>-->
+    <!--    <androidx.appcompat.widget.AppCompatImageView-->
+    <!--        android:id="@+id/appCompatImageView8"-->
+    <!--        android:layout_width="@dimen/_132sdp"-->
+    <!--        android:layout_height="@dimen/_5sdp"-->
+    <!--        android:layout_marginBottom="@dimen/_8sdp"-->
+    <!--        android:foreground="#BBC3CE"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:src="@drawable/home2"/>-->
 
     <Switch
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_20sdp"
-        android:track="@drawable/switch_track"
+        android:layout_centerInParent="true"
         android:thumb="@drawable/switch_thumb"
-        android:layout_centerInParent="true" />
+        android:track="@drawable/switch_track" />
 </RelativeLayout>
 
 
+    <!--    <?xml version="1.0" encoding="utf-8"?>-->
+    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".welcome_screen">-->
+
+    <!--<TextView-->
+    <!--    android:id="@+id/textView"-->
+    <!--    android:layout_width="wrap_content"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:layout_marginTop="@dimen/_20sdp"-->
+    <!--    android:layout_marginEnd="@dimen/_20sdp"-->
+    <!--    android:fontFamily="@font/encode_sans_semibold"-->
+    <!--    android:text="@string/signIn"-->
+    <!--    android:textColor="#4552CB"-->
+    <!--    android:textSize="@dimen/_13ssp"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    app:layout_constraintTop_toTopOf="parent" />-->
 
 
-<!--    <?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--xmlns:tools="http://schemas.android.com/tools"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--tools:context=".welcome_screen">-->
-
-<!--<TextView-->
-<!--    android:id="@+id/textView"-->
-<!--    android:layout_width="wrap_content"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:layout_marginTop="@dimen/_20sdp"-->
-<!--    android:layout_marginEnd="@dimen/_20sdp"-->
-<!--    android:fontFamily="@font/encode_sans_semibold"-->
-<!--    android:text="@string/signIn"-->
-<!--    android:textColor="#4552CB"-->
-<!--    android:textSize="@dimen/_13ssp"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintTop_toTopOf="parent" />-->
+    <!--<androidx.viewpager.widget.ViewPager-->
+    <!--    android:id="@+id/viewpager"-->
+    <!--    android:layout_marginTop="@dimen/_15sdp"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="@dimen/_410sdp"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    app:layout_constraintStart_toStartOf="parent"-->
+    <!--    app:layout_constraintTop_toBottomOf="@+id/textView">-->
+    <!--</androidx.viewpager.widget.ViewPager>-->
 
 
-
-<!--<androidx.viewpager.widget.ViewPager-->
-<!--    android:id="@+id/viewpager"-->
-<!--    android:layout_marginTop="@dimen/_15sdp"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="@dimen/_410sdp"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintStart_toStartOf="parent"-->
-<!--    app:layout_constraintTop_toBottomOf="@+id/textView">-->
-<!--</androidx.viewpager.widget.ViewPager>-->
-
-
-<!--&lt;!&ndash;    <androidx.appcompat.widget.AppCompatImageView&ndash;&gt;-->
-<!--&lt;!&ndash;        android:id="@+id/item_imgview"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:adjustViewBounds="true"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:src="@drawable/illustration"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView" />&ndash;&gt;-->
+    <!--&lt;!&ndash;    <androidx.appcompat.widget.AppCompatImageView&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:id="@+id/item_imgview"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:adjustViewBounds="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:src="@drawable/illustration"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView" />&ndash;&gt;-->
 
 
-<!--&lt;!&ndash;    <androidx.appcompat.widget.AppCompatImageView&ndash;&gt;-->
-<!--&lt;!&ndash;        android:id="@+id/appCompatImageView7"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="@dimen/_58sdp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="@dimen/_8sdp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:src="@drawable/slide"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="@+id/viewpager"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/viewpager" />&ndash;&gt;-->
+    <!--&lt;!&ndash;    <androidx.appcompat.widget.AppCompatImageView&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:id="@+id/appCompatImageView7"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_width="@dimen/_58sdp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_height="@dimen/_8sdp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:src="@drawable/slide"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="@+id/viewpager"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/viewpager" />&ndash;&gt;-->
 
-<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;        android:id="@+id/textView2"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginStart="@dimen/_20sdp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginEnd="@dimen/_20sdp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:fontFamily="@font/encode_sans_bold"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:gravity="center"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:text="@string/silde_heading1"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:textColor="@color/black"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:textSize="@dimen/_24ssp"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        tools:layout_editor_absoluteY="496dp" />&ndash;&gt;-->
+    <!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:id="@+id/textView2"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_marginStart="@dimen/_20sdp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_marginEnd="@dimen/_20sdp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:fontFamily="@font/encode_sans_bold"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:gravity="center"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:text="@string/silde_heading1"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:textColor="@color/black"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:textSize="@dimen/_24ssp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        tools:layout_editor_absoluteY="496dp" />&ndash;&gt;-->
 
-<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;        android:id="@+id/textView3"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginStart="@dimen/_20sdp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginTop="@dimen/_10sdp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginEnd="@dimen/_20sdp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:fontFamily="@font/encode_sans"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:gravity="center"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:text="@string/slide_description1"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:textColor="@color/black"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:textSize="@dimen/_13ssp"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView2" />&ndash;&gt;-->
+    <!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:id="@+id/textView3"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_marginStart="@dimen/_20sdp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_marginTop="@dimen/_10sdp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_marginEnd="@dimen/_20sdp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:fontFamily="@font/encode_sans"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:gravity="center"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:text="@string/slide_description1"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:textColor="@color/black"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:textSize="@dimen/_13ssp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView2" />&ndash;&gt;-->
 
-<!--<androidx.appcompat.widget.AppCompatButton-->
-<!--    android:id="@+id/next_btn"-->
-<!--    android:layout_width="@dimen/_200sdp"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:background="@drawable/btn1_style"-->
-<!--    android:fontFamily="@font/encode_sans_bold"-->
-<!--    android:text="@string/next"-->
-<!--    android:textAllCaps="false"-->
-<!--    android:textColor="@color/white"-->
-<!--    android:textSize="@dimen/_12ssp"-->
-<!--    app:layout_constraintBottom_toTopOf="@+id/appCompatImageView8"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintStart_toStartOf="parent"-->
-<!--    app:layout_constraintTop_toBottomOf="@+id/viewpager" />-->
+    <!--<androidx.appcompat.widget.AppCompatButton-->
+    <!--    android:id="@+id/next_btn"-->
+    <!--    android:layout_width="@dimen/_200sdp"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:background="@drawable/btn1_style"-->
+    <!--    android:fontFamily="@font/encode_sans_bold"-->
+    <!--    android:text="@string/next"-->
+    <!--    android:textAllCaps="false"-->
+    <!--    android:textColor="@color/white"-->
+    <!--    android:textSize="@dimen/_12ssp"-->
+    <!--    app:layout_constraintBottom_toTopOf="@+id/appCompatImageView8"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    app:layout_constraintStart_toStartOf="parent"-->
+    <!--    app:layout_constraintTop_toBottomOf="@+id/viewpager" />-->
 
-<!--<androidx.appcompat.widget.AppCompatImageView-->
-<!--    android:id="@+id/appCompatImageView8"-->
-<!--    android:layout_width="@dimen/_132sdp"-->
-<!--    android:layout_height="@dimen/_5sdp"-->
-<!--    android:layout_marginBottom="@dimen/_8sdp"-->
-<!--    android:foreground="#BBC3CE"-->
-<!--    android:src="@drawable/rectangle"-->
-<!--    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintStart_toStartOf="parent" />-->
-
-
+    <!--<androidx.appcompat.widget.AppCompatImageView-->
+    <!--    android:id="@+id/appCompatImageView8"-->
+    <!--    android:layout_width="@dimen/_132sdp"-->
+    <!--    android:layout_height="@dimen/_5sdp"-->
+    <!--    android:layout_marginBottom="@dimen/_8sdp"-->
+    <!--    android:foreground="#BBC3CE"-->
+    <!--    android:src="@drawable/rectangle"-->
+    <!--    app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    app:layout_constraintStart_toStartOf="parent" />-->
 
 
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

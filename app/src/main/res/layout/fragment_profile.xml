@@ -5,19 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.ProfileFragment">
 
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-       <Button
-           android:id="@+id/logout_btn"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_centerInParent="true"
-           android:text="Logout"
-           android:textAllCaps="false"
-           android:backgroundTint="@color/blue"/>
+        <Button
+            android:id="@+id/logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:backgroundTint="@color/blue"
+            android:text="Logout"
+            android:textAllCaps="false" />
 
-   </RelativeLayout>
+    </RelativeLayout>
 
 </FrameLayout>

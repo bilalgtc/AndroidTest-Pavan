@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_140sdp">
-    
-    
+
+
     <androidx.cardview.widget.CardView
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        app:cardCornerRadius="@dimen/_16sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_120sdp"
-        android:elevation="@dimen/_8sdp">
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:elevation="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_16sdp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,9 +32,8 @@
                     android:id="@+id/main_img"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
-                    android:src="@drawable/dogimg"
                     android:scaleType="centerCrop"
-                    />
+                    android:src="@drawable/dogimg" />
 
             </androidx.cardview.widget.CardView>
 
@@ -45,9 +44,9 @@
                 android:layout_marginStart="@dimen/_11sdp"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:fontFamily="@font/encode_sans_bold"
-                android:textSize="@dimen/_14ssp"
                 android:text="Troy"
                 android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintStart_toEndOf="@+id/cardView2"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,8 +55,8 @@
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:src="@drawable/pencil"
                 android:layout_marginEnd="@dimen/_13sdp"
+                android:src="@drawable/pencil"
                 app:layout_constraintEnd_toStartOf="@+id/delete_img"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,45 +64,43 @@
                 android:id="@+id/delete_img"
                 android:layout_width="@dimen/_13sdp"
                 android:layout_height="@dimen/_13sdp"
-                android:src="@drawable/delete"
                 android:layout_marginTop="@dimen/_11sdp"
                 android:layout_marginEnd="@dimen/_14sdp"
+                android:src="@drawable/delete"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
             <LinearLayout
-                android:background="@drawable/layout_background"
                 android:id="@+id/linear1"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_18sdp"
                 android:layout_marginTop="@dimen/_12sdp"
-                android:orientation="horizontal"
+                android:background="@drawable/layout_background"
                 android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toEndOf="@+id/cardView2"
                 app:layout_constraintTop_toBottomOf="@+id/dogname_txt">
 
 
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="@dimen/_10sdp"
-                        android:layout_height="@dimen/_10sdp"
-                        android:src="@drawable/paw"
-                        android:layout_marginStart="@dimen/_4sdp"
-                         />
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:src="@drawable/paw" />
 
-                    <TextView
-                        android:id="@+id/species_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_7sdp"
-                        android:layout_marginEnd="@dimen/_4sdp"
-                        android:fontFamily="@font/encode_sans"
-                        android:text="Dog"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_7ssp"
-                        />
+                <TextView
+                    android:id="@+id/species_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:fontFamily="@font/encode_sans"
+                    android:text="Dog"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_7ssp" />
             </LinearLayout>
 
 
@@ -111,10 +108,10 @@
                 android:id="@+id/linear2"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:background="@drawable/layout_background"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:layout_marginStart="@dimen/_10sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/linear1"
                 app:layout_constraintStart_toEndOf="@+id/linear1"
                 app:layout_constraintTop_toTopOf="@+id/linear1">
@@ -144,8 +141,8 @@
                 android:id="@+id/linear3"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_7sdp"
                 android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:background="@drawable/layout_background"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -177,10 +174,10 @@
                 android:id="@+id/linear4"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:background="@drawable/layout_background"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:layout_marginStart="@dimen/_10sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/linear3"
                 app:layout_constraintStart_toEndOf="@+id/linear3"
                 app:layout_constraintTop_toTopOf="@+id/linear3">
@@ -210,13 +207,13 @@
                 android:id="@+id/neutered_txt"
                 android:layout_width="@dimen/_27sdp"
                 android:layout_height="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_22sdp"
+                android:background="@drawable/txt_background"
                 android:fontFamily="@font/encode_sans"
-                android:text="Neutered"
                 android:gravity="center"
+                android:text="Neutered"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_5ssp"
-                android:background="@drawable/txt_background"
-                android:layout_marginTop="@dimen/_22sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/cardView2"
                 app:layout_constraintStart_toStartOf="@+id/linear3"
                 app:layout_constraintTop_toBottomOf="@+id/linear3" />
@@ -225,13 +222,13 @@
                 android:id="@+id/vacci_txt"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_8sdp"
-                android:fontFamily="@font/encode_sans"
-                android:text="Vaccinated"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:background="@drawable/txt_background"
+                android:fontFamily="@font/encode_sans"
+                android:gravity="center"
+                android:text="Vaccinated"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_5ssp"
-                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="@+id/neutered_txt"
                 app:layout_constraintStart_toEndOf="@+id/neutered_txt"
                 app:layout_constraintTop_toTopOf="@+id/neutered_txt" />
@@ -240,11 +237,11 @@
                 android:id="@+id/friwithdogs_txt"
                 android:layout_width="@dimen/_48sdp"
                 android:layout_height="@dimen/_8sdp"
-                android:fontFamily="@font/encode_sans"
-                android:text="Friendly with dogs"
-                android:gravity="center"
-                android:background="@drawable/txt_background"
                 android:layout_marginStart="@dimen/_5sdp"
+                android:background="@drawable/txt_background"
+                android:fontFamily="@font/encode_sans"
+                android:gravity="center"
+                android:text="Friendly with dogs"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_5ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/vacci_txt"
@@ -255,11 +252,11 @@
                 android:id="@+id/friwithcats_txt"
                 android:layout_width="@dimen/_48sdp"
                 android:layout_height="@dimen/_8sdp"
-                android:fontFamily="@font/encode_sans"
-                android:text="Friendly with cats"
-                android:background="@drawable/txt_background"
-                android:gravity="center"
                 android:layout_marginStart="@dimen/_5sdp"
+                android:background="@drawable/txt_background"
+                android:fontFamily="@font/encode_sans"
+                android:gravity="center"
+                android:text="Friendly with cats"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_5ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/friwithdogs_txt"
