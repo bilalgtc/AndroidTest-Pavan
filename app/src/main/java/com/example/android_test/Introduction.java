@@ -26,8 +26,7 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
 
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-//        getWindow().setStatusBarColor(Color.BLACK);
+
         getWindow().setNavigationBarColor(getResources().getColor(R.color.grey2));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -35,14 +34,47 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
         getWindow().setStatusBarColor(Color.parseColor("#F5F5F5"));
 
         init();
+        clicks();
 
-        button.setOnClickListener(this);
-        textView.setOnClickListener(this);
 
         viewAdapter = new ViewAdapter(this);
         viewPager.setAdapter(viewAdapter);
         dotsIndicator.attachTo(viewPager);
         viewPager.addOnPageChangeListener(v);
+    }
+
+    private void init() {
+        viewPager = findViewById(R.id.viewpager);
+        textView = findViewById(R.id.s_txt1);
+        button = findViewById(R.id.next_btn);
+        dotsIndicator = findViewById(R.id.dots);
+    }
+
+    private void clicks() {
+        button.setOnClickListener(this);
+        textView.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.s_txt1:
+                Intent i = new Intent(Introduction.this, SignIn.class);
+                startActivity(i);
+                finish();
+                break;
+
+            case R.id.next_btn:
+                if (getitem(0) < 2)
+                    viewPager.setCurrentItem(getitem(1), true);
+                else {
+                    Intent i2 = new Intent(Introduction.this, Landing.class);
+                    startActivity(i2);
+                    finish();
+                }
+                break;
+        }
     }
 
     ViewPager.OnPageChangeListener v = new ViewPager.OnPageChangeListener() {
@@ -69,34 +101,5 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
 
     public int getitem(int position) {
         return viewPager.getCurrentItem() + position;
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.s_txt1:
-                Intent i = new Intent(Introduction.this, SignIn.class);
-                startActivity(i);
-                finish();
-                break;
-
-            case R.id.next_btn:
-                if (getitem(0) < 2)
-                    viewPager.setCurrentItem(getitem(1), true);
-                else {
-                    Intent i2 = new Intent(Introduction.this, Landing.class);
-                    startActivity(i2);
-                    finish();
-                }
-                break;
-        }
-    }
-
-    private void init() {
-        viewPager = findViewById(R.id.viewpager);
-        textView = findViewById(R.id.s_txt1);
-        button = findViewById(R.id.next_btn);
-        dotsIndicator = findViewById(R.id.dots);
     }
 }

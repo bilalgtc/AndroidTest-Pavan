@@ -43,7 +43,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
 
         sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
-//
+
 //        if (sharedPreferences.contains("email")){
 //            Intent i=new Intent(getApplicationContext(),Dashboard.class);
 //            startActivity(i);
@@ -52,13 +52,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
 
         init();
-
-        dbManager = new DbManager(this);
-        img.setOnClickListener(this);
-        txt1.setOnClickListener(this);
-        txt2.setOnClickListener(this);
-        button.setOnClickListener(this);
-        password_eye.setOnClickListener(this);
+        clicks();
 
 
         emailed.addTextChangedListener(new TextWatcher() {
@@ -108,6 +102,39 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
+
+    private void init() {
+
+
+        img = findViewById(R.id.signin_backbtn);
+        successimg = findViewById(R.id.up_password_toggle);
+        password_eye = findViewById(R.id.in_password_toggle);
+
+        v = findViewById(R.id.ed1_line4);
+        v2 = findViewById(R.id.ed1_line5);
+
+        button = findViewById(R.id.sign_in);
+
+        txt2 = findViewById(R.id.s_in_txt2);
+        txt1 = findViewById(R.id.s_in_txt1);
+
+        edt1 = findViewById(R.id.ed1_txt4);
+        edt2 = findViewById(R.id.ed1_txt5);
+
+
+        emailed = findViewById(R.id.email2_ed);
+        passworded = findViewById(R.id.pass2_ed);
+
+    }
+
+    private void clicks() {
+        dbManager = new DbManager(this);
+        img.setOnClickListener(this);
+        txt1.setOnClickListener(this);
+        txt2.setOnClickListener(this);
+        button.setOnClickListener(this);
+        password_eye.setOnClickListener(this);
+    }
 
     @Override
     public void onClick(View v) {
@@ -171,29 +198,5 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                 break;
 
         }
-    }
-
-    private void init() {
-
-
-        img = findViewById(R.id.signin_backbtn);
-        successimg = findViewById(R.id.up_password_toggle);
-        password_eye = findViewById(R.id.in_password_toggle);
-
-        v = findViewById(R.id.ed1_line4);
-        v2 = findViewById(R.id.ed1_line5);
-
-        button = findViewById(R.id.sign_in);
-
-        txt2 = findViewById(R.id.s_in_txt2);
-        txt1 = findViewById(R.id.s_in_txt1);
-
-        edt1 = findViewById(R.id.ed1_txt4);
-        edt2 = findViewById(R.id.ed1_txt5);
-
-
-        emailed = findViewById(R.id.email2_ed);
-        passworded = findViewById(R.id.pass2_ed);
-
     }
 }

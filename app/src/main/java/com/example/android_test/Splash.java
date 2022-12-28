@@ -23,7 +23,13 @@ public class Splash extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
+        display();
 
+
+
+
+    }
+    private void display(){
         new Handler().postDelayed(() -> {
             sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
 
@@ -37,7 +43,5 @@ public class Splash extends AppCompatActivity {
                 finish();
             }
         }, 1000);
-
-
     }
 }

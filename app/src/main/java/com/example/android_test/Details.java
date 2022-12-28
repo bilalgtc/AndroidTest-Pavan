@@ -25,7 +25,12 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_details);
 
         init();
-        imageView.setOnClickListener(this);
+        clicks();
+
+    }
+
+    private void init() {
+        imageView = findViewById(R.id.info_back_btn);
     }
 
     @Override
@@ -39,7 +44,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    private void init() {
-        imageView = findViewById(R.id.info_back_btn);
+    private void clicks() {
+        imageView.setOnClickListener(this);
     }
 }

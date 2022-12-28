@@ -32,23 +32,26 @@ public class Landing extends AppCompatActivity implements View.OnClickListener {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
         init();
+        clicks();
+        txtEdits();
 
 
-        String text = "Welcome\t\t\t\nto Pet Care";
+    }
 
-        SpannableString s = new SpannableString(text);
+    private void init() {
 
-        ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#FFCF6F"));
+        textView = findViewById(R.id.reg_txt1);
+        textView2 = findViewById(R.id.reg_txt2);
+        textView3 = findViewById(R.id.reg_txt3);
+        button1 = findViewById(R.id.registerEmailbtn);
+        textView4 = findViewById(R.id.regfb_txt1);
+        textView5 = findViewById(R.id.regfb_txt2);
+    }
 
-        s.setSpan(fc, 13, 22, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        textView.setText(s);
-
+    private void clicks() {
         button1.setOnClickListener(this);
         textView4.setOnClickListener(this);
         textView5.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -71,13 +74,16 @@ public class Landing extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    private void init() {
 
-        textView = findViewById(R.id.reg_txt1);
-        textView2 = findViewById(R.id.reg_txt2);
-        textView3 = findViewById(R.id.reg_txt3);
-        button1 = findViewById(R.id.registerEmailbtn);
-        textView4 = findViewById(R.id.regfb_txt1);
-        textView5 = findViewById(R.id.regfb_txt2);
+    private void txtEdits() {
+        String text = "Welcome\t\t\t\nto Pet Care";
+
+        SpannableString s = new SpannableString(text);
+
+        ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#FFCF6F"));
+
+        s.setSpan(fc, 13, 22, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        textView.setText(s);
     }
 }

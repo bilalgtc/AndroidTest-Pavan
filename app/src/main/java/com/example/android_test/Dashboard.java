@@ -48,8 +48,7 @@ public class Dashboard extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-        frameLayout = findViewById(R.id.fragment_container);
+        init();
 
 
         setFragment(new HomeFragment());
@@ -83,6 +82,11 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
+    }
+
+    private void init() {
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        frameLayout = findViewById(R.id.fragment_container);
     }
 
     private void setFragment(Fragment fragment) {
