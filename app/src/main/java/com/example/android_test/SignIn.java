@@ -160,6 +160,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                         Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent i3 = new Intent(getApplicationContext(), Dashboard.class);
                         startActivity(i3);
+                        finish();
 
                     } else {
                         Toast.makeText(SignIn.this, "Invalid User", Toast.LENGTH_SHORT).show();
