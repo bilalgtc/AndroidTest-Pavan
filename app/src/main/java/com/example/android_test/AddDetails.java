@@ -54,7 +54,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     byte[] image;
     boolean[] state = {true, false};
     public boolean isEditMode = false;
-    DatabaseHelper dbhelper;
 
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 101;
@@ -200,7 +199,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
     private void clicks() {
 
-        dbhelper = new DatabaseHelper(this);
 
 
         cardView01.setOnClickListener(this);
@@ -335,62 +333,12 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
 
     public void details() {
-        ContentValues contentValues = new ContentValues();
         name = ed1.getText().toString();
         species = ed2.getText().toString();
         breed = ed3.getText().toString();
         size = ed4.getText().toString();
 
         if (isEditMode) {           //for true
-
-
-            value[0] = sw1.isChecked();
-            value[1] = sw2.isChecked();
-            value[2] = sw3.isChecked();
-            value[3] = sw4.isChecked();
-            value[4] = sw5.isChecked();
-            value[5] = sw6.isChecked();
-
-
-            if (imgToStore == null) {
-                img.setImageBitmap(bitmap);
-            } else {
-                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                image = outputStream.toByteArray();
-            }
-
-
-            contentValues.put("image", image);
-            contentValues.put("name", name);
-            contentValues.put("species", species);
-            contentValues.put("breed", breed);
-            contentValues.put("size", size);
-            contentValues.put("gender", state[0]);
-            contentValues.put("gender", state[1]);
-            contentValues.put("neutered", value[0]);
-            contentValues.put("vaccinated", value[1]);
-            contentValues.put("Friendlywithdogs", value[2]);
-            contentValues.put("Friendlywithcats", value[3]);
-            contentValues.put("Friendlywithkids10", value[4]);
-            contentValues.put("Friendlywithkids10G", value[5]);
-
-
-            boolean i = dbhelper.updateRecord(contentValues, id);
-            if (i) {
-                Toast.makeText(AddDetails.this, "Updated", Toast.LENGTH_SHORT).show();
-//                            new Handler().postDelayed(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    Intent intent=new Intent(getApplicationContext(),HomeFragment.class);
-//                                    startActivity(intent);
-//                                }
-//                            }, 1000);
-
-            } else {
-                Toast.makeText(AddDetails.this, "Failed", Toast.LENGTH_SHORT).show();
-            }
-
 
         } else if (name.isEmpty() || species.isEmpty() || breed.isEmpty()) {
             Toast.makeText(AddDetails.this, "Fields are empty", Toast.LENGTH_SHORT).show();
@@ -403,52 +351,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         } else if (temp!=1) {
             Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
         }else {
-
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-            image = outputStream.toByteArray();
-
-
-            contentValues.put("image", image);
-            contentValues.put("name", name);
-            contentValues.put("species", species);
-            contentValues.put("breed", breed);
-            contentValues.put("size", size);
-
-            value[0] = sw1.isChecked();
-            value[1] = sw2.isChecked();
-            value[2] = sw3.isChecked();
-            value[3] = sw4.isChecked();
-            value[4] = sw5.isChecked();
-            value[5] = sw6.isChecked();
-
-
-            contentValues.put("neutered", value[0]);
-            contentValues.put("vaccinated", value[1]);
-            contentValues.put("Friendlywithdogs", value[2]);
-            contentValues.put("Friendlywithcats", value[3]);
-            contentValues.put("Friendlywithkids10", value[4]);
-            contentValues.put("Friendlywithkids10G", value[5]);
-            contentValues.put("gender", state[0]);
-            contentValues.put("gender", state[1]);
-
-            boolean i = dbhelper.insertData(contentValues);
-            if (i == true) {
-                Toast.makeText(AddDetails.this, "Added", Toast.LENGTH_SHORT).show();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }, 2000);
-
-
-            } else {
-                Toast.makeText(AddDetails.this, "Failed", Toast.LENGTH_SHORT).show();
-            }
-
 
         }
     }
