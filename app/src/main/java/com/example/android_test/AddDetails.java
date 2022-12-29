@@ -233,13 +233,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                 img.setImageBitmap(bitmap);
             }
 
-//            if (image3!=null) {
-//                 bitmap = BitmapFactory.decodeByteArray(image3, 0, image3.length);
-//                img.setImageBitmap(bitmap);
-//            }else {
-//                img.setImageResource(R.drawable.dogimg);
-//            }
-
 
             ed1.setText(name);
             ed2.setText(species);
@@ -361,21 +354,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                 imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
                 image = outputStream.toByteArray();
             }
-//            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-//                     if (img!=null) {
-//                     }else {
-//            image = outputStream.toByteArray();
-//            imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-//            img.setImageBitmap(imgToStore);
-//                     }
 
-//            if (imageUri == imageUri) {
-//                img.setImageURI(imageUri);
-//            } else {
-//
-//                img.setImageResource(R.drawable.dogimg);
-//                Toast.makeText(this, "No Image", Toast.LENGTH_SHORT).show();
-//            }
 
             contentValues.put("image", image);
             contentValues.put("name", name);
@@ -393,7 +372,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
 
             boolean i = dbhelper.updateRecord(contentValues, id);
-            if (i == true) {
+            if (i) {
                 Toast.makeText(AddDetails.this, "Updated", Toast.LENGTH_SHORT).show();
 //                            new Handler().postDelayed(new Runnable() {
 //                                @Override
