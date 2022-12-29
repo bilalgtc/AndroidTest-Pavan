@@ -29,7 +29,6 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     TextView edt1, edt2;
     EditText emailed, passworded;
     View v, v2;
-    DbManager dbManager;
     String email, password;
     SharedPreferences sharedPreferences;
 
@@ -128,7 +127,6 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void clicks() {
-        dbManager = new DbManager(this);
         img.setOnClickListener(this);
         txt1.setOnClickListener(this);
         txt2.setOnClickListener(this);
@@ -175,26 +173,13 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                 if (!email.isEmpty() && !password.isEmpty()) {
 
 
-                    if (dbManager.checkusermailpass(email, password)) {
 
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("email", email);
-                        editor.putString("password", password);
-                        editor.apply();
-
-                        emailed.setText("");
-                        passworded.setText("");
                         Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent i3 = new Intent(getApplicationContext(), Dashboard.class);
                         startActivity(i3);
                         finish();
 
-                    } else {
-                        Toast.makeText(SignIn.this, "Invalid User", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(SignIn.this, "Fields are empty", Toast.LENGTH_SHORT).show();
-                }
                 break;
 
         }
