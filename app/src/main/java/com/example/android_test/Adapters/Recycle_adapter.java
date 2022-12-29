@@ -125,6 +125,20 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, Details.class);
+                i.putExtra("id", id);
+                i.putExtra("image", model.getImg());
+                i.putExtra("name", name);
+                i.putExtra("species", species);
+                i.putExtra("breed", breed);
+                i.putExtra("size", size);
+                i.putExtra("gender", gender);
+                i.putExtra("neutered", neutured);
+                i.putExtra("vaccinated", vaccinated);
+                i.putExtra("Friendlywithdogs", fwithdogs);
+                i.putExtra("Friendlywithcats", fwithcats);
+                i.putExtra("Friendlywithkids10", fwithkids);
+                i.putExtra("Friendlywithkids10G", fwithkidsg);
+
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
             }

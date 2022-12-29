@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.android_test.Adapters.ViewAdapter;
+import com.example.android_test.Models.Recycle_model;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 public class Introduction extends AppCompatActivity implements View.OnClickListener {
@@ -20,6 +21,7 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
     DotsIndicator dotsIndicator;
     ViewAdapter viewAdapter;
     AppCompatButton button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class Introduction extends AppCompatActivity implements View.OnClickListe
         textView = findViewById(R.id.s_txt1);
         button = findViewById(R.id.next_btn);
         dotsIndicator = findViewById(R.id.dots);
+
     }
 
     private void clicks() {
