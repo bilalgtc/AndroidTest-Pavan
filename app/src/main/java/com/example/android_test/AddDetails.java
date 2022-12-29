@@ -66,6 +66,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     String[] storagePermissions;
     private Uri imageUri;
     Bitmap bitmap;
+    int temp;
 
     boolean[] value = {false, false, false, false, false, false};
 
@@ -141,6 +142,8 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
             case R.id.cardView:
 
+                temp=1;
+
                 state[0] = cardView01.isEnabled();
 
                 cardView01.setBackground(getDrawable(R.drawable.card_blue_back));
@@ -156,6 +159,8 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                 break;
 
             case R.id.cardView2:
+
+                temp = 1;
 
                 state[1] = cardView02.isEnabled();
 
@@ -387,7 +392,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             }
 
 
-        } else if (name.isEmpty() || species.isEmpty() || breed.isEmpty() || size.isEmpty()) {
+        } else if (name.isEmpty() || species.isEmpty() || breed.isEmpty()) {
             Toast.makeText(AddDetails.this, "Fields are empty", Toast.LENGTH_SHORT).show();
 
 
@@ -395,7 +400,9 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
             Toast.makeText(this, "Add Image", Toast.LENGTH_SHORT).show();
 
-        } else {
+        } else if (temp!=1) {
+            Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
+        }else {
 
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             imgToStore.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
