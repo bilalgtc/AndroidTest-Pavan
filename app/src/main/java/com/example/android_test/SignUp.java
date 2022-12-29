@@ -33,7 +33,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     View v, v2, v3, v4;
     ImageView imageView, imageView2, imageView3, imageView4, imageView5, imageView6, password_img;
     int temp = 0;
-    DbManager dbManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -202,7 +202,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void clicks() {
-        dbManager = new DbManager(this);
+
         button.setOnClickListener(this);
         textView1.setOnClickListener(this);
         textView2.setOnClickListener(this);
@@ -238,27 +238,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     Toast.makeText(this, "Accept Policy", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    Boolean usercheckresult = dbManager.checkuser(email);
-                    if (!usercheckresult) {
 
-                        boolean id = dbManager.addRecord(name, email, mobile, password);
-                        if (id) {
-                            nameed.setText("");
-                            emailed.setText("");
-                            passworded.setText("");
-                            mobileed.setText("");
-                            Toast.makeText(SignUp.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(getApplicationContext(), SignIn.class);
-                            startActivity(i);
-                            finish();
-
-                        } else {
-                            Toast.makeText(SignUp.this, "Failed", Toast.LENGTH_SHORT).show();
-                        }
-
-                    } else {
-                        Toast.makeText(SignUp.this, "User already exists", Toast.LENGTH_SHORT).show();
-                    }
                 }
                 break;
 
