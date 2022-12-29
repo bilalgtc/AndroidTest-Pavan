@@ -210,7 +210,7 @@
                             app:layout_constraintTop_toTopOf="@+id/gender2_txt" />
 
                         <TextView
-                            android:id="@+id/size_txt"
+                            android:id="@+id/size2_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_10sdp"
@@ -467,7 +467,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:src="@drawable/home2" />
+                />
 
         </RelativeLayout>
     </ScrollView>

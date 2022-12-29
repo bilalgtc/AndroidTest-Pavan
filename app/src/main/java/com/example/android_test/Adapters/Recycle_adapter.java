@@ -30,7 +30,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.util.ArrayList;
 
 public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHolder> {
-    ArrayList<Recycle_model> details = new ArrayList<>();
+    ArrayList<Recycle_model> details;
     Context context;
     DatabaseHelper dbHelper;
     Bitmap bitmap;
@@ -86,10 +86,12 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
         if (gender.equals("1")) {
             holder.txt4.setText("female");
-        } else if (gender.equals(null)) {
-            holder.txt4.setText(" ");
-        } else {
+
+        } else if (gender.equals("0")) {
             holder.txt4.setText("male");
+
+        } else {
+            holder.txt4.setText(" ");
         }
 
         if (neutured.equals("1")) {
@@ -160,7 +162,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
                 i.putExtra("Friendlywithcats", fwithcats);
                 i.putExtra("Friendlywithkids10", fwithkids);
                 i.putExtra("Friendlywithkids10G", fwithkidsg);
-                i.putExtra("isEditMode", true); //update data si true
+                i.putExtra("isEditMode", true); //update data is true
 
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);

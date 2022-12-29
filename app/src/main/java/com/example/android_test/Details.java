@@ -65,9 +65,15 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         txt1.setText(name);
         txt2.setText(species);
         txt3.setText(breed);
-        txt4.setText(size);
-        txt5.setText(gender);
+        txt5.setText(size);
 
+        if(gender.equals("0")) {
+            txt4.setText("male");
+        }else if (gender.equals("1")){
+            txt4.setText("female");
+        }else {
+            txt4.setText(" ");
+        }
         if (neutered.equals("1")){
             img3.setImageResource(R.drawable.success);
         }else {
@@ -118,7 +124,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         txt2=findViewById(R.id.breed_txt);
         txt3=findViewById(R.id.breed_name_txt);
         txt4=findViewById(R.id.gender2_txt);
-        txt5=findViewById(R.id.size_txt);
+        txt5=findViewById(R.id.size2_txt);
 
         img2=findViewById(R.id.imageView10);
         img3=findViewById(R.id.s1);
