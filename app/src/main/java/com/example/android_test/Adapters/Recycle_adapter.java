@@ -32,7 +32,6 @@ import java.util.ArrayList;
 public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHolder> {
     ArrayList<Recycle_model> details = new ArrayList<>();
     Context context;
-    DatabaseHelper dbHelper;
     Bitmap bitmap;
     BottomSheetDialog dialog;
 
@@ -40,7 +39,6 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     public Recycle_adapter(Context context, ArrayList<Recycle_model> details) {
         this.context = context;
         this.details = details;
-        dbHelper = new DatabaseHelper(context);
 
     }
 
@@ -182,7 +180,6 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
                 btn1.setBackgroundColor(Color.BLUE);
                 btn1.setTextColor(Color.WHITE);
-                dbHelper.deleteData(id);
                 details.remove(position);
                 notifyItemRemoved(position);
                 dialog.cancel();
