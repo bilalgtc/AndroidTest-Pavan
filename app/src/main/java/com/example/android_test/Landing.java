@@ -20,7 +20,6 @@ public class Landing extends AppCompatActivity implements View.OnClickListener {
     TextView textView, textView2, textView3, textView4, textView5;
     AppCompatButton button1;
 
-    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
