@@ -31,6 +31,7 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         requestWindowFeature(1);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.grey2));
 
         setContentView(R.layout.activity_details);
 
