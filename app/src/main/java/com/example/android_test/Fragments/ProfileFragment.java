@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.android_test.R;
 import com.example.android_test.SignIn;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,12 +74,10 @@ public class ProfileFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear();
-                editor.apply();
-                Intent i=new Intent(getContext(), SignIn.class);
-                startActivity(i);
+
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(getActivity(), "Logged Out", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(),SignIn.class));
                 getActivity().finish();
 
             }
