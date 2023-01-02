@@ -2,7 +2,7 @@ package com.example.android_test.Models;
 
 public class Recycle_model {
     public String id;
-    public byte[] img;
+    public String img;
     public String name;
     public String species;
     public String breed;
@@ -15,6 +15,9 @@ public class Recycle_model {
     public String fwithkids;
     public String getFwithkidssg;
 
+    public Recycle_model(){
+
+    }
 
     public String getSize() {
         return size;
@@ -36,21 +39,24 @@ public class Recycle_model {
         this.id = id;
     }
 
-    public Recycle_model(String id, byte[] img, String name, String species, String breed, String size, String gender, String neutured, String vaccinated, String fwithdogs, String fwithcats, String fwithkids, String getFwithkidssg) {
-        this.id = id;
-        this.img = img;
-        this.name = name;
-        this.species = species;
-        this.breed = breed;
-        this.size = size;
-        this.gender = gender;
-        this.neutured = neutured;
-        this.vaccinated = vaccinated;
-        this.fwithdogs = fwithdogs;
-        this.fwithcats = fwithcats;
-        this.fwithkids = fwithkids;
-        this.getFwithkidssg = getFwithkidssg;
+    public Recycle_model(String img){
+        this.img=img;
     }
+//    public Recycle_model(String id, String img, String name, String species, String breed, String size, String gender, String neutured, String vaccinated, String fwithdogs, String fwithcats, String fwithkids, String getFwithkidssg) {
+//        this.id = id;
+//        this.img = img;
+//        this.name = name;
+//        this.species = species;
+//        this.breed = breed;
+//        this.size = size;
+//        this.gender = gender;
+//        this.neutured = neutured;
+//        this.vaccinated = vaccinated;
+//        this.fwithdogs = fwithdogs;
+//        this.fwithcats = fwithcats;
+//        this.fwithkids = fwithkids;
+//        this.getFwithkidssg = getFwithkidssg;
+//    }
 
     public String getVaccinated() {
         return vaccinated;
@@ -107,11 +113,11 @@ public class Recycle_model {
         this.gender = gender;
     }
 
-    public byte[] getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(byte[] img) {
+    public void setImg(String img) {
         this.img = img;
     }
 //

@@ -25,6 +25,7 @@ import com.example.android_test.Details;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -56,7 +57,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         //get data
         Recycle_model model = details.get(position);
         String id = model.getId();
-        byte[] image = model.getImg();
+        String imageUri = model.getImg();
         String name = model.getName();
         String species = model.getSpecies();
         String breed = model.getBreed();
@@ -72,50 +73,51 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
         //set data
 
-        bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-        holder.image_view1.setImageBitmap(bitmap);
+//        bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
 
-        holder.txt1.setText(name);
-        holder.txt2.setText(species);
-        holder.txt3.setText(breed);
+        Picasso.get().load(imageUri).into(holder.image_view1);
 
-        holder.txt9.setText(size + " " + "inch");
-
-        if (gender.equals("1")) {
-            holder.txt4.setText("female");
-        } else if (gender.equals(null)) {
-            holder.txt4.setText(" ");
-        } else {
-            holder.txt4.setText("male");
-        }
-
-        if (neutured.equals("1")) {
-            holder.txt5.setText("Neutured");
-        } else {
-            holder.txt5.setText("");
-            holder.txt5.setBackground(null);
-        }
-
-        if (vaccinated.equals("1")) {
-            holder.txt6.setText("Vaccinated");
-        } else {
-            holder.txt6.setText("");
-            holder.txt6.setBackground(null);
-        }
-
-        if (fwithdogs.equals("1")) {
-            holder.txt7.setText("Friendly with dogs");
-        } else {
-            holder.txt7.setText("");
-            holder.txt7.setBackground(null);
-        }
-
-        if (fwithcats.equals("1")) {
-            holder.txt8.setText("Friendly with cats");
-        } else {
-            holder.txt8.setText("");
-            holder.txt8.setBackground(null);
-        }
+//        holder.txt1.setText(name);
+//        holder.txt2.setText(species);
+//        holder.txt3.setText(breed);
+//
+//        holder.txt9.setText(size + " " + "inch");
+//
+//        if (gender.equals("1")) {
+//            holder.txt4.setText("female");
+//        } else if (gender.equals(null)) {
+//            holder.txt4.setText(" ");
+//        } else {
+//            holder.txt4.setText("male");
+//        }
+//
+//        if (neutured.equals("1")) {
+//            holder.txt5.setText("Neutured");
+//        } else {
+//            holder.txt5.setText("");
+//            holder.txt5.setBackground(null);
+//        }
+//
+//        if (vaccinated.equals("1")) {
+//            holder.txt6.setText("Vaccinated");
+//        } else {
+//            holder.txt6.setText("");
+//            holder.txt6.setBackground(null);
+//        }
+//
+//        if (fwithdogs.equals("1")) {
+//            holder.txt7.setText("Friendly with dogs");
+//        } else {
+//            holder.txt7.setText("");
+//            holder.txt7.setBackground(null);
+//        }
+//
+//        if (fwithcats.equals("1")) {
+//            holder.txt8.setText("Friendly with cats");
+//        } else {
+//            holder.txt8.setText("");
+//            holder.txt8.setBackground(null);
+//        }
 
 
         holder.image_view1.setOnClickListener(new View.OnClickListener() {

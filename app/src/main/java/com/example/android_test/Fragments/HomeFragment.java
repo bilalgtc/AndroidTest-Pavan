@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +24,12 @@ import com.example.android_test.Adapters.Recycle_adapter;
 import com.example.android_test.AddDetails;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -37,6 +45,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     ImageView imageView;
     TextView textView;
     Recycle_adapter adapter;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseStorage firebaseStorage;
+    DatabaseReference databaseReference;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -87,7 +98,38 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         SpannableString s = new SpannableString(text);
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
 
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        databaseReference=firebaseDatabase.getReference("UserData");
+        firebaseStorage= FirebaseStorage.getInstance();
 
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Recycle_model recycle_model = snapshot.getValue(Recycle_model.class);
+                details.add(recycle_model);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         adapter = new Recycle_adapter(getContext(), details);
         recyclerView.setAdapter(adapter);

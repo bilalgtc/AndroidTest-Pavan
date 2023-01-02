@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,6 +24,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,6 +32,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.android_test.Models.Recycle_model;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 
@@ -65,6 +75,8 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     private Uri imageUri;
     Bitmap bitmap;
     int temp;
+    DatabaseReference databaseReference;
+    StorageReference storageReference;
 
     boolean[] value = {false, false, false, false, false, false};
 
@@ -89,6 +101,8 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
     private void init() {
 
+        databaseReference = FirebaseDatabase.getInstance().getReference("UserData");
+        storageReference = FirebaseStorage.getInstance().getReference();
 
         male1_txt = findViewById(R.id.male_txt);
         female1_txt = findViewById(R.id.female_txt);
@@ -131,6 +145,17 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         cardView02.setCardElevation(0);
 
 
+    }
+
+    private void clicks() {
+
+
+
+        cardView01.setOnClickListener(this);
+        cardView02.setOnClickListener(this);
+        button.setOnClickListener(this);
+        imageView.setOnClickListener(this);
+        imageView2.setOnClickListener(this);
     }
 
 
@@ -196,16 +221,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     }
 
 
-    private void clicks() {
 
-
-
-        cardView01.setOnClickListener(this);
-        cardView02.setOnClickListener(this);
-        button.setOnClickListener(this);
-        imageView.setOnClickListener(this);
-        imageView2.setOnClickListener(this);
-    }
 
 
     private void isEdit() {
@@ -350,10 +366,38 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         } else if (temp!=1) {
             Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
         }else {
-
+            StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+            file.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    file.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Recycle_model model = new Recycle_model(imageUri.toString());
+                            String modelId = databaseReference.push().getKey();
+                            databaseReference.child(modelId).setValue(model);
+                            Toast.makeText(AddDetails.this, "Add Successful", Toast.LENGTH_SHORT).show();
+                            Intent i=new Intent(getApplicationContext(),Dashboard.class);
+                            startActivity(i);
+                            finish();
+                        }
+                    });
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(AddDetails.this, "Failed to upload", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
+    private String getFileExtension(Uri muri){
+
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(muri));
+    }
 
     private void imagePickDialog() {
 
