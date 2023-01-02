@@ -1,7 +1,10 @@
 package com.example.android_test;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.SpannableString;
@@ -47,6 +50,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     FirebaseAuth auth;
     FirebaseFirestore firestore;
     String userID;
+    boolean connected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         clicks();
         txtEdit();
 
+        ConnectivityManager connectivityManager = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        }
+
+         connected = (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED);
 
         nameed.setOnFocusChangeListener((view, b) -> {
             if (b) {
@@ -263,8 +274,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     Toast.makeText(this, "Accept Policy", Toast.LENGTH_SHORT).show();
                 } else if (!(password.length() >=6)) {
                     Toast.makeText(this, "Password must be 6 character long", Toast.LENGTH_SHORT).show();
-                }else {
 
+                }else {
                     auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
