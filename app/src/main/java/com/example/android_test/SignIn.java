@@ -57,6 +57,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 //            finish();
 //        }
 
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // User is signed in
