@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Splash extends AppCompatActivity {
     SharedPreferences sharedPreferences;
-    FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
