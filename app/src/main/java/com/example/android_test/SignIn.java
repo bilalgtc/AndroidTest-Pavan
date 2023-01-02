@@ -13,6 +13,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
 import android.text.method.SingleLineTransformationMethod;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
@@ -25,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class SignIn extends AppCompatActivity implements View.OnClickListener {
@@ -47,12 +49,23 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
 
-        sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+//        sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+//
+//        if (sharedPreferences.contains("email")){
+//            Intent i=new Intent(getApplicationContext(),Dashboard.class);
+//            startActivity(i);
+//            finish();
+//        }
 
-        if (sharedPreferences.contains("email")){
-            Intent i=new Intent(getApplicationContext(),Dashboard.class);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
+            Intent i = new Intent(getApplicationContext(),Dashboard.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
-            finish();
+        } else {
+            // User is signed out
+            Log.d("TAG", "onAuthStateChanged:signed_out");
         }
 
 
