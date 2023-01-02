@@ -41,7 +41,8 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     CardView cardView01, cardView02;
     ImageView imageView, imageView2, male_img, female_img;
     CircleImageView img;
-    TextView textView, male1_txt, female1_txt;
+    TextView male1_txt;
+    TextView female1_txt;
     EditText ed1, ed2, ed3, ed4;
     Button button;
     SwitchCompat sw1;
@@ -379,6 +380,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             boolean i = dbhelper.updateRecord(contentValues, id);
             if (i) {
                 Toast.makeText(AddDetails.this, "Updated", Toast.LENGTH_SHORT).show();
+                finish();
 //                            new Handler().postDelayed(new Runnable() {
 //                                @Override
 //                                public void run() {
@@ -433,7 +435,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             contentValues.put("gender", state[1]);
 
             boolean i = dbhelper.insertData(contentValues);
-            if (i == true) {
+            if (i) {
                 Toast.makeText(AddDetails.this, "Added", Toast.LENGTH_SHORT).show();
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -442,7 +444,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                         startActivity(intent);
                         finish();
                     }
-                }, 2000);
+                }, 1000);
 
 
             } else {
