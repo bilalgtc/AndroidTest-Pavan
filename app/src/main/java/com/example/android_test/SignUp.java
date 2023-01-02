@@ -19,10 +19,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.android_test.Helper.DbManager;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,7 +38,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     View v, v2, v3, v4;
     ImageView imageView, imageView2, imageView3, imageView4, imageView5, imageView6, password_img;
     int temp = 0;
-
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,6 +173,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     private void init() {
 
+        auth= FirebaseAuth.getInstance();
+
         v = findViewById(R.id.ed1_line1);
         v2 = findViewById(R.id.ed1_line2);
         v3 = findViewById(R.id.ed1_line3);
@@ -212,6 +219,15 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         password_img.setOnClickListener(this);
     }
 
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        if (auth.getCurrentUser()!=null){
+//            Toast.makeText(this, "Exists", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
     @Override
     public void onClick(View v) {
 
@@ -236,8 +252,25 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
                 } else if (temp == 0) {
                     Toast.makeText(this, "Accept Policy", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if (password.length()!=6) {
+                    Toast.makeText(this, "Password must be 6 character long", Toast.LENGTH_SHORT).show();
+                }else {
 
+                    auth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()){
+                                    Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
+                                    Intent i=new Intent(getApplicationContext(),SignIn.class);
+                                    startActivity(i);
+                                    finish();
+                                }else{
+                                    Toast.makeText(SignUp.this, "User Already Exits", Toast.LENGTH_SHORT).show();
+                                }
+
+                        }
+                    });
 
                 }
                 break;

@@ -21,7 +21,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_test.AddDetails;
-import com.example.android_test.Helper.DatabaseHelper;
 import com.example.android_test.Details;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;

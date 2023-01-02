@@ -99,7 +99,7 @@
                             android:layout_height="@dimen/_25sdp"
                             android:layout_weight="1"
                             android:background="#00000000"
-                            android:inputType="textEmailAddress"
+                            android:inputType="textEmailSubject"
                             android:textColorHighlight="@color/blue" />
 
                         <ImageView

@@ -1,5 +1,6 @@
 package com.example.android_test;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -20,7 +21,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android_test.Helper.DbManager;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class SignIn extends AppCompatActivity implements View.OnClickListener {
     ImageView img, successimg, password_eye;
@@ -31,6 +36,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     View v, v2;
     String email, password;
     SharedPreferences sharedPreferences;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +49,11 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
         sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
 
-//        if (sharedPreferences.contains("email")){
-//            Intent i=new Intent(getApplicationContext(),Dashboard.class);
-//            startActivity(i);
-//            finish();
-//        }
+        if (sharedPreferences.contains("email")){
+            Intent i=new Intent(getApplicationContext(),Dashboard.class);
+            startActivity(i);
+            finish();
+        }
 
 
         init();
@@ -104,6 +110,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     private void init() {
 
+        auth = FirebaseAuth.getInstance();
 
         img = findViewById(R.id.signin_backbtn);
         successimg = findViewById(R.id.up_password_toggle);
@@ -133,6 +140,8 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         button.setOnClickListener(this);
         password_eye.setOnClickListener(this);
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -173,15 +182,29 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                 if (!email.isEmpty() && !password.isEmpty()) {
 
 
+                    auth.signInWithEmailAndPassword(email, password)
+                                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                            if(task.isSuccessful()){
+                                                Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                                Intent i3 = new Intent(getApplicationContext(), Dashboard.class);
+                                                startActivity(i3);
+                                                finish();
+                                            }else {
+                                                Toast.makeText(SignIn.this, "User doesn't exists", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
 
-                        Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        Intent i3 = new Intent(getApplicationContext(), Dashboard.class);
-                        startActivity(i3);
-                        finish();
 
-                    }
+                    }else {
+                    Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
         }
     }
+
+
 }
