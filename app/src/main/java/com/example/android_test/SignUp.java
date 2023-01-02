@@ -24,9 +24,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
@@ -39,6 +45,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     ImageView imageView, imageView2, imageView3, imageView4, imageView5, imageView6, password_img;
     int temp = 0;
     FirebaseAuth auth;
+    FirebaseFirestore firestore;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,6 +182,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private void init() {
 
         auth= FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
         v = findViewById(R.id.ed1_line1);
         v2 = findViewById(R.id.ed1_line2);
@@ -252,7 +261,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
                 } else if (temp == 0) {
                     Toast.makeText(this, "Accept Policy", Toast.LENGTH_SHORT).show();
-                } else if (password.length()!=6) {
+                } else if (!(password.length() >=6)) {
                     Toast.makeText(this, "Password must be 6 character long", Toast.LENGTH_SHORT).show();
                 }else {
 
@@ -262,6 +271,22 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
                                     Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
+
+                                    userID = auth.getCurrentUser().getUid();
+                                    DocumentReference documentReference = firestore.collection("users").document(userID);
+
+                                    Map<String,Object> user = new HashMap<>();
+                                    user.put("name", name);
+                                    user.put("email", email);
+                                    user.put("mobile", mobile);
+                                    user.put("password", password);
+                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(SignUp.this, "Done", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
                                     Intent i=new Intent(getApplicationContext(),SignIn.class);
                                     startActivity(i);
                                     finish();
