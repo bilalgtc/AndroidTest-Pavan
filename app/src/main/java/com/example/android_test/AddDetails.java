@@ -30,7 +30,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.android_test.Helper.DatabaseHelper;
 
 import java.io.ByteArrayOutputStream;
 

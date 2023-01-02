@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android_test.Helper.DbManager;
 
 public class SignIn extends AppCompatActivity implements View.OnClickListener {
     ImageView img, successimg, password_eye;

@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import com.example.android_test.Adapters.Recycle_adapter;
 import com.example.android_test.AddDetails;
-import com.example.android_test.Helper.DatabaseHelper;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 

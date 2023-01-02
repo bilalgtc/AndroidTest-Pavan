@@ -22,7 +22,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.android_test.Helper.DbManager;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
