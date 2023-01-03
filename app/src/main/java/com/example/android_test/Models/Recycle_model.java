@@ -2,20 +2,20 @@ package com.example.android_test.Models;
 
 public class Recycle_model {
     public String id;
-    public String img;
+    public String image;
     public String name;
     public String species;
     public String breed;
     public String size;
     public String gender;
-    public String neutured;
+    public String neutered;
     public String vaccinated;
-    public String fwithdogs;
-    public String fwithcats;
-    public String fwithkids;
-    public String getFwithkidssg;
+    public String Friendlywithdogs;
+    public String Friendlywithcats;
+    public String Friendlywithkids10;
+    public String Friendlywithkids10G;
 
-    public Recycle_model(){
+    public Recycle_model() {
 
     }
 
@@ -27,8 +27,8 @@ public class Recycle_model {
         this.size = size;
     }
 
-    public String getNeutured() {
-        return neutured;
+    public String getNeutered() {
+        return neutered;
     }
 
     public String getId() {
@@ -39,24 +39,21 @@ public class Recycle_model {
         this.id = id;
     }
 
-    public Recycle_model(String img){
-        this.img=img;
+    public Recycle_model(String image, String name, String species, String breed, String size, String gender, String neutered, String vaccinated, String Friendlywithdogs, String Friendlywithcats, String Friendlywithkids10, String Friendlywithkids10G) {
+        this.id = id;
+        this.image = image;
+        this.name = name;
+        this.species = species;
+        this.breed = breed;
+        this.size = size;
+        this.gender = gender;
+        this.neutered = neutered;
+        this.vaccinated = vaccinated;
+        this.Friendlywithdogs = Friendlywithdogs;
+        this.Friendlywithcats = Friendlywithcats;
+        this.Friendlywithkids10 = Friendlywithkids10;
+        this.Friendlywithkids10G = Friendlywithkids10G;
     }
-//    public Recycle_model(String id, String img, String name, String species, String breed, String size, String gender, String neutured, String vaccinated, String fwithdogs, String fwithcats, String fwithkids, String getFwithkidssg) {
-//        this.id = id;
-//        this.img = img;
-//        this.name = name;
-//        this.species = species;
-//        this.breed = breed;
-//        this.size = size;
-//        this.gender = gender;
-//        this.neutured = neutured;
-//        this.vaccinated = vaccinated;
-//        this.fwithdogs = fwithdogs;
-//        this.fwithcats = fwithcats;
-//        this.fwithkids = fwithkids;
-//        this.getFwithkidssg = getFwithkidssg;
-//    }
 
     public String getVaccinated() {
         return vaccinated;
@@ -67,42 +64,40 @@ public class Recycle_model {
     }
 
     public String getFwithdogs() {
-        return fwithdogs;
+        return Friendlywithdogs;
     }
 
-    public void setFwithdogs(String fwithdogs) {
-        this.fwithdogs = fwithdogs;
+    public void setFwithdogs(String Friendlywithdogs) {
+        this.Friendlywithdogs = Friendlywithdogs;
     }
 
     public String getFwithcats() {
-        return fwithcats;
+        return Friendlywithcats;
     }
 
     public void setFwithcats(String fwithcats) {
-        this.fwithcats = fwithcats;
+        this.Friendlywithcats = fwithcats;
     }
 
     public String getFwithkids() {
-        return fwithkids;
+        return Friendlywithkids10;
     }
 
-    public void setFwithkids(String fwithkids) {
-        this.fwithkids = fwithkids;
+    public void setFwithkids(String Friendlywithkids10) {
+        this.Friendlywithkids10 = Friendlywithkids10;
     }
 
     public String getGetFwithkidssg() {
-        return getFwithkidssg;
+        return Friendlywithkids10G;
     }
 
-    public void setGetFwithkidssg(String getFwithkidssg) {
-        this.getFwithkidssg = getFwithkidssg;
+    public void setGetFwithkidssg(String Friendlywithkids10G) {
+        this.Friendlywithkids10G = Friendlywithkids10G;
     }
 
-    public void setNeutured(String neutured) {
-        this.neutured = neutured;
+    public void setNeutered(String neutured) {
+        this.neutered = neutured;
     }
-
-//    String neutured, String vaccinated, String fwithdogs, String fwithcats, String fwithkids, String getFwithkidssg
 
 
     public String getGender() {
@@ -113,12 +108,12 @@ public class Recycle_model {
         this.gender = gender;
     }
 
-    public String getImg() {
-        return img;
+    public String getImage() {
+        return image;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImage(String image) {
+        this.image = image;
     }
 //
 

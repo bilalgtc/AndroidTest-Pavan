@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -61,7 +63,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // User is signed in
-            Intent i = new Intent(getApplicationContext(),Dashboard.class);
+            Intent i = new Intent(getApplicationContext(), Dashboard.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
         } else {
@@ -156,7 +158,6 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -195,30 +196,41 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
                 if (!email.isEmpty() && !password.isEmpty()) {
 
-
-                    auth.signInWithEmailAndPassword(email, password)
+                        if (isNetworkCheck()) {
+                            auth.signInWithEmailAndPassword(email, password)
                                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
-                                            if(task.isSuccessful()){
+                                            if (task.isSuccessful()) {
                                                 Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                                 Intent i3 = new Intent(getApplicationContext(), Dashboard.class);
                                                 startActivity(i3);
                                                 finish();
-                                            }else {
+                                            } else {
                                                 Toast.makeText(SignIn.this, "User doesn't exists", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
+                        }else {
+                            Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
+                        }
 
+                    } else {
+                        Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
 
-                    }else {
-                    Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
                 }
-                break;
-
         }
-    }
 
+
+
+
+    private boolean isNetworkCheck() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
 }

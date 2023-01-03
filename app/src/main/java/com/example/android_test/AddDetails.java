@@ -35,13 +35,17 @@ import android.widget.Toast;
 import com.example.android_test.Models.Recycle_model;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -60,8 +64,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     SwitchCompat sw5;
     SwitchCompat sw6;
     Bitmap imgToStore;
-    byte[] image;
-    boolean[] state = {true, false};
+    String[] state = {"true", "false"};
     public boolean isEditMode = false;
 
     private static final int CAMERA_REQUEST_CODE = 100;
@@ -69,7 +72,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     //IMAGE PICK
     private static final int IMAGE_PICK_CAMERA_CODE = 102;
     private static final int IMAGE_PICK_GALLERY_CODE = 103;
-    String id, name, species, breed, size, gender, neutered, vaccinated, Friendlywithdogs, Friendlywithcats, Friendlywithkids10, Friendlywithkids10G;
+    String id, image, name, species, breed, size, gender, neutered, vaccinated, Friendlywithdogs, Friendlywithcats, Friendlywithkids10, Friendlywithkids10G;
     String[] cameraPermissions;
     String[] storagePermissions;
     private Uri imageUri;
@@ -78,7 +81,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     DatabaseReference databaseReference;
     StorageReference storageReference;
 
-    boolean[] value = {false, false, false, false, false, false};
+    String[] value = {"false", "false", "false", "false", "false", "false"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +153,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     private void clicks() {
 
 
-
         cardView01.setOnClickListener(this);
         cardView02.setOnClickListener(this);
         button.setOnClickListener(this);
@@ -165,10 +167,10 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
             case R.id.cardView:
 
-                temp=1;
+                temp = 1;
 
-                state[0] = cardView01.isEnabled();
-
+                state[0] = String.valueOf(cardView01.isEnabled());
+//                gender = String.valueOf(cardView01.isEnabled());
                 cardView01.setBackground(getDrawable(R.drawable.card_blue_back));
                 cardView01.setCardElevation(8);
 
@@ -185,7 +187,8 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
                 temp = 1;
 
-                state[1] = cardView02.isEnabled();
+                state[1] = String.valueOf(cardView02.isEnabled());
+//                gender = String.valueOf(cardView02.isEnabled());
 
                 cardView02.setBackground(getDrawable(R.drawable.card_blue_back));
                 cardView02.setCardElevation(8);
@@ -221,9 +224,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     }
 
 
-
-
-
     private void isEdit() {
         Intent i = getIntent();
         isEditMode = i.getBooleanExtra("isEditMode", false);
@@ -241,14 +241,13 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             Friendlywithkids10 = i.getStringExtra("Friendlywithkids10");
             Friendlywithkids10G = i.getStringExtra("Friendlywithkids10G");
 
-            image = i.getByteArrayExtra("image");
-            bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            image = i.getStringExtra("image");
 
 
             if (image == null) {
                 Toast.makeText(this, "No Image", Toast.LENGTH_SHORT).show();
             } else {
-                img.setImageBitmap(bitmap);
+                Picasso.get().load(image).into(img);
             }
 
 
@@ -258,7 +257,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             ed4.setText(size);
 
 
-            if (gender.equals("1")) {
+            if (gender.equals("true")) {
 
                 cardView02.setBackground(getDrawable(R.drawable.card_blue_back));
                 cardView02.setCardElevation(8);
@@ -272,7 +271,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                 female_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.white));
                 male_img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.black));
 
-            } else if (gender.equals("0")) {
+            } else if (gender.equals("false")) {
 
                 cardView01.setBackground(getDrawable(R.drawable.card_blue_back));
                 cardView01.setCardElevation(8);
@@ -296,49 +295,49 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                 female1_txt.setTextColor(Color.BLACK);
             }
 
-            if (neutered.equals("1")) {
+            if (neutered.equals("true")) {
                 sw1.setChecked(true);
-            } else if (neutered.equals("0")) {
+            } else if (neutered.equals("false")) {
                 sw1.setChecked(false);
             } else {
                 sw1.setChecked(false);
             }
 
-            if (vaccinated.equals("1")) {
+            if (vaccinated.equals("true")) {
                 sw2.setChecked(true);
-            } else if (vaccinated.equals("0")) {
+            } else if (vaccinated.equals("false")) {
                 sw2.setChecked(false);
             } else {
                 sw2.setChecked(false);
             }
 
-            if (Friendlywithdogs.equals("1")) {
+            if (Friendlywithdogs.equals("true")) {
                 sw3.setChecked(true);
-            } else if (Friendlywithdogs.equals("0")) {
+            } else if (Friendlywithdogs.equals("false")) {
                 sw3.setChecked(false);
             } else {
                 sw3.setChecked(false);
             }
 
-            if (Friendlywithcats.equals("1")) {
+            if (Friendlywithcats.equals("true")) {
                 sw4.setChecked(true);
-            } else if (Friendlywithcats.equals("0")) {
+            } else if (Friendlywithcats.equals("false")) {
                 sw4.setChecked(false);
             } else {
                 sw4.setChecked(false);
             }
 
-            if (Friendlywithkids10.equals("1")) {
+            if (Friendlywithkids10.equals("true")) {
                 sw5.setChecked(true);
-            } else if (Friendlywithkids10.equals("0")) {
+            } else if (Friendlywithkids10.equals("false")) {
                 sw5.setChecked(false);
             } else {
                 sw5.setChecked(false);
             }
 
-            if (Friendlywithkids10G.equals("1")) {
+            if (Friendlywithkids10G.equals("true")) {
                 sw6.setChecked(true);
-            } else if (Friendlywithkids10G.equals("0")) {
+            } else if (Friendlywithkids10G.equals("false")) {
                 sw6.setChecked(false);
             } else {
                 sw6.setChecked(false);
@@ -353,7 +352,62 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         breed = ed3.getText().toString();
         size = ed4.getText().toString();
 
-        if (isEditMode) {           //for true
+//        neutered = String.valueOf(sw1.isChecked());
+//        vaccinated = String.valueOf(sw2.isChecked());
+//        Friendlywithdogs = String.valueOf(sw3.isChecked());
+//        Friendlywithcats = String.valueOf(sw4.isChecked());
+//        Friendlywithkids10 = String.valueOf(sw5.isChecked());
+//        Friendlywithkids10G = String.valueOf(sw6.isChecked());
+
+        value[0] = String.valueOf(sw1.isChecked());
+        value[1] = String.valueOf(sw2.isChecked());
+        value[2] = String.valueOf(sw3.isChecked());
+        value[3] = String.valueOf(sw4.isChecked());
+        value[4] = String.valueOf(sw5.isChecked());
+        value[5] = String.valueOf(sw6.isChecked());
+
+        if (isEditMode) {//for true
+
+            if (imageUri ==null){
+                Picasso.get().load(image).into(img);
+            }else {
+                StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+                file.putFile(imageUri);
+            }
+            Map<String, Object> map = new HashMap<>();
+            map.put("image", imageUri.toString());
+            map.put("name", name);
+            map.put("species", species);
+            map.put("breed", breed);
+            map.put("size", size);
+            map.put("gender", state[0]);
+            map.put("gender", state[1]);
+            map.put("neutered", value[0]);
+            map.put("vaccinated", value[1]);
+            map.put("Friendlywithdogs", value[2]);
+            map.put("Friendlywithcats", value[3]);
+            map.put("Friendlywithkids10", value[4]);
+            map.put("Friendlywithkids10G", value[5]);
+
+            databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    ed1.setText("");
+                    ed2.setText("");
+                    ed3.setText("");
+                    ed4.setText("");
+                    button.setEnabled(false);
+                    Toast.makeText(AddDetails.this, "Added Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(AddDetails.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
 
         } else if (name.isEmpty() || species.isEmpty() || breed.isEmpty()) {
             Toast.makeText(AddDetails.this, "Fields are empty", Toast.LENGTH_SHORT).show();
@@ -363,36 +417,48 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
             Toast.makeText(this, "Add Image", Toast.LENGTH_SHORT).show();
 
-        } else if (temp!=1) {
+        } else if (temp != 1) {
             Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
+
             StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
-            file.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            file.putFile(imageUri);
+            Map<String, Object> map = new HashMap<>();
+            map.put("image", imageUri.toString());
+            map.put("name", name);
+            map.put("species", species);
+            map.put("breed", breed);
+            map.put("size", size);
+            map.put("gender", state[0]);
+            map.put("gender", state[1]);
+            map.put("neutered", value[0]);
+            map.put("vaccinated", value[1]);
+            map.put("Friendlywithdogs", value[2]);
+            map.put("Friendlywithcats", value[3]);
+            map.put("Friendlywithkids10", value[4]);
+            map.put("Friendlywithkids10G", value[5]);
+
+            databaseReference.push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    file.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Recycle_model model = new Recycle_model(imageUri.toString());
-                            String modelId = databaseReference.push().getKey();
-                            databaseReference.child(modelId).setValue(model);
-                            Toast.makeText(AddDetails.this, "Add Successful", Toast.LENGTH_SHORT).show();
-                            Intent i=new Intent(getApplicationContext(),Dashboard.class);
-                            startActivity(i);
-                            finish();
-                        }
-                    });
+                public void onSuccess(Void unused) {
+                    ed1.setText("");
+                    ed2.setText("");
+                    ed3.setText("");
+                    ed4.setText("");
+                    button.setEnabled(false);
+                    Toast.makeText(AddDetails.this, "Added Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(AddDetails.this, "Failed to upload", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddDetails.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             });
         }
     }
 
-    private String getFileExtension(Uri muri){
+    private String getFileExtension(Uri muri) {
 
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();

@@ -239,14 +239,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         password_img.setOnClickListener(this);
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        if (auth.getCurrentUser()!=null){
-//            Toast.makeText(this, "Exists", Toast.LENGTH_SHORT).show();
-//        }
-//    }
+
 
     @Override
     public void onClick(View v) {
@@ -275,7 +268,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                 } else if (!(password.length() >=6)) {
                     Toast.makeText(this, "Password must be 6 character long", Toast.LENGTH_SHORT).show();
 
-                }else {
+                }else if(isNetworkCheck()){
                     auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -308,6 +301,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         }
                     });
 
+                }else{
+                    Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -382,6 +377,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
         textView.setText(s1);
 
+    }
+
+    private boolean isNetworkCheck() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 

@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
@@ -57,84 +56,88 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
         //get data
         Recycle_model model = details.get(position);
         String id = model.getId();
-        String imageUri = model.getImg();
+        String image = model.getImage();
         String name = model.getName();
         String species = model.getSpecies();
         String breed = model.getBreed();
         String size = model.getSize();
         String gender = model.getGender();
-        String neutured = model.getNeutured();
+        String neutered = model.getNeutered();
         String vaccinated = model.getVaccinated();
-        String fwithdogs = model.getFwithdogs();
-        String fwithcats = model.getFwithcats();
+        String Friendlywithdogs = model.getFwithdogs();
+        String Friendlywithcats = model.getFwithcats();
         String fwithkids = model.getFwithkids();
         String fwithkidsg = model.getGetFwithkidssg();
 
 
         //set data
 
-//        bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+        Picasso.get().load(image).into(holder.image_view1);
 
-        Picasso.get().load(imageUri).into(holder.image_view1);
+        holder.txt1.setText(name);
+        holder.txt2.setText(species);
+        holder.txt3.setText(breed);
 
-//        holder.txt1.setText(name);
-//        holder.txt2.setText(species);
-//        holder.txt3.setText(breed);
-//
-//        holder.txt9.setText(size + " " + "inch");
-//
-//        if (gender.equals("1")) {
+        holder.txt9.setText(size + " " + "inch");
+
+//        if (gender.equals("true")) {
 //            holder.txt4.setText("female");
 //        } else if (gender.equals(null)) {
 //            holder.txt4.setText(" ");
 //        } else {
 //            holder.txt4.setText("male");
 //        }
-//
-//        if (neutured.equals("1")) {
-//            holder.txt5.setText("Neutured");
-//        } else {
-//            holder.txt5.setText("");
-//            holder.txt5.setBackground(null);
-//        }
-//
-//        if (vaccinated.equals("1")) {
-//            holder.txt6.setText("Vaccinated");
-//        } else {
-//            holder.txt6.setText("");
-//            holder.txt6.setBackground(null);
-//        }
-//
-//        if (fwithdogs.equals("1")) {
-//            holder.txt7.setText("Friendly with dogs");
-//        } else {
-//            holder.txt7.setText("");
-//            holder.txt7.setBackground(null);
-//        }
-//
-//        if (fwithcats.equals("1")) {
-//            holder.txt8.setText("Friendly with cats");
-//        } else {
-//            holder.txt8.setText("");
-//            holder.txt8.setBackground(null);
-//        }
 
+        if (gender.equals("true")) {
+            holder.txt4.setText("female");
+        } else {
+            holder.txt4.setText("male");
+        }
+
+
+        if (neutered.equals("true")) {
+            holder.txt5.setText("Neutured");
+        } else {
+            holder.txt5.setText("");
+            holder.txt5.setBackground(null);
+        }
+
+        if (vaccinated.equals("true")) {
+            holder.txt6.setText("Vaccinated");
+        } else {
+            holder.txt6.setText("");
+            holder.txt6.setBackground(null);
+        }
+
+        if (Friendlywithdogs.equals("true")) {
+            holder.txt7.setText("Friendly with dogs");
+        } else {
+            holder.txt7.setText("");
+            holder.txt7.setBackground(null);
+        }
+
+        if (Friendlywithcats.equals("true")) {
+            holder.txt8.setText("Friendly with cats");
+        } else {
+            holder.txt8.setText("");
+            holder.txt8.setBackground(null);
+        }
 
         holder.image_view1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, Details.class);
                 i.putExtra("id", id);
-                i.putExtra("image", model.getImg());
+                i.putExtra("image", model.getImage());
                 i.putExtra("name", name);
                 i.putExtra("species", species);
                 i.putExtra("breed", breed);
                 i.putExtra("size", size);
                 i.putExtra("gender", gender);
-                i.putExtra("neutered", neutured);
+                i.putExtra("neutered", neutered);
                 i.putExtra("vaccinated", vaccinated);
-                i.putExtra("Friendlywithdogs", fwithdogs);
-                i.putExtra("Friendlywithcats", fwithcats);
+                i.putExtra("Friendlywithdogs", Friendlywithdogs);
+                i.putExtra("Friendlywithcats", Friendlywithcats);
                 i.putExtra("Friendlywithkids10", fwithkids);
                 i.putExtra("Friendlywithkids10G", fwithkidsg);
 
@@ -147,16 +150,16 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
             public void onClick(View v) {
                 Intent i = new Intent(context, AddDetails.class);
                 i.putExtra("id", id);
-                i.putExtra("image", model.getImg());
+                i.putExtra("image", model.getImage());
                 i.putExtra("name", name);
                 i.putExtra("species", species);
                 i.putExtra("breed", breed);
                 i.putExtra("size", size);
                 i.putExtra("gender", gender);
-                i.putExtra("neutered", neutured);
+                i.putExtra("neutered", neutered);
                 i.putExtra("vaccinated", vaccinated);
-                i.putExtra("Friendlywithdogs", fwithdogs);
-                i.putExtra("Friendlywithcats", fwithcats);
+                i.putExtra("Friendlywithdogs", Friendlywithdogs);
+                i.putExtra("Friendlywithcats", Friendlywithcats);
                 i.putExtra("Friendlywithkids10", fwithkids);
                 i.putExtra("Friendlywithkids10G", fwithkidsg);
                 i.putExtra("isEditMode", true); //update data si true
