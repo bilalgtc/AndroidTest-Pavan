@@ -352,12 +352,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         breed = ed3.getText().toString();
         size = ed4.getText().toString();
 
-//        neutered = String.valueOf(sw1.isChecked());
-//        vaccinated = String.valueOf(sw2.isChecked());
-//        Friendlywithdogs = String.valueOf(sw3.isChecked());
-//        Friendlywithcats = String.valueOf(sw4.isChecked());
-//        Friendlywithkids10 = String.valueOf(sw5.isChecked());
-//        Friendlywithkids10G = String.valueOf(sw6.isChecked());
 
         value[0] = String.valueOf(sw1.isChecked());
         value[1] = String.valueOf(sw2.isChecked());
@@ -366,16 +360,24 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         value[4] = String.valueOf(sw5.isChecked());
         value[5] = String.valueOf(sw6.isChecked());
 
-        if (isEditMode) {//for true
 
-            if (imageUri ==null){
+
+        if (isEditMode) {           //for true
+
+            Map<String, Object> map = new HashMap<>();
+
+
+            if (imageUri==null){
                 Picasso.get().load(image).into(img);
+//                Toast.makeText(this, "Null", Toast.LENGTH_SHORT).show();
             }else {
                 StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
                 file.putFile(imageUri);
+                map.put("image", imageUri.toString());
+//                StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+//                file.putFile(imageUri);
+
             }
-            Map<String, Object> map = new HashMap<>();
-            map.put("image", imageUri.toString());
             map.put("name", name);
             map.put("species", species);
             map.put("breed", breed);
@@ -397,7 +399,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                     ed3.setText("");
                     ed4.setText("");
                     button.setEnabled(false);
-                    Toast.makeText(AddDetails.this, "Added Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddDetails.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),Dashboard.class));
                 }
             }).addOnFailureListener(new OnFailureListener() {

@@ -80,13 +80,13 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
         holder.txt9.setText(size + " " + "inch");
 
-//        if (gender.equals("true")) {
-//            holder.txt4.setText("female");
-//        } else if (gender.equals(null)) {
-//            holder.txt4.setText(" ");
-//        } else {
-//            holder.txt4.setText("male");
-//        }
+        if (gender.equals("true")) {
+            holder.txt4.setText("female");
+        } else if (gender.equals(null)) {
+            holder.txt4.setText(" ");
+        } else {
+            holder.txt4.setText("male");
+        }
 
         if (gender.equals("true")) {
             holder.txt4.setText("female");

@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android_test.Adapters.Recycle_adapter;
 import com.example.android_test.AddDetails;
@@ -29,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
@@ -101,38 +104,68 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("UserData");
         firebaseStorage= FirebaseStorage.getInstance();
-
-        databaseReference.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Recycle_model recycle_model = snapshot.getValue(Recycle_model.class);
-                details.add(recycle_model);
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
         adapter = new Recycle_adapter(getContext(), details);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Log.v("Snappy",snapshot.toString());
+
+                    for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+//                        String naame = postSnapshot.child("name").getValue(String.class);
+//                        Log.v("TAG", naame);
+                        Recycle_model recycle_model = postSnapshot.getValue(Recycle_model.class);
+                        details.add(recycle_model);
+
+
+                    }
+
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    error.getDetails();
+                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+//        databaseReference.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//                Recycle_model recycle_model = snapshot.getValue(Recycle_model.class);
+//                details.add(recycle_model);
+//                adapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//                Recycle_model recycle_model = snapshot.getValue(Recycle_model.class);
+//                details.add(recycle_model);
+//                adapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         s.setSpan(fc, 25, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(s);
