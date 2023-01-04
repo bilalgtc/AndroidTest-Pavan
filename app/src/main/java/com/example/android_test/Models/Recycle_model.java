@@ -39,7 +39,7 @@ public class Recycle_model {
         this.id = id;
     }
 
-    public Recycle_model(String id,String image, String name, String species, String breed, String size, String gender, String neutered, String vaccinated, String Friendlywithdogs, String Friendlywithcats, String Friendlywithkids10, String Friendlywithkids10G) {
+    public Recycle_model(String id, String image, String name, String species, String breed, String size, String gender, String neutered, String vaccinated, String Friendlywithdogs, String Friendlywithcats, String Friendlywithkids10, String Friendlywithkids10G) {
         this.id = id;
         this.image = image;
         this.name = name;

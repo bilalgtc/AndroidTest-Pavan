@@ -358,7 +358,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
         if (isEditMode) {           //for true
 
-           HashMap<String,Object> map = new HashMap<>();
+            HashMap<String, Object> map = new HashMap<>();
 
 
             if (imageUri == null) {
@@ -419,12 +419,12 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
         } else {
 
-            String id=databaseReference.push().getKey();
+            String id = databaseReference.push().getKey();
 
             StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
             file.putFile(imageUri);
 
-            HashMap<String,Object> map = new HashMap<>();
+            HashMap<String, Object> map = new HashMap<>();
             map.put("id", id);
             map.put("image", imageUri.toString());
             map.put("name", name);
