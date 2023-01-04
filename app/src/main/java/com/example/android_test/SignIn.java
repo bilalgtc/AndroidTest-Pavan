@@ -196,34 +196,32 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
                 if (!email.isEmpty() && !password.isEmpty()) {
 
-                        if (isNetworkCheck()) {
-                            auth.signInWithEmailAndPassword(email, password)
-                                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<AuthResult> task) {
-                                            if (task.isSuccessful()) {
-                                                Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                                Intent i3 = new Intent(getApplicationContext(), Dashboard.class);
-                                                startActivity(i3);
-                                                finish();
-                                            } else {
-                                                Toast.makeText(SignIn.this, "User doesn't exists", Toast.LENGTH_SHORT).show();
-                                            }
+                    if (isNetworkCheck()) {
+                        auth.signInWithEmailAndPassword(email, password)
+                                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(SignIn.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                            Intent i3 = new Intent(getApplicationContext(), Dashboard.class);
+                                            startActivity(i3);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(SignIn.this, "User doesn't exists", Toast.LENGTH_SHORT).show();
                                         }
-                                    });
-                        }else {
-                            Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
-                        }
-
+                                    }
+                                });
                     } else {
-                        Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
                     }
-                    break;
 
+                } else {
+                    Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
                 }
+                break;
+
         }
-
-
+    }
 
 
     private boolean isNetworkCheck() {

@@ -29,24 +29,21 @@ public class Splash extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
 
-
-
         display();
 
     }
 
 
-
-    private void display(){
+    private void display() {
         new Handler().postDelayed(() -> {
 //            sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             if (user != null) {
-                Intent i = new Intent(getApplicationContext(),Dashboard.class);
+                Intent i = new Intent(getApplicationContext(), Dashboard.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
                 finish();
-            }  else {
+            } else {
                 Intent i = new Intent(Splash.this, Introduction.class);
                 startActivity(i);
                 finish();

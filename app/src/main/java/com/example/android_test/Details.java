@@ -18,11 +18,12 @@ import com.example.android_test.Models.Recycle_model;
 
 public class Details extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView imageView,img2,img3,img4,img5,img6,img7,img8;
-    String id,name,species,breed,size,gender,neutered,vaccinated,Friendlywithdogs,Friendlywithcats,Friendlywithkids10,Friendlywithkids10G;
-    TextView txt1,txt2,txt3,txt4,txt5;
+    ImageView imageView, img2, img3, img4, img5, img6, img7, img8;
+    String id, name, species, breed, size, gender, neutered, vaccinated, Friendlywithdogs, Friendlywithcats, Friendlywithkids10, Friendlywithkids10G;
+    TextView txt1, txt2, txt3, txt4, txt5;
     byte[] image;
     Bitmap bitmap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,66 +69,61 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         txt4.setText(size);
         txt5.setText(gender);
 
-        if (neutered.equals("1")){
+        if (neutered.equals("1")) {
             img3.setImageResource(R.drawable.success);
-        }else {
+        } else {
             img3.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (vaccinated.equals("1")){
+        if (vaccinated.equals("1")) {
             img4.setImageResource(R.drawable.success);
-        }else {
+        } else {
             img4.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (Friendlywithdogs.equals("1")){
+        if (Friendlywithdogs.equals("1")) {
             img5.setImageResource(R.drawable.success);
-        }else {
+        } else {
             img5.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (Friendlywithcats.equals("1")){
+        if (Friendlywithcats.equals("1")) {
             img6.setImageResource(R.drawable.success);
-        }else {
+        } else {
             img6.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (Friendlywithkids10.equals("1")){
+        if (Friendlywithkids10.equals("1")) {
             img7.setImageResource(R.drawable.success);
-        }else {
+        } else {
             img7.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (Friendlywithkids10G.equals("1")){
+        if (Friendlywithkids10G.equals("1")) {
             img8.setImageResource(R.drawable.success);
-        }else {
+        } else {
             img8.setImageResource(R.drawable.cross_cicle);
         }
 
 
-
-
-
-        }
-
+    }
 
 
     private void init() {
         imageView = findViewById(R.id.info_back_btn);
-        txt1=findViewById(R.id.dogname_txt);
-        txt2=findViewById(R.id.breed_txt);
-        txt3=findViewById(R.id.breed_name_txt);
-        txt4=findViewById(R.id.gender2_txt);
-        txt5=findViewById(R.id.size_txt);
+        txt1 = findViewById(R.id.dogname_txt);
+        txt2 = findViewById(R.id.breed_txt);
+        txt3 = findViewById(R.id.breed_name_txt);
+        txt4 = findViewById(R.id.gender2_txt);
+        txt5 = findViewById(R.id.size_txt);
 
-        img2=findViewById(R.id.imageView10);
-        img3=findViewById(R.id.s1);
-        img4=findViewById(R.id.s2);
-        img5=findViewById(R.id.s3);
-        img6=findViewById(R.id.s4);
-        img7=findViewById(R.id.s5);
-        img8=findViewById(R.id.s6);
-
+        img2 = findViewById(R.id.imageView10);
+        img3 = findViewById(R.id.s1);
+        img4 = findViewById(R.id.s2);
+        img5 = findViewById(R.id.s3);
+        img6 = findViewById(R.id.s4);
+        img7 = findViewById(R.id.s5);
+        img8 = findViewById(R.id.s6);
 
 
     }

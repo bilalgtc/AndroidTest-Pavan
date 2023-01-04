@@ -66,10 +66,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
         ConnectivityManager connectivityManager = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+            connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         }
 
-         connected = (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+        connected = (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED);
 
         nameed.setOnFocusChangeListener((view, b) -> {
@@ -192,7 +192,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     private void init() {
 
-        auth= FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
         v = findViewById(R.id.ed1_line1);
@@ -240,7 +240,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View v) {
 
@@ -265,43 +264,43 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
                 } else if (temp == 0) {
                     Toast.makeText(this, "Accept Policy", Toast.LENGTH_SHORT).show();
-                } else if (!(password.length() >=6)) {
+                } else if (!(password.length() >= 6)) {
                     Toast.makeText(this, "Password must be 6 character long", Toast.LENGTH_SHORT).show();
 
-                }else if(isNetworkCheck()){
+                } else if (isNetworkCheck()) {
                     auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()){
-                                    Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
 
-                                    userID = auth.getCurrentUser().getUid();
-                                    DocumentReference documentReference = firestore.collection("users").document(userID);
+                                        userID = auth.getCurrentUser().getUid();
+                                        DocumentReference documentReference = firestore.collection("users").document(userID);
 
-                                    Map<String,Object> user = new HashMap<>();
-                                    user.put("name", name);
-                                    user.put("email", email);
-                                    user.put("mobile", mobile);
-                                    user.put("password", password);
-                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            Toast.makeText(SignUp.this, "Done", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+                                        Map<String, Object> user = new HashMap<>();
+                                        user.put("name", name);
+                                        user.put("email", email);
+                                        user.put("mobile", mobile);
+                                        user.put("password", password);
+                                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Toast.makeText(SignUp.this, "Done", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
 
-                                    Intent i=new Intent(getApplicationContext(),SignIn.class);
-                                    startActivity(i);
-                                    finish();
-                                }else{
-                                    Toast.makeText(SignUp.this, "User Already Exits", Toast.LENGTH_SHORT).show();
+                                        Intent i = new Intent(getApplicationContext(), SignIn.class);
+                                        startActivity(i);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(SignUp.this, "User Already Exits", Toast.LENGTH_SHORT).show();
+                                    }
+
                                 }
+                            });
 
-                        }
-                    });
-
-                }else{
+                } else {
                     Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
                 }
                 break;

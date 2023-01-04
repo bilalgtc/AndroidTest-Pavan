@@ -101,38 +101,38 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         SpannableString s = new SpannableString(text);
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
 
-        firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("UserData");
-        firebaseStorage= FirebaseStorage.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("UserData");
+        firebaseStorage = FirebaseStorage.getInstance();
         adapter = new Recycle_adapter(getContext(), details);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Log.v("Snappy",snapshot.toString());
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.v("Snappy", snapshot.toString());
 
-                    for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 //                        String naame = postSnapshot.child("name").getValue(String.class);
 //                        Log.v("TAG", naame);
-                        Recycle_model recycle_model = postSnapshot.getValue(Recycle_model.class);
-                        details.add(recycle_model);
+                    Recycle_model recycle_model = postSnapshot.getValue(Recycle_model.class);
+                    details.add(recycle_model);
 
-
-                    }
-
-                    adapter.notifyDataSetChanged();
 
                 }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    error.getDetails();
-                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                }
-            });
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                error.getDetails();
+                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 //        databaseReference.addChildEventListener(new ChildEventListener() {
 //            @Override

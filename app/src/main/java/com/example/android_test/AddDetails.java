@@ -361,16 +361,15 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         value[5] = String.valueOf(sw6.isChecked());
 
 
-
         if (isEditMode) {           //for true
 
             Map<String, Object> map = new HashMap<>();
 
 
-            if (imageUri==null){
+            if (imageUri == null) {
                 Picasso.get().load(image).into(img);
 //                Toast.makeText(this, "Null", Toast.LENGTH_SHORT).show();
-            }else {
+            } else {
                 StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
                 file.putFile(imageUri);
                 map.put("image", imageUri.toString());
@@ -400,7 +399,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                     ed4.setText("");
                     button.setEnabled(false);
                     Toast.makeText(AddDetails.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                    startActivity(new Intent(getApplicationContext(), Dashboard.class));
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -408,7 +407,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                     Toast.makeText(AddDetails.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             });
-
 
 
         } else if (name.isEmpty() || species.isEmpty() || breed.isEmpty()) {
@@ -449,7 +447,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                     ed4.setText("");
                     button.setEnabled(false);
                     Toast.makeText(AddDetails.this, "Added Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                    startActivity(new Intent(getApplicationContext(), Dashboard.class));
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
