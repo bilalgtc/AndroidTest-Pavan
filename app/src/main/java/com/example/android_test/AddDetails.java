@@ -21,7 +21,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -32,18 +31,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.android_test.Models.Recycle_model;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -104,7 +99,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
     private void init() {
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("UserData");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("UserData");
         storageReference = FirebaseStorage.getInstance().getReference();
 
         male1_txt = findViewById(R.id.male_txt);
@@ -363,7 +358,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
         if (isEditMode) {           //for true
 
-            Map<String, Object> map = new HashMap<>();
+           HashMap<String,Object> map = new HashMap<>();
 
 
             if (imageUri == null) {
@@ -377,6 +372,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 //                file.putFile(imageUri);
 
             }
+
             map.put("name", name);
             map.put("species", species);
             map.put("breed", breed);
@@ -390,7 +386,9 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             map.put("Friendlywithkids10", value[4]);
             map.put("Friendlywithkids10G", value[5]);
 
-            databaseReference.updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            String id = getIntent().getStringExtra("id");
+
+            databaseReference.child(id).updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
                     ed1.setText("");
@@ -421,9 +419,13 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
         } else {
 
+            String id=databaseReference.push().getKey();
+
             StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
             file.putFile(imageUri);
-            Map<String, Object> map = new HashMap<>();
+
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("id", id);
             map.put("image", imageUri.toString());
             map.put("name", name);
             map.put("species", species);
@@ -438,7 +440,9 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             map.put("Friendlywithkids10", value[4]);
             map.put("Friendlywithkids10G", value[5]);
 
-            databaseReference.push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+            databaseReference.child(id).setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+
                 @Override
                 public void onSuccess(Void unused) {
                     ed1.setText("");

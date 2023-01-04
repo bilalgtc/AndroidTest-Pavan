@@ -1,7 +1,6 @@
 package com.example.android_test.Fragments;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -102,11 +101,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         ForegroundColorSpan fc = new ForegroundColorSpan(Color.parseColor("#ffcf6f"));
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("UserData");
+        databaseReference = firebaseDatabase.getReference().child("UserData");
         firebaseStorage = FirebaseStorage.getInstance();
-        adapter = new Recycle_adapter(getContext(), details);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -114,16 +110,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.v("Snappy", snapshot.toString());
 
-                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 //                        String naame = postSnapshot.child("name").getValue(String.class);
 //                        Log.v("TAG", naame);
-                    Recycle_model recycle_model = postSnapshot.getValue(Recycle_model.class);
+                    Recycle_model recycle_model = dataSnapshot.getValue(Recycle_model.class);
                     details.add(recycle_model);
 
 
                 }
-
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                adapter = new Recycle_adapter(getContext(), details);
+                recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+
 
             }
 
@@ -166,7 +166,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 //        });
 
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         s.setSpan(fc, 25, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(s);
 

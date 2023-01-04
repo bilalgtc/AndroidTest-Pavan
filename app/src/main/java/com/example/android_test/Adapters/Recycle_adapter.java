@@ -24,6 +24,8 @@ import com.example.android_test.Details;
 import com.example.android_test.Models.Recycle_model;
 import com.example.android_test.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -33,6 +35,7 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
     Context context;
     Bitmap bitmap;
     BottomSheetDialog dialog;
+    DatabaseReference databaseReference;
 
 
     public Recycle_adapter(Context context, ArrayList<Recycle_model> details) {
@@ -181,11 +184,13 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 
             btn1.setOnClickListener(v1 -> {
 //                Toast.makeText(context.getApplicationContext(),"Yes" , Toast.LENGTH_LONG).show();
-
+                databaseReference = FirebaseDatabase.getInstance().getReference()
+                        .child("UserData").child(id);
+                databaseReference.removeValue();
+                notifyItemRemoved(position);
+                notifyItemChanged(position, details.size());
                 btn1.setBackgroundColor(Color.BLUE);
                 btn1.setTextColor(Color.WHITE);
-                details.remove(position);
-                notifyItemRemoved(position);
                 dialog.cancel();
             });
             btn2.setOnClickListener(new View.OnClickListener() {
