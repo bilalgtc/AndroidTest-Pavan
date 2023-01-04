@@ -15,13 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android_test.Models.Recycle_model;
+import com.squareup.picasso.Picasso;
 
 public class Details extends AppCompatActivity implements View.OnClickListener {
 
     ImageView imageView, img2, img3, img4, img5, img6, img7, img8;
     String id, name, species, breed, size, gender, neutered, vaccinated, Friendlywithdogs, Friendlywithcats, Friendlywithkids10, Friendlywithkids10G;
     TextView txt1, txt2, txt3, txt4, txt5;
-    byte[] image;
     Bitmap bitmap;
 
     @Override
@@ -52,54 +52,59 @@ public class Details extends AppCompatActivity implements View.OnClickListener {
         Friendlywithkids10 = i.getStringExtra("Friendlywithkids10");
         Friendlywithkids10G = i.getStringExtra("Friendlywithkids10G");
 
-        image = i.getByteArrayExtra("image");
-        bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+       String image = i.getStringExtra("image");
 
 
         if (image == null) {
             Toast.makeText(this, "No Image", Toast.LENGTH_SHORT).show();
         } else {
-            img2.setImageBitmap(bitmap);
+            Picasso.get().load(image).into(img2);
         }
 
 
         txt1.setText(name);
         txt2.setText(species);
         txt3.setText(breed);
-        txt4.setText(size);
-        txt5.setText(gender);
+        txt5.setText(size);
 
-        if (neutered.equals("1")) {
+
+        if (gender.equals("true")){
+            txt4.setText("female");
+        }else {
+            txt4.setText("male");
+        }
+
+        if (neutered.equals("true")) {
             img3.setImageResource(R.drawable.success);
         } else {
             img3.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (vaccinated.equals("1")) {
+        if (vaccinated.equals("true")) {
             img4.setImageResource(R.drawable.success);
         } else {
             img4.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (Friendlywithdogs.equals("1")) {
+        if (Friendlywithdogs.equals("true")) {
             img5.setImageResource(R.drawable.success);
         } else {
             img5.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (Friendlywithcats.equals("1")) {
+        if (Friendlywithcats.equals("true")) {
             img6.setImageResource(R.drawable.success);
         } else {
             img6.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (Friendlywithkids10.equals("1")) {
+        if (Friendlywithkids10.equals("true")) {
             img7.setImageResource(R.drawable.success);
         } else {
             img7.setImageResource(R.drawable.cross_cicle);
         }
 
-        if (Friendlywithkids10G.equals("1")) {
+        if (Friendlywithkids10G.equals("true")) {
             img8.setImageResource(R.drawable.success);
         } else {
             img8.setImageResource(R.drawable.cross_cicle);

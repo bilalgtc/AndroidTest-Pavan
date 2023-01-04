@@ -187,8 +187,9 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
                 databaseReference = FirebaseDatabase.getInstance().getReference()
                         .child("UserData").child(id);
                 databaseReference.removeValue();
-                notifyItemRemoved(position);
-                notifyItemChanged(position, details.size());
+                details.remove(position);
+//                notifyItemRemoved(position);
+//                notifyItemChanged(position, details.size());
                 btn1.setBackgroundColor(Color.BLUE);
                 btn1.setTextColor(Color.WHITE);
                 dialog.cancel();
