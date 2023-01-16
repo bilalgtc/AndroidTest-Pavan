@@ -16,7 +16,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -40,7 +39,6 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -49,7 +47,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     CardView cardView01, cardView02;
     ImageView imageView, imageView2, male_img, female_img;
     CircleImageView img;
-    TextView textView, male1_txt, female1_txt;
+    TextView  male1_txt, female1_txt;
     EditText ed1, ed2, ed3, ed4;
     Button button;
     SwitchCompat sw1;
@@ -71,7 +69,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     String[] cameraPermissions;
     String[] storagePermissions;
     private Uri imageUri;
-    Bitmap bitmap;
     int temp;
     DatabaseReference databaseReference;
     StorageReference storageReference;
