@@ -186,8 +186,14 @@ public class Recycle_adapter extends RecyclerView.Adapter<Recycle_adapter.ViewHo
 //                Toast.makeText(context.getApplicationContext(),"Yes" , Toast.LENGTH_LONG).show();
                 databaseReference = FirebaseDatabase.getInstance().getReference()
                         .child("UserData").child(id);
+
+
                 databaseReference.removeValue();
                 details.remove(position);
+
+//                details.remove(position);
+//                details.notify();
+
 //                notifyItemRemoved(position);
 //                notifyItemChanged(position, details.size());
                 btn1.setBackgroundColor(Color.BLUE);
