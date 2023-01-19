@@ -12,7 +12,6 @@ import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -53,7 +52,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     CardView cardView01, cardView02;
     ImageView imageView, imageView2, male_img, female_img;
     CircleImageView img;
-    TextView  male1_txt, female1_txt;
+    TextView male1_txt, female1_txt;
     EditText ed1, ed2, ed3, ed4;
     Button button;
     SwitchCompat sw1;
@@ -423,7 +422,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(this, "Add Image", Toast.LENGTH_SHORT).show();
 
 
-        }else if (temp != 1) {
+        } else if (temp != 1) {
             Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
         } else {
 
@@ -611,19 +610,19 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 //                imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
 //                img.setImageBitmap(imgToStore);
 
-                File f= new File(path);
+                File f = new File(path);
                 img.setImageURI(Uri.fromFile(f));
 
-                Intent i=new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                Intent i = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 imageUri = Uri.fromFile(f);
                 i.setData(imageUri);
                 this.sendBroadcast(i);
 
-            }else if (requestCode == IMAGE_PICK_GALLERY_CODE && resultCode == RESULT_OK  && data != null && data.getData() != null){
+            } else if (requestCode == IMAGE_PICK_GALLERY_CODE && resultCode == RESULT_OK && data != null && data.getData() != null) {
                 imageUri = data.getData();
                 imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
                 img.setImageBitmap(imgToStore);
-            }else {
+            } else {
                 Toast.makeText(this, "No Image", Toast.LENGTH_SHORT).show();
             }
 
@@ -635,7 +634,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    private File createImageFile() throws IOException{
+    private File createImageFile() throws IOException {
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
@@ -651,7 +650,6 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         return image;
 
     }
-
 
 
     @Override
