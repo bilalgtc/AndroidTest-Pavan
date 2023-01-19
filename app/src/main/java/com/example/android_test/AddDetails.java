@@ -524,7 +524,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             // Create the File where the photo should go
             File photoFile = null;
             try {
@@ -541,7 +541,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                 startActivityForResult(takePictureIntent, IMAGE_PICK_CAMERA_CODE);
             }
-        }
+//        }
     }
 
     private boolean checkStoragePermission() {
