@@ -8,6 +8,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.content.ContentResolver;
@@ -20,6 +21,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -38,6 +40,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -59,6 +65,8 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     Bitmap imgToStore;
     String[] state = {"true", "false"};
     public boolean isEditMode = false;
+    String path;
+    String imageFileName;
 
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 101;
@@ -362,6 +370,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                 Picasso.get().load(image).into(img);
 //                Toast.makeText(this, "Null", Toast.LENGTH_SHORT).show();
             } else {
+
                 StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
                 file.putFile(imageUri);
                 map.put("image", imageUri.toString());
@@ -395,6 +404,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                     button.setEnabled(false);
                     Toast.makeText(AddDetails.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                    finish();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -408,17 +418,18 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(AddDetails.this, "Fields are empty", Toast.LENGTH_SHORT).show();
 
 
-        } else if (imgToStore == null) {
+        } else if (imageUri == null) {
 
             Toast.makeText(this, "Add Image", Toast.LENGTH_SHORT).show();
 
-        } else if (temp != 1) {
+
+        }else if (temp != 1) {
             Toast.makeText(this, "Select Gender", Toast.LENGTH_SHORT).show();
         } else {
 
             String id = databaseReference.push().getKey();
 
-            StorageReference file = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
+            StorageReference file = storageReference.child("pictures/" + imageFileName);
             file.putFile(imageUri);
 
             HashMap<String, Object> map = new HashMap<>();
@@ -449,6 +460,7 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
                     button.setEnabled(false);
                     Toast.makeText(AddDetails.this, "Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                    finish();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -502,14 +514,35 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     }
 
     private void pickFromCamera() {
-        ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE, "Image Title");
-        values.put(MediaStore.Images.Media.DESCRIPTION, "Image Title");
+//        ContentValues values = new ContentValues();
+//        values.put(MediaStore.Images.Media.TITLE, "Image Title");
+//        values.put(MediaStore.Images.Media.DESCRIPTION, "Image Title");
+//
+//        imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+//        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+//        startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
 
-        imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                imageUri = FileProvider.getUriForFile(this,
+                        "com.example.android.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+                startActivityForResult(takePictureIntent, IMAGE_PICK_CAMERA_CODE);
+            }
+        }
     }
 
     private boolean checkStoragePermission() {
@@ -572,11 +605,28 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         try {
             super.onActivityResult(requestCode, resultCode, data);
-            if (requestCode == IMAGE_PICK_GALLERY_CODE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            if (requestCode == IMAGE_PICK_CAMERA_CODE && resultCode == RESULT_OK) {
+//                imageUri = data.getData();
+//                imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+//                img.setImageBitmap(imgToStore);
+
+                File f= new File(path);
+                img.setImageURI(Uri.fromFile(f));
+
+                Intent i=new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                imageUri = Uri.fromFile(f);
+                i.setData(imageUri);
+                this.sendBroadcast(i);
+
+            }else if (requestCode == IMAGE_PICK_GALLERY_CODE && resultCode == RESULT_OK  && data != null && data.getData() != null){
                 imageUri = data.getData();
                 imgToStore = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
                 img.setImageBitmap(imgToStore);
+            }else {
+                Toast.makeText(this, "No Image", Toast.LENGTH_SHORT).show();
             }
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -584,6 +634,24 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
 
 
     }
+
+    private File createImageFile() throws IOException{
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        path = image.getAbsolutePath();
+        return image;
+
+    }
+
 
 
     @Override
@@ -593,4 +661,3 @@ public class AddDetails extends AppCompatActivity implements View.OnClickListene
         startActivity(intent);
     }
 }
-
