@@ -447,7 +447,8 @@
                 android:gravity="center_vertical"
                 android:text="Friendly with kids &#62;10 year"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginBottom="@dimen/_20sdp"/>
 
             <ImageView
                 android:id="@+id/s6"
@@ -460,14 +461,7 @@
                 android:src="@drawable/check_circle_24" />
 
 
-            <ImageView
-                android:layout_width="@dimen/_132sdp"
-                android:layout_height="@dimen/_5sdp"
-                android:layout_below="@id/txt6"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                />
+
 
         </RelativeLayout>
     </ScrollView>

@@ -1,5 +1,6 @@
 package com.example.android_test;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -212,6 +213,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         password_img.setOnClickListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
 
